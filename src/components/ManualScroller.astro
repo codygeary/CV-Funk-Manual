@@ -13,12 +13,11 @@ const { modules, currentCollection = 'free' } = Astro.props;
     <div class="sticky">
       <div class="left-top">
         <nav class="collections" aria-label="Collections">
-          <a class={['tab', currentCollection === 'free'         && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}`}>Free</a>
-          <a class={['tab', currentCollection === 'modulations'  && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}`}>Modulations</a>
-          <a class={['tab', currentCollection === 'chord-caster' && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}`}>Chord Caster</a>
-          <a class={['tab', currentCollection === 'sands'        && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}`}>Sands</a>
+          <a class={['tab', currentCollection === 'free'         && 'active'].filter(Boolean).join(' ')} href={`${base}`}>Free</a>
+          <a class={['tab', currentCollection === 'modulations'  && 'active'].filter(Boolean).join(' ')} href={`${base}modulations/`}>Modulations</a>
+          <a class={['tab', currentCollection === 'chord-caster' && 'active'].filter(Boolean).join(' ')} href={`${base}chord-caster/`}>Chord Caster</a>
+          <a class={['tab', currentCollection === 'sands'        && 'active'].filter(Boolean).join(' ')} href={`${base}sands/`}>Sands</a>
         </nav>
-
         <div class="picker">
           <label class="picker-label" for="moduleJump">Jump</label>
           <select id="moduleJump" class="picker-select">

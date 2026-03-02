@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+
+const base = import.meta.env.BASE_URL; // "/CV-Funk-Manual/" on GitHub Pages
 ---
 
 <html lang="en">
@@ -11,19 +13,13 @@ import '../styles/global.css';
 
     <style>
       /* ---- Landing-only styles ---- */
-
-      .landing-title{
-        text-align:center;
-      }
-
+      .landing-title{ text-align:center; }
       .landing-sub{
         max-width:78ch;
         margin:10px auto 0;
         text-align:justify;
         text-justify:inter-word;
       }
-
-      /* Hero: attention-grabbing but capped so it doesn't eat the whole screen */
       .landing-hero{
         margin:28px auto 0;
         max-width:980px;
@@ -42,8 +38,6 @@ import '../styles/global.css';
         object-fit:cover;
         object-position:center top;
       }
-
-      /* About section */
       .about{
         margin:22px auto 0;
         max-width:980px;
@@ -74,12 +68,7 @@ import '../styles/global.css';
         object-fit:cover;
         background:var(--card);
       }
-      .about p{
-        margin:0;
-        line-height:1.55;
-      }
-
-      /* Collections nav sits above cards with a label */
+      .about p{ margin:0; line-height:1.55; }
       .collections-label{
         font-size:13px;
         letter-spacing:.1em;
@@ -87,24 +76,14 @@ import '../styles/global.css';
         color:var(--muted);
         margin:28px 0 10px;
       }
-
       @media (max-width:600px){
-        .about-inner{
-          grid-template-columns:1fr;
-          justify-items:center;
-          text-align:center;
-        }
-        .landing-sub{
-          text-align:left;
-        }
-        .landing-hero{
-          max-height:45vw;
-        }
+        .about-inner{ grid-template-columns:1fr; justify-items:center; text-align:center; }
+        .landing-sub{ text-align:left; }
+        .landing-hero{ max-height:45vw; }
       }
     </style>
   </head>
 
-  <!-- is-landing disables the overflow:hidden body lock used by manual pages -->
   <body class="is-landing">
     <header class="site-header">
       <div class="wrap header-inner">
@@ -131,7 +110,8 @@ import '../styles/global.css';
         <p class="collections-label">Collections</p>
 
         <div class="cards">
-          <a class="card" href={`${import.meta.env.BASE_URL}`}>
+          <!-- If Free is your root manual page, keep href={base}. If Free is /free/, use `${base}free/` instead. -->
+          <a class="card" href={base}>
             <div class="card-body">
               <div class="card-title">Free Modules</div>
               <div class="card-text">Core CV funk modules</div>
@@ -139,7 +119,7 @@ import '../styles/global.css';
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
 
-          <a class="card" href={`${import.meta.env.BASE_URL}`}>
+          <a class="card" href={`${base}chord-caster/`}>
             <div class="card-body">
               <div class="card-title">Chord Caster</div>
               <div class="card-text">Premium semimodular system</div>
@@ -147,7 +127,7 @@ import '../styles/global.css';
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
 
-          <a class="card" href={`${import.meta.env.BASE_URL}`}>
+          <a class="card" href={`${base}modulations/`}>
             <div class="card-body">
               <div class="card-title">Modulations</div>
               <div class="card-text">Premium polyphonic workflow</div>
@@ -155,7 +135,7 @@ import '../styles/global.css';
             <span class="card-arrow" aria-hidden="true">→</span>
           </a>
 
-          <a class="card" href={`${import.meta.env.BASE_URL}`}>
+          <a class="card" href={`${base}sands/`}>
             <div class="card-body">
               <div class="card-title">Sands</div>
               <div class="card-text">Premium 2026 collection, in development</div>
@@ -165,13 +145,19 @@ import '../styles/global.css';
         </div>
 
         <div class="landing-hero" aria-hidden="true">
-          <img src="/img/landing-hero.png" alt="" loading="lazy" decoding="async" />
+          <img src={`${base}img/landing-hero.png`} alt="" loading="lazy" decoding="async" />
         </div>
 
         <section class="about">
           <h2>About</h2>
           <div class="about-inner">
-            <img class="about-portrait" src="/img/cody-portrait.jpg" alt="Portrait of Cody Geary" loading="lazy" decoding="async" />
+            <img
+              class="about-portrait"
+              src={`${base}img/cody-portrait.jpg`}
+              alt="Portrait of Cody Geary"
+              loading="lazy"
+              decoding="async"
+            />
             <p class="muted">
               Cody Geary builds CV funk modules for VCV Rack, focused on patch-programmable control, modulation, and performance-friendly workflows.
               This site is a compact manual for the collections, with a scrollable reference format designed for patching at the rack.
@@ -188,7 +174,6 @@ import '../styles/global.css';
     </footer>
 
     <script>
-      // Restore theme preference on landing page too
       (() => {
         const saved = localStorage.getItem('cvfunk_theme');
         if (saved === 'dark') document.documentElement.classList.add('dark');
