@@ -794,5 +794,72 @@
       "patching": "• Split-voice chords: Send each note to a different oscillator for wide orchestration.\n• Voice-leading: Use rotate/permutation to minimize pitch jumps between steps.\n• Harmony as modulation: Use chord tones as related CV sources for timbre parameters."
     },
     "collection": "chord-caster"
+  },
+    {
+    "name": "Dunes",
+    "slug": "dunes",
+    "vcvSlug": "Dunes",
+    "tagline": "Dunes dual envelope generator.",
+    "tags": [
+      "Envelope Generator",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/sands/dunes.png",
+    "sections": {
+      "panelMap": "Generates two morphable functions, with mixed and analog logic outs.",
+      "basicUse": "• \n •",
+      "patching": "• \n •"
+    },
+    "collection": "sands"
+  },
+      {
+    "name": "Crosswind",
+    "slug": "crosswind",
+    "vcvSlug": "Crosswind",
+    "tagline": "Crosswind displacement generator.",
+    "tags": [
+      "Clock Modulator",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/sands/crosswind.png",
+    "sections": {
+      "panelMap": "16-channel compact rhythmic displacement gate generator",
+      "basicUse": "• \n •",
+      "patching": "• \n •"
+    },
+    "collection": "sands"
+  },
+      {
+    "name": "Drifts",
+    "slug": "drifts",
+    "vcvSlug": "Drifts",
+    "tagline": "Drifts quad-layer modulator.",
+    "tags": [
+      "Low Frequency Oscillator"
+    ],
+    "panelImage": "/panels/sands/drifts.png",
+    "sections": {
+      "panelMap": "Sums four morphable-shape oscillators",
+      "basicUse": "• \n •",
+      "patching": "• \n •"
+    },
+    "collection": "sands"
+  },
+      {
+    "name": "Arcs",
+    "slug": "arcs",
+    "vcvSlug": "Arcs",
+    "tagline": "Arcs probabistic signal router.",
+    "tags": [
+      "Envelope Generator",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/sands/arcs.png",
+    "sections": {
+      "panelMap": "Probabilistic signal routing between up to six ins and outs in any configuration",
+      "basicUse": "• \n • • \n • • \n •• \n •• \n •",
+      "patching": "• \n • • \n • • \n •• \n •• \n •"
+    },
+    "collection": "sands"
   }
 ]

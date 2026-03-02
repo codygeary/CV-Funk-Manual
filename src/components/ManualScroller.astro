@@ -13,9 +13,10 @@ const { modules, currentCollection = 'free' } = Astro.props;
     <div class="sticky">
       <div class="left-top">
         <nav class="collections" aria-label="Collections">
-          <a class={['tab', currentCollection === 'free' && 'active'].filter(Boolean).join(' ')} href="/free">Free</a>
-          <a class={['tab', currentCollection === 'modulations' && 'active'].filter(Boolean).join(' ')} href="/modulations">Modulations</a>
+          <a class={['tab', currentCollection === 'free'         && 'active'].filter(Boolean).join(' ')} href="/free">Free</a>
+          <a class={['tab', currentCollection === 'modulations'  && 'active'].filter(Boolean).join(' ')} href="/modulations">Modulations</a>
           <a class={['tab', currentCollection === 'chord-caster' && 'active'].filter(Boolean).join(' ')} href="/chord-caster">Chord Caster</a>
+          <a class={['tab', currentCollection === 'sands'        && 'active'].filter(Boolean).join(' ')} href="/sands">Sands</a>
         </nav>
 
         <div class="picker">
@@ -38,13 +39,22 @@ const { modules, currentCollection = 'free' } = Astro.props;
         </div>
       </div>
 
-      <div class="hint muted">Scroll on the right to advance modules.</div>
+      <div class="hint muted desktop-only scroll-hint" aria-hidden="true">
+        Scroll on the right to advance modules.
+      </div>
     </div>
   </aside>
 
   <div class="manual-right">
     {modules.map((m) => (
-      <article id={m.slug} class="module" data-slug={m.slug} data-name={m.name} data-tagline={m.tagline} data-img={m.panelImage}>
+      <article
+        id={m.slug}
+        class="module"
+        data-slug={m.slug}
+        data-name={m.name}
+        data-tagline={m.tagline}
+        data-img={m.panelImage}
+      >
         <header class="module-header">
           <h2 class="module-title">{m.name}</h2>
           <p class="module-tagline">{m.tagline}</p>
@@ -76,22 +86,22 @@ const { modules, currentCollection = 'free' } = Astro.props;
 
   <script>
     const modules = Array.from(document.querySelectorAll('.module'));
-    const panelImg = document.getElementById('panelImg');
-    const panelTitle = document.getElementById('panelTitle');
-    const panelTagline = document.getElementById('panelTagline');
-    const moduleJump = document.getElementById('moduleJump');
-    const themeToggle = document.getElementById('themeToggle');
+    const panelImg    = document.getElementById('panelImg')    as HTMLImageElement;
+    const panelTitle  = document.getElementById('panelTitle')  as HTMLElement;
+    const panelTagline = document.getElementById('panelTagline') as HTMLElement;
+    const moduleJump  = document.getElementById('moduleJump')  as HTMLSelectElement;
+    const themeToggle = document.getElementById('themeToggle') as HTMLButtonElement;
 
-    function toDarkVariant(src) {
-      // Supports .png/.jpg/.jpeg/.webp
+    // ---- Theme helpers ----
+
+    function toDarkVariant(src: string) {
       return src.replace(/\.(png|jpg|jpeg|webp)$/i, '-dark.$1');
     }
 
-    function setPanelImage(lightSrc, name) {
+    function setPanelImage(lightSrc: string, name: string) {
       const isDark = document.documentElement.classList.contains('dark');
       const desired = isDark ? toDarkVariant(lightSrc) : lightSrc;
 
-      // Try desired first; if missing, fall back to light.
       panelImg.onerror = () => {
         if (panelImg.src.endsWith(toDarkVariant(lightSrc))) {
           panelImg.onerror = null;
@@ -102,49 +112,131 @@ const { modules, currentCollection = 'free' } = Astro.props;
       panelImg.alt = name;
     }
 
-    function setActive(moduleEl) {
+    // ---- Active module ----
+
+    function setActive(moduleEl: Element | null) {
       if (!moduleEl) return;
-      setPanelImage(moduleEl.dataset.img, moduleEl.dataset.name);
-      panelTitle.textContent = moduleEl.dataset.name;
-      panelTagline.textContent = moduleEl.dataset.tagline;
-      moduleJump.value = moduleEl.dataset.slug;
-      modules.forEach((el) => el.classList.toggle('active', el === moduleEl));
+      const el = moduleEl as HTMLElement;
+      setPanelImage(el.dataset.img!, el.dataset.name!);
+      panelTitle.textContent  = el.dataset.name!;
+      panelTagline.textContent = el.dataset.tagline!;
+      moduleJump.value = el.dataset.slug!;
+      modules.forEach((m) => m.classList.toggle('active', m === moduleEl));
     }
 
-    // Scroll spy: pick the module whose top is closest to the viewport top.
-    const io = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) setActive(visible.target);
-    }, { root: null, threshold: [0.25, 0.5, 0.75] });
+    // ---- Scroll spy ----
 
-    modules.forEach((m) => io.observe(m));
+    const header = document.querySelector('.site-header');
+    const manualRight = document.querySelector('.manual-right') as HTMLElement;
+
+    function getScroller(): HTMLElement | Window {
+      if (manualRight && manualRight.scrollHeight > manualRight.clientHeight + 2) return manualRight;
+      return window;
+    }
+
+    let scroller = getScroller();
+
+    function headerHeight() {
+      return header ? (header as HTMLElement).getBoundingClientRect().height : 0;
+    }
+
+    function contentTop() {
+      return headerHeight() + 12;
+    }
+
+    function pickByClosestTop() {
+      const topRef = contentTop();
+      const scrollerTop = (scroller === window) ? 0 : (scroller as HTMLElement).getBoundingClientRect().top;
+
+      let best: Element | null = null;
+      let bestDist = Infinity;
+
+      for (const el of modules) {
+        const r = el.getBoundingClientRect();
+        const dist = Math.abs(r.top - (scrollerTop + topRef));
+
+        const viewBottom = (scroller === window)
+          ? window.innerHeight
+          : (scroller as HTMLElement).getBoundingClientRect().bottom;
+
+        if (r.top > viewBottom + 40) continue;
+        if (dist < bestDist) { bestDist = dist; best = el; }
+      }
+
+      if (best) setActive(best);
+    }
+
+    // Intersection observer + scroll listener — rebuilt on resize
+    function setupSpy() {
+      scroller = getScroller();
+
+      if ((window as any).__cvfunkIO) {
+        try { (window as any).__cvfunkIO.disconnect(); } catch {}
+      }
+      if ((window as any).__cvfunkOnScroll && (window as any).__cvfunkScrollEl) {
+        (window as any).__cvfunkScrollEl.removeEventListener('scroll', (window as any).__cvfunkOnScroll);
+      }
+
+      const rootEl = (scroller === window) ? null : scroller as HTMLElement;
+
+      const io = new IntersectionObserver(
+        () => pickByClosestTop(),
+        {
+          root: rootEl,
+          rootMargin: `-${contentTop()}px 0px -70% 0px`,
+          threshold: [0, 0.01],
+        }
+      );
+
+      (window as any).__cvfunkIO = io;
+      modules.forEach((m) => io.observe(m));
+
+      const onScroll = () => pickByClosestTop();
+      const scrollEl = (scroller === window) ? window : scroller;
+
+      scrollEl.addEventListener('scroll', onScroll, { passive: true });
+      (window as any).__cvfunkOnScroll = onScroll;
+      (window as any).__cvfunkScrollEl = scrollEl;
+
+      pickByClosestTop();
+    }
+
+    setupSpy();
+    window.addEventListener('resize', setupSpy, { passive: true });
+
+    // ---- Jump select ----
 
     moduleJump.addEventListener('change', (e) => {
-      const slug = e.target.value;
+      const slug = (e.target as HTMLSelectElement).value;
       const el = document.getElementById(slug);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!el) return;
+
+      const sc = getScroller();
+      if (sc === window) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        (sc as HTMLElement).scrollTo({ top: el.offsetTop, behavior: 'smooth' });
+      }
     });
 
-    // Theme toggle (simple): toggles a class on <html>.
+    // ---- Theme toggle ----
+
     themeToggle.addEventListener('click', () => {
       const html = document.documentElement;
       html.classList.toggle('dark');
       localStorage.setItem('cvfunk_theme', html.classList.contains('dark') ? 'dark' : 'light');
 
-      // Refresh left image to match theme.
       const active = document.querySelector('.module.active') || modules[0];
       setActive(active);
     });
 
-    // Restore theme
+    // Restore saved theme
     (() => {
       const saved = localStorage.getItem('cvfunk_theme');
       if (saved === 'dark') document.documentElement.classList.add('dark');
     })();
 
-    // Initialize
+    // Init
     setActive(modules[0]);
   </script>
 </section>
