@@ -3,26 +3,27 @@ import ManualScroller from '../components/ManualScroller.astro';
 import allModules from '../data/modules.json';
 import '../styles/global.css';
 
-const modules = allModules.filter((m) => m.collection === 'pro');
+const modules = allModules.filter((m) => m.collection === 'chord-caster');
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CV funk Manual — Pro</title>
-    <meta name="description" content="CV funk Pro collection manual for VCV Rack." />
+    <title>CV funk Manual — Chord Caster</title>
+    <meta name="description" content="CV funk Modulations collection manual for VCV Rack." />
   </head>
   <body>
     <header class="site-header">
       <div class="wrap header-inner">
         <div class="brand">
           <a class="brand-title" href="/">CV funk Manual</a>
-          <div class="brand-sub">Pro Collection</div>
+          <div class="brand-sub">Chord Caster Collection</div>
         </div>
 
         <nav class="header-actions">
           <a class="btn" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_PRO_Manual.pdf" target="_blank" rel="noreferrer">PDF</a>
           <!-- Update this to your store / product link -->
           <a class="btn" href="#" rel="noreferrer">Buy</a>
         </nav>
@@ -30,7 +31,7 @@ const modules = allModules.filter((m) => m.collection === 'pro');
     </header>
 
     <main class="wrap">
-      <ManualScroller modules={modules} currentCollection="pro" />
+      <ManualScroller modules={modules} currentCollection="modulations" />
     </main>
 
     <footer class="site-footer">

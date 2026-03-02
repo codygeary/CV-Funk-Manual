@@ -1,0 +1,26 @@
+[
+  {
+    "id": "free",
+    "name": "Free",
+    "pluginSlug": "CVfunk",
+    "version": "2.0.40",
+    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_Manual.pdf",
+    "license": "MIT"
+  },
+  {
+    "id": "modulations",
+    "name": "Modulations",
+    "pluginSlug": "CVfunkModulations",
+    "version": "2.2.12",
+    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_MOD_Manual.pdf",
+    "license": "https://vcvrack.com/eula"
+  },
+  {
+    "id": "chord-caster",
+    "name": "Chord Caster",
+    "pluginSlug": "CVfunkChordCaster",
+    "version": "2.1.10",
+    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_PRO_Manual.pdf",
+    "license": "https://vcvrack.com/eula"
+  }
+]

@@ -2,11 +2,17 @@
   {
     "name": "Steps",
     "slug": "steps",
-    "tagline": "A fusion of comparison logic and step sequencing makes complexity from simple controls. It displays the current position within the window.",
+    "vcvSlug": "Steps",
+    "tagline": "Fusion of a comparator and a step generator",
+    "tags": [
+      "Function generator",
+      "Sample and hold",
+      "Utility"
+    ],
     "panelImage": "/panels/free/steps.png",
     "sections": {
-      "panelMap": "STEPS\nSTEPS combines comparator functionalities with a\nstep sequencer to provide precise control over\nstep signal generation. The stepper increments a\nvoltage in a voltage window, and can be used to\ngenerate CV for fixed-interval scales of any width.\nStepper Stage\nComparator Stage\nIN:\nBIAS:\nRANGE:\nThe signal to be\ncompared. An input\nbreaks all normals to\nstepper stage.\nCenter of the\nwindow. Range \u00b15V\nSize of the\nwindow.\nRange 0-10V\nIN:\nTRIG:\nRESET:\nINVERT\nSTEP:\nBUTTONS:\nLIGHTS:\nSums with the STEP\nknob to set the step\nsize. Range \u00b11V\nTriggers the\nstepper.\nResets the stepper to\nBIAS. If the comparator\nnormals are broken,\nresets to 0V.\nManual trigger inputs\nfor TRIG and RESET\nThe column of lights indicate the\nposition of the stepper in the window\nrange in 10% increments.\nThe single larger light indicate when a\nstep has been triggered or reset.\nGate signal inverts\nthe value of STEP+IN\nOUT1:\nOUT2:\nMIXER:\nTwo 10V gate outputs\nindicate if IN is above\nor below the window.\nOUT is scaled by RANGE\nand normalized to the\nstepper circuit.\nOutputs the stepper value.\nNormals to Comparator IN.\nThe mixer sums up:\nIN + STEP + OUT1 + OUT2\nSteps out of the window\nrange result in \u00b1RANGE\nfrom the OUT1 normal.",
-      "basicUse": "1. Parameter Control: Adjust the BIAS, RANGE, and STEP\nparameters to set the initial conditions for comparison and\nstep modulation.\n2. Comparator Input: Feed the signal to be compared into the\ncomparator stage IN. The module compares this input against\nthe internally set threshold, influenced by BIAS and RANGE\nparameters.\n3. Normalized Connections: Using the comparator input breaks\nthe normalization to the stepper section, allowing both\nsections to be used independently. When normalized, the\ncomparator provides feedback voltages to the stepper to bump\nit back into the window range after a step goes out of bounds.\nThe lag of one step for corrections produces variation in the\noutput.\n4. Interval Sequencing: Utilize the STEP input to dynamically\ncontrol the interval between steps. The STEP knob ranges from\n-1...1V, and is summed with the input. Inputs are scaled down\n1/5, so that a -5...5V signal will sweep the full knob range\nfor step size.\n5. External Modulation: Patch signals into BIAS input, RANGE\ninput, and INVERT input for dynamic control over the module's\nparameters.\n6. Trigger and Reset: Use TRIG input to advance the step\nsequencer and RESET input to reset the sequence to its initial\nstate.\nSTEPS\nBIAS:\nRANGE:\nSTEP:\nRange \u00b15V, each\nsubdivision is 1V\nRange 0-10V, each\nsubdivision is 1V\nRange \u00b11V, each\nsubdivision is 2\nsemitones.\n1V\n2V\n3V\nRANGE\nUpper threshold\nLower threshold\nRANGE\nBIAS\nSTEP\nSTEPPER OUT\n10V\nCOMPARATOR +OUT\nRESET\nTRIGGERS",
+      "panelMap": "STEPS\nSTEPS combines comparator functionalities with a\nstep sequencer to provide precise control over\nstep signal generation. The stepper increments a\nvoltage in a voltage window, and can be used to\ngenerate CV for fixed-interval scales of any width.\nStepper Stage\nComparator Stage\nIN:\nBIAS:\nRANGE:\nThe signal to be\ncompared. An input\nbreaks all normals to\nstepper stage.\nCenter of the\nwindow. Range ±5V\nSize of the\nwindow.\nRange 0-10V\nIN:\nTRIG:\nRESET:\nINVERT\nSTEP:\nBUTTONS:\nLIGHTS:\nSums with the STEP\nknob to set the step\nsize. Range ±1V\nTriggers the\nstepper.\nResets the stepper to\nBIAS. If the comparator\nnormals are broken,\nresets to 0V.\nManual trigger inputs\nfor TRIG and RESET\nThe column of lights indicate the\nposition of the stepper in the window\nrange in 10% increments.\nThe single larger light indicate when a\nstep has been triggered or reset.\nGate signal inverts\nthe value of STEP+IN\nOUT1:\nOUT2:\nMIXER:\nTwo 10V gate outputs\nindicate if IN is above\nor below the window.\nOUT is scaled by RANGE\nand normalized to the\nstepper circuit.\nOutputs the stepper value.\nNormals to Comparator IN.\nThe mixer sums up:\nIN + STEP + OUT1 + OUT2\nSteps out of the window\nrange result in ±RANGE\nfrom the OUT1 normal.",
+      "basicUse": "1. Parameter Control: Adjust the BIAS, RANGE, and STEP\nparameters to set the initial conditions for comparison and\nstep modulation.\n2. Comparator Input: Feed the signal to be compared into the\ncomparator stage IN. The module compares this input against\nthe internally set threshold, influenced by BIAS and RANGE\nparameters.\n3. Normalized Connections: Using the comparator input breaks\nthe normalization to the stepper section, allowing both\nsections to be used independently. When normalized, the\ncomparator provides feedback voltages to the stepper to bump\nit back into the window range after a step goes out of bounds.\nThe lag of one step for corrections produces variation in the\noutput.\n4. Interval Sequencing: Utilize the STEP input to dynamically\ncontrol the interval between steps. The STEP knob ranges from\n-1...1V, and is summed with the input. Inputs are scaled down\n1/5, so that a -5...5V signal will sweep the full knob range\nfor step size.\n5. External Modulation: Patch signals into BIAS input, RANGE\ninput, and INVERT input for dynamic control over the module's\nparameters.\n6. Trigger and Reset: Use TRIG input to advance the step\nsequencer and RESET input to reset the sequence to its initial\nstate.\nSTEPS\nBIAS:\nRANGE:\nSTEP:\nRange ±5V, each\nsubdivision is 1V\nRange 0-10V, each\nsubdivision is 1V\nRange ±1V, each\nsubdivision is 2\nsemitones.\n1V\n2V\n3V\nRANGE\nUpper threshold\nLower threshold\nRANGE\nBIAS\nSTEP\nSTEPPER OUT\n10V\nCOMPARATOR +OUT\nRESET\nTRIGGERS",
       "patching": "Dynamic Rhythms: Create dynamic rhythmic patterns by\nmodulating STEP with LFOs or other modulation sources. Patch\nthe comparator gate OUTs to obtain different clock divisions.\nMelodic Sequencing: Use the stepper OUT to drive the pitch of\nan oscillator, crafting evolving melodic lines influenced by\nthe comparator's operation. For more interesting patterns use\na sequencer set to a slow clock division to program STEP,\nRANGE and BIAS, allowing you to sequence musical phrasing\nrather than individual notes.\nCounting: Adjust the ratio between RANGE and STEP size to\nderive the number of desired steps. For example setting RANGE\nto 4V and STEP size to 1V will result in a comparator gate to\nbe outputted once every four steps.\nSTEPS"
     },
     "collection": "free"
@@ -14,7 +20,12 @@
   {
     "name": "Envelope Array",
     "slug": "envelope-array",
-    "tagline": "An envelope generation powerhouse, offering smooth controls over the shape and dynamics of your sound. With six related envelope stages featuring adjustable slant and curve parameters. Creates single-shot or cycling envelopes ranging from ms to minutes.",
+    "vcvSlug": "EnvelopeArray",
+    "tagline": "Six related envelopes and gates",
+    "tags": [
+      "Envelope generator",
+      "Function generator"
+    ],
     "panelImage": "/panels/free/envelope-array.png",
     "sections": {
       "panelMap": "ENVELOPE ARRAY\nENVELOPE ARRAY is an advanced envelope generator\nmodule for VCV Rack, designed to provide a wide array\nof dynamic control over amplitude shaping with six\nstages and complex modulation capabilities. The module\ncan be self-patched to create a wide variety of\nmodulations and is capable of self-oscillation when\nself-patched.\nFIRST\nWIDTH:\nLAST\nWIDTH:\nINPUTS:\nRANGE:\nSLANT:\nENVELOPES:\nGATES:\nBUTTON:\nCURVE:\nSets the cycle time\nof the first channel.\nThe knob ranges based\non the range setting.\nCV can add or\nsubtract to select\nwidths even beyond\nthe knob range.\nSets the cycle time\nof the last channel.\nIntermediate channels\nwill have times that\nspan FIRST and LAST.\nEach channel has its\nown input trigger.\nTriggers are\nnormalized to the\nright by default.\nThe RANGE buttons\nselect between three\nrange settings: fast,\nseconds, minutes. The\nsetting applies to\ntheir associated\nFIRST and LAST knobs,\nwith the intermediate\noutputs bridging even\nacross different\nranges.\nSets the slant of all\nrelated envelopes.\nSix related\nenvelope outputs.\nEach gate goes\nhigh when the\nenvelope is at 0V.\nAllows for\nextensive self-\npatching and\nchaining of\nmultiple modules.\nManually triggers\nthe first channel.\nAdjust from Log to\nLinear to Exp and\nextremes.\nNote: SLANT and CURVE\nwill slightly\ninfluence the WIDTH.",
@@ -26,10 +37,14 @@
   {
     "name": "Penta Sequencer",
     "slug": "penta-sequencer",
-    "tagline": "A 5-step sequencer that redefines rhythmic and melodic structuring, offering Circle and Star modes for unique sequencing. Directional control and adjustable slew for smooth transitions.",
+    "vcvSlug": "PentaSequencer",
+    "tagline": "A five step sequencer with five simultaneous outputs and tempo-synced slew",
+    "tags": [
+      "Sequencer"
+    ],
     "panelImage": "/panels/free/penta-sequencer.png",
     "sections": {
-      "panelMap": "PENTA SEQUENCER\nSLEW:\nOUTS\nA-E:\nTRIG:\nSHIFT:\nRESET:\nSHAPE:\n(STAR/CIRCLE)\nDIR:\n(CW/CCW)\nKNOBS\nI-V:\nSets the slew limit\nbased on note timing\nand interval. Set to\nthe left left there is\nis no slew. At full\nright it slews based on\nthe last trigger\ninterval and the\ndistance to the  next\nnote on the current\ntrack. CV to the\ncentral input jack will\noverride the knob, the\nCV range is -5\u20265V with\n0V making a 50% slew.\nFive outs, A,B,C,D,E\neach output one of the\nfive notes. LEDs around\nthe OUT indicate which\nstage I-V they are\noutputting.\nTrigger input, cycles\nthe output mappings on\nthe current path,\neither STAR or CIRCLE.\nFunctions as a\ntranspose input. Sums\nwith all stages I-V.\nTrigger to reset the\nsequencer to A\u2192I.\nDefaults to CIRCLE\n(I\u2192II\u2192III\u2192IV\u2192V\u2192I),\na gate input\nengages STAR mode\n(I\u2192III\u2192V\u2192II\u2192IV\u2192I)\nDefaults to CW\n(clockwise). A\ngate input changes\ndirection to CCW\n(counterclockwise)\nSets the voltage at\neach stage I, II, III,\nIV, V.\nPENTA SEQUENCER is a versatile 5-step sequencer\nmodule, offering unique sequencing capabilities in a\nsmall footprint. The sequencer outputs all five of its\nnotes simultaneously, can switch between any\npermutation of outputs, and has a computed slew that\nadjusts dynamically to the trigger input.\nPENTA SEQUENCER",
+      "panelMap": "PENTA SEQUENCER\nSLEW:\nOUTS\nA-E:\nTRIG:\nSHIFT:\nRESET:\nSHAPE:\n(STAR/CIRCLE)\nDIR:\n(CW/CCW)\nKNOBS\nI-V:\nSets the slew limit\nbased on note timing\nand interval. Set to\nthe left left there is\nis no slew. At full\nright it slews based on\nthe last trigger\ninterval and the\ndistance to the  next\nnote on the current\ntrack. CV to the\ncentral input jack will\noverride the knob, the\nCV range is -5…5V with\n0V making a 50% slew.\nFive outs, A,B,C,D,E\neach output one of the\nfive notes. LEDs around\nthe OUT indicate which\nstage I-V they are\noutputting.\nTrigger input, cycles\nthe output mappings on\nthe current path,\neither STAR or CIRCLE.\nFunctions as a\ntranspose input. Sums\nwith all stages I-V.\nTrigger to reset the\nsequencer to A→I.\nDefaults to CIRCLE\n(I→II→III→IV→V→I),\na gate input\nengages STAR mode\n(I→III→V→II→IV→I)\nDefaults to CW\n(clockwise). A\ngate input changes\ndirection to CCW\n(counterclockwise)\nSets the voltage at\neach stage I, II, III,\nIV, V.\nPENTA SEQUENCER is a versatile 5-step sequencer\nmodule, offering unique sequencing capabilities in a\nsmall footprint. The sequencer outputs all five of its\nnotes simultaneously, can switch between any\npermutation of outputs, and has a computed slew that\nadjusts dynamically to the trigger input.\nPENTA SEQUENCER",
       "basicUse": "1. Knob Assignment: Each of the five knobs (I, II, III, IV, V)\nis mapped to one of the five outputs. Advancing the sequencer\nrotates the mapping between output and knob, indicated by\nlights around each output. The knob corresponding to the\nbottom-most active output is indicated by a light.\n2. Mode Selection: A gate to the CIRC input will switch\nbetween Circular (<=1V) and Star (>1V) mappings when held.\nChanging modes will change the mapping of outputs between star\nand circular relative to the output indicating a 1.\n3. Direction Control: A gate to the CCW input will switch\nbetween Clockwise (<=1V) and Counterclockwise (>1V) mappings\nwhen held. Changing direction will exchange the left and right\noutputs.\n4. Advancing the Sequence: Send trigger signals or button\npress to the TRIG input to advance through the sequence\naccording to the selected mode and direction.\n5. Resetting the Sequence: Send a trigger signal to the RESET\ninput to return the sequencer to the first step.\n6. Adjusting Slew: Use the SLEW knob to control the transition\nsmoothness between steps, the slew is synchronized to both the\ntrigger timing and interval size, this means bigger octave\njumps slew faster.\n(I=0V, II=1.25V, III=2.5V, IV=3.75V, V=5V)\nSLEW allows continuous morphing between stepped and sloped Cvs.",
       "patching": "Slewed Octaves: Set each of the five knobs to -2, -1, 0, 1, 2.\nSet the slew to 0.25 for smooth slewing. Patch each of the five\nouts to a WT-VCO, adjust each to have a slightly different\ntimbre. With a second copy of the PENTA SEQUENCER, set five\ndifferent notes, set the slew of this one to 0.0, and ideally\nquantize the outputs before patching to the transpose input of\nthe other sequencer. Now the slew will be perfectly in tune.\nLFO: Set a slow clock to the trigger input, set the slew to\n1.0. You will have five slow LFOs. The slew interpolates using\nthe time between the last two inputs (trigger/shape/direction)\nto compute the ramp.\nFixed Root Note: Reset the sequencer so that the bottom output\nis set to 1. Send gates to switch between STAR/CIRCLE/CCW/CW,\nthe bottom output will always stay the same.\nFive Channel Fader - Set the\nfirst knob I to +5, set all the\nother positions to 0. Patch\neach output to a channel of a\nmixer. Set the slew to 1. A\nslow trigger to the input will\nresult in smooth transitioning\nbetween all five channels on the\nmixer. Useful to pan between\ndifferent soundscapes.\n0V\n0V\n5V\n0V\n0V\nPENTA SEQUENCER\nContext Menu\n1. Enable Polyphonic Output to Channel A: Enabling this option\nwill make Channel A output 6-channel polyphonic signals."
     },
@@ -38,7 +53,13 @@
   {
     "name": "Impulse Controller",
     "slug": "impulse-controller",
-    "tagline": "Simulate the movement of waves through a network of nodes with the Impulse Controller module. This module offers a unique approach to modulation, with 24 outputs representing the ebb and flow of energy through a complex node connected network.",
+    "vcvSlug": "ImpulseController",
+    "tagline": "Decay envelopes propagate across a network of 24 nodes",
+    "tags": [
+      "Envelope generator",
+      "Function generator",
+      "Visual"
+    ],
     "panelImage": "/panels/free/impulse-controller.png",
     "sections": {
       "panelMap": "IMPULSE CONTROLLER\nIMPULSE CONTROLLER simulates the propagation of waves\nthrough a medium, offering unique visual and auditory\nfeedback based on the interactions within a network of\nnodes. Each of the 24 nodes can generate a decay\nenvelope when stimulated, allowing for long decay tails\nand rhythmic synchronized pulsations.\nLAG:\nSPREAD:\nDECAY:\nIN:\nIMPULSES:\nDetermines the delay time for signals to pass\nbetween nodes.\nDetermines the synchronicity of the outputs, turning the knob\nleft brings the nodes into unison, and right apart.\nDetermines the decay time for nodes once activated.\nA gate or trigger stimulates the first node, which propagates\nalong the red lighted network.\nThe yellow light to the right of each output indicates the\nsignal level. 24 outputs produce related decay envelopes in\nrhythm with the input signal.\n-1\n10V\nSPREAD\nNode Propagation Threshold\n0.5\n-0.5",
@@ -50,10 +71,14 @@
   {
     "name": "Signals",
     "slug": "signals",
-    "tagline": "Observe and compare six signal inputs. Range from ms to secs with selector switch. With trigger reset toggle for visualizing envelopes.",
+    "vcvSlug": "Signals",
+    "tagline": "A small six-channel oscilloscope for visualizing rack signals.",
+    "tags": [
+      "Visual"
+    ],
     "panelImage": "/panels/free/signals.png",
     "sections": {
-      "panelMap": "SIGNALS\nSIGNALS is handy to tune up your envelope and LFO\nshapes. Simultaneous viewing of six channels in a small\nmodule makes it possible to fit these into your signal\nchain without getting in the way. Range knob and\ntrigger latch make it useful for observing envelopes or\nfree flowing signals.\nRANGE:\nRETRIG:\nSLOW:\nIN:\nOUT:\nKnob sets the\ntime range. In\nnormal operation\nit scales up to 1\nsec. In \u2018SLOW\u2019\nmode it scales to\n10sec.\nRetriggering mode\naligns signals\nbased on 1V\nrising slope\ndetection.\nSwitches between\n1sec and 10sec\nscales.\nSix inputs and\nsix signals are\ndisplayed\nSix passthrough\noutputs simplifies\nusing SIGNALS in\npatches.\nPOLY:\nPolyphonic inputs\nwill spread\ndownwards until\ninterrupted by a\nnew input.",
+      "panelMap": "SIGNALS\nSIGNALS is handy to tune up your envelope and LFO\nshapes. Simultaneous viewing of six channels in a small\nmodule makes it possible to fit these into your signal\nchain without getting in the way. Range knob and\ntrigger latch make it useful for observing envelopes or\nfree flowing signals.\nRANGE:\nRETRIG:\nSLOW:\nIN:\nOUT:\nKnob sets the\ntime range. In\nnormal operation\nit scales up to 1\nsec. In ‘SLOW’\nmode it scales to\n10sec.\nRetriggering mode\naligns signals\nbased on 1V\nrising slope\ndetection.\nSwitches between\n1sec and 10sec\nscales.\nSix inputs and\nsix signals are\ndisplayed\nSix passthrough\noutputs simplifies\nusing SIGNALS in\npatches.\nPOLY:\nPolyphonic inputs\nwill spread\ndownwards until\ninterrupted by a\nnew input.",
       "basicUse": "",
       "patching": ""
     },
@@ -62,7 +87,12 @@
   {
     "name": "Ranges",
     "slug": "ranges",
-    "tagline": "Split two signals into a range of 0-12 fractional mixes. Easily generate musical intervals, pan or attenuate voltages, or as a source.",
+    "vcvSlug": "Ranges",
+    "tagline": "Convert two input voltages into equal intervals.",
+    "tags": [
+      "Utility",
+      "Attenuator"
+    ],
     "panelImage": "/panels/free/ranges.png",
     "sections": {
       "panelMap": "RANGES\nRANGES generates a range of voltages from TOP to\nBOTTOM, in 0-12 divisions (DIVS).  The inputs have CV\ncontrol, allowing you to patch them with other modules,\nand for the module to be used in many applications,\nsuch as attenuator, gate generator, or crossfader.\nTOP:\nBOTTOM:\nDIVS:\nSets the voltage\nof the top\noutput. Sums\nwith the input/\nattenuverter.\nSets the voltage\nof the bottom\nactive output.\nSums with the\ninput/\nattenuverter.\nSets the number\nof subdivisions\n(and active\nports). New\noutputs become\nlinearly\ninterpolated\nbetween TOP and\nBOTTOM.\nPatch Suggestions\n12-tone Scale: Set TOP to 0. Set BOTTOM to 1. Set DIVS to 12.\nEach output is now a note on the 12-tone scale.\n4ths Interval Scale: Set TOP to 0. Set BOTTOM to 5. Set DIVS\nto 12. Now the outputs correspond to a scale of perfect fifths.\nSignal Blending: Path two different signals to TOP and BOTTOM,\nset the attenuverters both to 1. Set DIVS according to how\nmany crossfading outputs you require. Patch each output into a\nSignals module to visualize the different crossmixes. Adjust\nthe attenuverters to change the ratio of mixing.\nDynamic Panning: Set TOP and BOTTOM to 0, and set their\nattenuverters to 1. Patch -5V and +5V to a fader module such\nas the VCV FADE. Patch fader outputs to the TOP and BOTTOM\ninputs. Set DIVS to the number of mixer channels you have, and\npatch the outputs to corresponding mixer channels. Crossfading\nthe FADE module will pan all the channels at once.\nGate Sequencer: Set TOP to 5. Set BOTTOM to 5. Set DIVS to 0.\nPatch the outputs numbers 3+ to gate inputs of other modules.\nA 5V sweeping voltage into DIVS will send 5V to all the\noutputs in sequential order.\nRANGES",
@@ -74,10 +104,15 @@
   {
     "name": "Hex Mod",
     "slug": "hex-mod",
-    "tagline": "Six phase related sine wave LFOs, with tempo sync and phase controls.",
+    "vcvSlug": "HexMod",
+    "tagline": "Six phase-related LFOs with rate sync and individual phase reset triggers.",
+    "tags": [
+      "Low-frequency oscillator",
+      "Visual"
+    ],
     "panelImage": "/panels/free/hex-mod.png",
     "sections": {
-      "panelMap": "HEX MOD\nHEX MOD consists six low frequency oscillators, and\nproduces dynamic, phase-related evolving patterns. Its\nunique NODE clustering control morphs between distinct\nphase relationships\u2014hexagonal, unison, bimodal, and\ntrimodal distributions\u2014enabling a spectrum of CV from\nharmonious alignment to complex polyrhythms. Envelope\ninputs per oscillator allow for expressive modulation,\nresetting phases at peak points for synchronized or\nstaggered pulsations.\nRATE:\nNODES:\nRANGE:\nLIGHTS:\nPHASE\nRESET:\nSYNC:\nSets the rate of\nthe six\noscillators.\nRanges from 0.02Hz\nto 10Hz.\nDetermines the\nphase alignment of\nthe outputs.\n0=hexagonal,\n1=unison,\n2=binodal,\n3=trinodal\nSets the output voltage range of the\nLFO. CV input lets it function as a\nbipolar VCA.\nEach output has 10\nlights, that indicate\nthe value of the\noutput. The red\nlights each represent\n+1V, and the blue\nlights are each -1V.\nYou can disable the\nlights in the context\nmenu.\nTriggers reset each\noutput to zero and\nzero phase. By default\ntriggers normalize to\nthe right, in a loop.\nEnvelope inputs will\ncause the phase to\nmore slowly transition\nback to their default\nNODES position. Gates\nlock the phases while\nactive.\nBy default an input\nto SYNC disables the\nRATE inputs. SYNC\nwill synchronize the\nLFOs to an external\nclock or oscillator.\nIn the context menu\nan option is\navailable to\nmultiple RATE by\nSYNC to allow for\nmore modulation\noptions. In this\nmode RATE=1 will\nsync with the\nsignal, RATE=2 will\ndouble the SYNC\nfrequency.",
+      "panelMap": "HEX MOD\nHEX MOD consists six low frequency oscillators, and\nproduces dynamic, phase-related evolving patterns. Its\nunique NODE clustering control morphs between distinct\nphase relationships—hexagonal, unison, bimodal, and\ntrimodal distributions—enabling a spectrum of CV from\nharmonious alignment to complex polyrhythms. Envelope\ninputs per oscillator allow for expressive modulation,\nresetting phases at peak points for synchronized or\nstaggered pulsations.\nRATE:\nNODES:\nRANGE:\nLIGHTS:\nPHASE\nRESET:\nSYNC:\nSets the rate of\nthe six\noscillators.\nRanges from 0.02Hz\nto 10Hz.\nDetermines the\nphase alignment of\nthe outputs.\n0=hexagonal,\n1=unison,\n2=binodal,\n3=trinodal\nSets the output voltage range of the\nLFO. CV input lets it function as a\nbipolar VCA.\nEach output has 10\nlights, that indicate\nthe value of the\noutput. The red\nlights each represent\n+1V, and the blue\nlights are each -1V.\nYou can disable the\nlights in the context\nmenu.\nTriggers reset each\noutput to zero and\nzero phase. By default\ntriggers normalize to\nthe right, in a loop.\nEnvelope inputs will\ncause the phase to\nmore slowly transition\nback to their default\nNODES position. Gates\nlock the phases while\nactive.\nBy default an input\nto SYNC disables the\nRATE inputs. SYNC\nwill synchronize the\nLFOs to an external\nclock or oscillator.\nIn the context menu\nan option is\navailable to\nmultiple RATE by\nSYNC to allow for\nmore modulation\noptions. In this\nmode RATE=1 will\nsync with the\nsignal, RATE=2 will\ndouble the SYNC\nfrequency.",
       "basicUse": "1. Rate and Clustering: Begin by setting the RATE knob to\ncontrol the base frequency of the oscillators, use the NODE\nknob to define the initial phase relationship and clustering\npattern among the six oscillators.\n2. Trigger Inputs: Introduce envelope signals into the inputs\nalong the top of the module to dynamically influence the phase\nreset as well as the relaxation of each oscillator back to\ntheir default phase relationships. Trigger inputs normalize to\ntheir right, in a loop.\n3. Rate CV and Node CV: Utilize RATE and NODE CV inputs for\nreal-time modulation of the oscillators' frequency and\nclustering behavior, enabling responsive, evolving textures.\n4. Output Exploration: Patch the LFO outputs to various\ndestinations within your rack to modulate parameters with the\nevolving, complex rhythms generated by the HEX MOD.\n5. Disable Light Blinking: Access the context menu to enable\nor disable the module's lights for performance or personal\npreference.\n6. Sync Lock: By default the SYNC input locks the rate and\ndisabled the RATE knob and CV. In the context menu, you can\nenable multiplying the synchronized rate by the RATE setting,\nallowing for CV control of FM of the synced rate or to\nmultiply incoming clocks.\n7. Range: Control the output range of the LFO like a bipolar\nVCA. Self-patching leads to interesting modulation potential.\nHEX MOD\nContext Menu\n1. Enable Lights: Lets you turn on/off the blinking lights on\nthe front of the panel.\n2. Rate multiplies the Sync Input: With this setting\nactivated, the SYNC knob acts as a clock multiplier/divider\nfor the incoming clock interval.\n3. Sync locks both Clock and Phase: This setting is activated\nby default, clock pulses also reset the phase so that things\nare aligned to the clock signal. If you disable it the phases\nwill be free-flowing, and can be synced individually by the top\nPHASE RESET inputs.\n4. Rate input take v/oct: With this setting activated, the\nRATE input will take v/oct signals. The attenuvertor and RATE\nknob will both be disabled in this setting.\n5. Enable Polyphonic Output to Channel 1: Yes.",
       "patching": "Phased Panning: Control the panning of six channels in a\nmixer. Set the RATE or optionally use the SYNC input to tempo-\nlock the LFO. NODES set to 0 will evenly space the channels. A\ntrigger to any of the top inputs will cause the sounds group\nin space and then slowly spread out again. Experiment with\ndifferent settings of NODES to group the channels in different\narrangements.\nWaveshaped Outputs: Patch one of the outputs into RATE, and\nset the attenuverter. Patch another output into NODES, adjust\nthe attenuverter.\nAudio Rate Timbres: Set the context menu into v/oct mode. Plug\noutput LFO2 into the NODE input, with the attenuvertor set to\n0.1. Plug output LFO4 into your mixer or VCA. Adjust the NODE\nto create interesting timbres. Try patching the NODE input to\ndifferent outputs. Each of the six HEX MOD outputs will have a\ndifferent sound, so explore them all.\nHEX MOD"
     },
@@ -86,19 +121,29 @@
   {
     "name": "Collatz",
     "slug": "collatz",
-    "tagline": "Generate polyrhythmic trigger sequences synchronized to a clock. Uses the Collatz conjecture to generate interesting patterns of polyrhythms.",
+    "vcvSlug": "Collatz",
+    "tagline": "Clock-synchronized trigger burst generator, based on sequences of the Collatz conjecture.",
+    "tags": [
+      "Sequencer",
+      "Clock modulator"
+    ],
     "panelImage": "/panels/free/collatz.png",
     "sections": {
-      "panelMap": "COLLATZ\nCOLLATZ generates rhythmic triggers synced to a clock\nsignal using numbers from Collatz sequences. You pick\nnumber, and if it\u2019s even divide by two, and if it\u2019s odd\nmultiply by three and add one. This generates a sequence.\nAccording to the Collatz Conjecture, this series will\neventually lead to one. When the module reaches 1, it\nterminates and outputs an end gate. Triggers are outputted\nas clock multiples of the number mod MODULUS, and the\ndivisor is used to compute the accent output.\nNUMBER:\nCLOCK:\nOUTS:\nMODULUS:\nEND:\nSTART:\nSets the starting\nnumber for the\nCollatz sequence.\nEven: /2\nOdd: *3 + 2\nRange 2-1000\nThe timing between\npulses sets the\nclock interval for\nthe polyrhythms. A\nCLOCK signal is\nneeded for the\nmodule to output\ngates.\nThe OUT and ACC\nouts are computed\nfrom the MODULUS.\nEach out is a gate\nsignal that has a\n50% pulse width.\nLimits the number\nof pulses per\nclock interval.\nThe remainder sets\nthe main OUT, and\nthe divisor sets\nthe ACC out.\nWhen the sequence\nreaches 1 it\nterminates and\nraises the END\ngate, rather than\ncontinue to 4-2-1\nin a loop.\nPatch END to START\nto make the\nsequencer cycle.\nTriggers the start\nof the sequence.\nOnce armed, the\nsequencer will\nwait for the next\nclock pulse before\nstarting.\nImage Credit: XKCD comics   https://xkcd.com/710/\nCreative Commons Attribution-NonCommercial 2.5 License\nCOLLATZ",
+      "panelMap": "COLLATZ\nCOLLATZ generates rhythmic triggers synced to a clock\nsignal using numbers from Collatz sequences. You pick\nnumber, and if it’s even divide by two, and if it’s odd\nmultiply by three and add one. This generates a sequence.\nAccording to the Collatz Conjecture, this series will\neventually lead to one. When the module reaches 1, it\nterminates and outputs an end gate. Triggers are outputted\nas clock multiples of the number mod MODULUS, and the\ndivisor is used to compute the accent output.\nNUMBER:\nCLOCK:\nOUTS:\nMODULUS:\nEND:\nSTART:\nSets the starting\nnumber for the\nCollatz sequence.\nEven: /2\nOdd: *3 + 2\nRange 2-1000\nThe timing between\npulses sets the\nclock interval for\nthe polyrhythms. A\nCLOCK signal is\nneeded for the\nmodule to output\ngates.\nThe OUT and ACC\nouts are computed\nfrom the MODULUS.\nEach out is a gate\nsignal that has a\n50% pulse width.\nLimits the number\nof pulses per\nclock interval.\nThe remainder sets\nthe main OUT, and\nthe divisor sets\nthe ACC out.\nWhen the sequence\nreaches 1 it\nterminates and\nraises the END\ngate, rather than\ncontinue to 4-2-1\nin a loop.\nPatch END to START\nto make the\nsequencer cycle.\nTriggers the start\nof the sequence.\nOnce armed, the\nsequencer will\nwait for the next\nclock pulse before\nstarting.\nImage Credit: XKCD comics   https://xkcd.com/710/\nCreative Commons Attribution-NonCommercial 2.5 License\nCOLLATZ",
       "basicUse": "1. Number and Mod: Begin by setting NUMBER and MODULUS. The\nMODULUS sets the maximum number of pulses per clock interval,\nand is best set to a low number if you wish to use it for drum\nbeats, but can potentially be faster up to audio rate\ndepending on the setting.\n2. Clock Input: This module requires a clock signal to work.\nIf a clock is not patched, no output signals will go to OUT or\nACC.\n3. Start Input: Patch a trigger or gate to START to initiate\nthe sequence. The value of NUMBER will be sampled and used as\nthe starting number for the sequence, which will start on the\nnext CLOCK pulse.\n4. Reset: A trigger or gate to the RESET will stop the\nsequence and turn off outputs.\n5. End Gate: When the sequence reaches 1, the END gate will go\nhigh. If you desire looping sequences, you can patch END into\nSTART.",
-      "patching": "Drums: The snappy gates of this module can be used for snare\ndrums or other percussive elements. Link CLOCK to your main\nclock, or a clock division, and patch END to START to cause\nthe module to cycle.\nStrumming: Use the clock multiplied outputs to activate the\nplucking of Karplus Strong strings.\nBasic Rhythm Patterms: Set NUMBER to 4,8,16 or 32 to get a\nsimple drum pattern similar to rotating clock divisions.\n32\u219216\u21928\u21924\u21922\u21921\n16\u21928\u21924\u21922\u21921\n8\u21924\u21922\u21921\n4\u21922\u21921\nPatterns are often nested, so you can choose depending on the\nlength you wish to use:\n12\u21926\u21923\u219210\u21925\u219216\u21928\u21924\u21922\u21921\n6\u21923\u219210\u21925\u219216\u21928\u21924\u21922\u21921\n3\u219210\u21925\u219216\u21928\u21924\u21922\u21921\n10\u21925\u219216\u21928\u21924\u21922\u21921\n5\u219216\u21928\u21924\u21922\u21921\nLow numbers can result in long patterns, so it\u2019s a bit hard to\npredict. But each NUMBER will always lead to the same\nsequence, leading eventually to 4\u21922\u21921.\n9\u219228\u219214\u21927\u219222\u219211\u219234\u219217\u219252\u219226\u219213\u219240\u219220\u219210\u21925\u219216\u21928\u21924\u21922\u21921\nThe MODULUS input allows for a variety of different drum\npatterns to be produced from any Collatz sequence. Experiment\nwith different combinations of NUMBER and MODULUS, and for\nsequences that go on for 100s of steps don\u2019t forget there is a\nRESET input! Explore and enjoy.\nCOLLATZ"
+      "patching": "Drums: The snappy gates of this module can be used for snare\ndrums or other percussive elements. Link CLOCK to your main\nclock, or a clock division, and patch END to START to cause\nthe module to cycle.\nStrumming: Use the clock multiplied outputs to activate the\nplucking of Karplus Strong strings.\nBasic Rhythm Patterms: Set NUMBER to 4,8,16 or 32 to get a\nsimple drum pattern similar to rotating clock divisions.\n32→16→8→4→2→1\n16→8→4→2→1\n8→4→2→1\n4→2→1\nPatterns are often nested, so you can choose depending on the\nlength you wish to use:\n12→6→3→10→5→16→8→4→2→1\n6→3→10→5→16→8→4→2→1\n3→10→5→16→8→4→2→1\n10→5→16→8→4→2→1\n5→16→8→4→2→1\nLow numbers can result in long patterns, so it’s a bit hard to\npredict. But each NUMBER will always lead to the same\nsequence, leading eventually to 4→2→1.\n9→28→14→7→22→11→34→17→52→26→13→40→20→10→5→16→8→4→2→1\nThe MODULUS input allows for a variety of different drum\npatterns to be produced from any Collatz sequence. Experiment\nwith different combinations of NUMBER and MODULUS, and for\nsequences that go on for 100s of steps don’t forget there is a\nRESET input! Explore and enjoy.\nCOLLATZ"
     },
     "collection": "free"
   },
   {
     "name": "Strings",
     "slug": "strings",
-    "tagline": "Generates chord voicings of a guitar. Intuitive button interface makes generating chord progressions a breeze. Displays guitar chords. Allows per string bending, whammy bar bending, and capo.",
+    "vcvSlug": "Strings",
+    "tagline": "Generates guitar chords from a button interface or CV. Implements bending, whammy bar and capo.",
+    "tags": [
+      "Sequencer",
+      "Quantizer"
+    ],
     "panelImage": "/panels/free/strings.png",
     "sections": {
       "panelMap": "STRINGS\nCHORD:\nCAPO:\nBUTTONS:\nWHAMMY:\nTRIG:\nROOT:\nROW:\nCHORD BANK:\nPITCH BEND:\nV/OCT OUT:\nSelects the chord, spans 1-7.\nTransposes the chords.\nInputs range from -12 to\n12V, in 1 semitone\nintervals, or 12V/oct.\nManually trigger a new\nCHORD. The illuminated\nbutton indicates the ROOT\nnote of the CHORD.\nThe chord type is indicated\nright of the buttons, and\ndetails of the chord are\nshown in the display.\nWorks like the PITCH BEND\ninput, but applies to all\ninputs in addition to PITCH\nBEND.\nOutputs a trigger\nsignal anytime a\nBUTTON is pressed, or\nCHORD, ROW, CHORD BANK\nor CAPO setting is\nchanged.\nOutputs the ROOT note of the\ncurrent CHORD.\nSelects the row of chords,\nspans 1-4.\nThe two input combine to\nspecify 1 of 4 chord banks.\nManually select a bank with\nthe buttons. Button latching\ninverts the gate operation,\nallowing you to pick which\nbank is selected by a high\ngate.\nUses the absolute value of\nthe input. A 10V envelope\nwill result in a 2 semitone\nbend.\nSix outputs, each\ncorrespond to one string.\nMuted strings output -\n10V, for logic uses in\npatching.\nIf only the leftmost\ninput is patched, the\nmodule will output 6-\nchannel poly signals.\nSTRINGS produces six V/oct signals representing the\nstrings of a guitar. Buttons and inputs select\nbetween different chord banks and voicing options,\nwhich are indicated dynamically on the panel and\ndisplay. Pitch bend, whammy bar and capo are\nimplemented allowing guitar-like effects to be\nintuitively produced.\nMUTE:\nOutputs a gate when a\nstring is muted in a\nchord.  Useful for\nemulating the guitar by\nmuting the outputs of\noscillators.\nIf only the leftmost\ninput is patched, the\nmodule will output 6-\nchannel poly signals.\nSTRINGS",
@@ -108,25 +153,18 @@
     "collection": "free"
   },
   {
-    "name": "Magnets",
-    "slug": "magnets",
-    "tagline": "Simulates a magnetic Ising spin-lattice to generate semi-random LFO signals. Produces 24 smoothed LFO outputs.",
-    "panelImage": "/panels/free/magnets.png",
-    "sections": {
-      "panelMap": "MAGNETS\nTEMP:\nRATE:\nTAPE HEAD:\nRESET:\nPOLARITY:\nINTERACT:\nTemperature of the\nsimulation.\nSets the delay\nbetween simulation\nupdates. Faster\nupdates requires\nmore CPU.\nSets the up/down\nspins of the\ncentral square.\nAlso sums with\nPOLARITY to affect\nthe whole array.\nRandomizes the\nspin state of all\nthe nodes, based\non the POLARITY.\nChanges the\npolarization of\nthe array.\nSets how much\nnodes interact\nwith each other.\nMAGNETS, how do they work? This module allows you to\ninteract with a magnetic spin lattice simulation. CV\ncontrol over the simulation parameters and RATE\nallow for interesting interactions and self-patching\npossibilities. Each light is a spin state, and the\noutputs report the averaged value of all spins in\nthe grid element.\nMAGNETS",
-      "basicUse": "1. TEMP: Set the temperature of the simulation. A low temp can\nfreeze the simulation, while a hot temp adds lots of\nrandomness.\n2. POLARITY: The polarization input allows you to influence all\nof the nodes at once, making them more likely to polarize when\nupdated in the simulation.\n3. RATE: Sets the update timing for the Metropolis/Monte Carlo\nsimulation. Faster rates require more CPU.\n4. RESET: A trigger or gate to the RESET will randomize the\nspin states of all lattice points according to the POLARITY\nsetting.\n5. INTERACT Sets how much neighboring lattice nodes interact\nwith each other. This setting can induce phase changes in the\narray. Lower INTERACT settings allow the array to behave more\nfluid, while higher settings can cause some states to be\ntrapped.\nContext Menu\n1. Voltage Range \u00b15V: Switches between the default \u00b110V to \u00b15V\nfor the output voltage ranges.",
-      "patching": ""
-    },
-    "collection": "free"
-  },
-  {
     "name": "Ouros",
     "slug": "ouros",
-    "tagline": "A stereo phase injection oscillator with a unique polar display. Generate unique timbres, animated waveforms, and stereo effects. Morph continuously in an enormous latent space of complex wave shapes.",
+    "vcvSlug": "Ouros",
+    "tagline": "A stereo phase injection oscillator, with polar waveform display.",
+    "tags": [
+      "Oscillator",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/ouros.png",
     "sections": {
-      "panelMap": "OUROS\nOUROS is a stereo phase modulation oscillator inspired from\nthe perpetual cycle of the ouroboros. The dual oscillators\ninterplay on a circular display, capturing the essence of\nphase relationships evolving in an endless loop. The NODE\ncontrol transitions between phase spaces \u2014 unison, bimodal,\ntrimodal, and back, enabling intricate phase textures.\nFEEDBACK dynamics, inspired by the ouroboros consuming its\ntail, inject complexity by self-modulating NODE to evolve\ncomplex timbres.\nV/OCT:\nFM:\nPOLYPHONY:\nMULTIPLY:\nPOSITION:\nNODE:\nFEEDBACK:\nPHASE:\nSPREAD:\nSYNC:\nSets the frequency\nof the oscillator,\nranges 8 octaves.\nExp FM input sums\nwith V/oct.\nA polyphonic input to V/\nOCT will activate\npolyphony on the module\nand all other CV inputs.\nMultiplies the feedback\nphase, generating\nhigher harmonics. The\nknob is non-linearly\nmapped so that it\nalways maps close to an\ninteger value.\nSets the phase position\nof the feedback\nrelative to the\noscillator clock cycle.\nChanges the number of\nrepetition nodes in the\nphase channel relative\nto the oscillator\nchannel.\nSets the amount of\nphase-feedback. Set to\nzero. the oscillator\nwill output a perfect\nsine, and feedback\nrelated knobs POS, NODE\nand MULTIPLY will have\nno effect.\nControls the phase of\nthe oscillator\nrelative to the nodes\nControls the spread of\nthe L and R phases.\nHard-syncs the\noscillator.\nOUROS",
-      "basicUse": "1. RATE: Set the base frequency of the oscillators in v/oct.\nThe knob sums with the RATE input.\n2. Phase Mapping (PHASE and SPREAD): PHASE shifts both\nwaveforms around the phase circle simultaneously, while SPREAD\nadjusts the phase difference between the left and right\noutputs, enhancing stereo width and movement.\n3. Feedback Control: Use the FEEDBACK knob and input to\ncontrol the intensity of the output fed back into the NODE\nmodulation, adding depth and complexity through resonant and\nechoing effects.\n4. Frequency Multiplier: The MULTIPLY knob emphasizes harmonic\nrelationships by adjusting the frequency of the feedback loop,\nideal for creating metallic timbres and harmonic textures.\n5. Phase Relationship (NODE Control): Adjust the NODE knob to\ntransition between different phase distributions such as\nunison, bimodal, and trimodal, crafting rhythmic patterns and\nevolving textures.\n6. Visualization: The circular display shows the interaction\nof waveforms in real time. The waveforms are displayed in\npolar coordinates, based on the fundamental frequency.\n7. Reset Functionality: The RESET button and input synchronize\noscillator phases to external signals or reset them when\nloading presets, crucial for rhythmic alignment and transient\nshaping\nContext Menu\n1. Presets: Access factory presets from the Context Menu >\nPresets submenu. Presets are divided into three categories:\nClassic waveforms, Instruments, and Shapes.\nOUROS\nOUROS\nSaw\nSine\nClassic Waveforms\nInstruments\nShapes\nSquare\nTriangle\nPiano\nViolin\nSaxophone\nMarimba\nElectric Piano\nFlute\nGlass Harp\nDragonfly\nBunny\nButterfly\nRubber Ducky\nGuinea Pig\nAardvark\nMouse\nHeart\nMitten\nMoth\nManta Ray\nMushroom\nPresets Guide\n1. Classic Waveforms: The default waveform is Sine. A slightly\nrounded version of Saw, Square, and Triangle are possible.\nSince the waveforms are produced additively, they lack the\nhigher harmonics, but also have the benefit to sound nice\nunfiltered.\n2. Instruments: Classic instrument waveforms can be\napproximated. Integer MULTIPLY inputs produce harmonically\nrelated timbres.\n3. Shapes: A wide variety of abstract shapes are possible, and\nthese presets only represent some of the possibilities. Each\nshapes is set to integer MULTIPLY and with SPREAD set to zero.\nExperiment with small offsets of these to produce animated\ntimbres and stereo effects.\nOUROS\nTechnical Notes\n1. How does phase feedback distortion work? Phase-feedback\ndistortion happens because the oscillator\u2019s phase position\nisn\u2019t fixed \u2014 instead, it is continuously perturbed by feeding\nback a portion of another oscillator\u2019s output to control the\nphase placement. In essence it works like the ouroboros, the\nsnake that eats its own tail. This feedback loop shifts the\noscillator slightly off its \u201cideal\u201d phase each cycle, causing\nthe waveform to bend and skew over time. The result is a sine-\nlike signal whose harmonic content and shape depend on the\nfeedback depth, giving a controllable distortion that grows as\nfeedback increases.\n2. Non-linear mapping of multiply knob. The multiply knob\ndetermines how much the phase oscillator is scaled relative to\nthe main oscillator. The scaling effect is similar to the\neffect of an FM operator ratio, and sounds best at integer\nratios. The knob maps with a set of steep 5th order\npolynomials, so that you can span the whole range, but most of\nthe span is on regions very close to integer values.\nMultiply = 2 in this example",
+      "panelMap": "OUROS\nOUROS is a stereo phase modulation oscillator inspired from\nthe perpetual cycle of the ouroboros. The dual oscillators\ninterplay on a circular display, capturing the essence of\nphase relationships evolving in an endless loop. The NODE\ncontrol transitions between phase spaces — unison, bimodal,\ntrimodal, and back, enabling intricate phase textures.\nFEEDBACK dynamics, inspired by the ouroboros consuming its\ntail, inject complexity by self-modulating NODE to evolve\ncomplex timbres.\nV/OCT:\nFM:\nPOLYPHONY:\nMULTIPLY:\nPOSITION:\nNODE:\nFEEDBACK:\nPHASE:\nSPREAD:\nSYNC:\nSets the frequency\nof the oscillator,\nranges 8 octaves.\nExp FM input sums\nwith V/oct.\nA polyphonic input to V/\nOCT will activate\npolyphony on the module\nand all other CV inputs.\nMultiplies the feedback\nphase, generating\nhigher harmonics. The\nknob is non-linearly\nmapped so that it\nalways maps close to an\ninteger value.\nSets the phase position\nof the feedback\nrelative to the\noscillator clock cycle.\nChanges the number of\nrepetition nodes in the\nphase channel relative\nto the oscillator\nchannel.\nSets the amount of\nphase-feedback. Set to\nzero. the oscillator\nwill output a perfect\nsine, and feedback\nrelated knobs POS, NODE\nand MULTIPLY will have\nno effect.\nControls the phase of\nthe oscillator\nrelative to the nodes\nControls the spread of\nthe L and R phases.\nHard-syncs the\noscillator.\nOUROS",
+      "basicUse": "1. RATE: Set the base frequency of the oscillators in v/oct.\nThe knob sums with the RATE input.\n2. Phase Mapping (PHASE and SPREAD): PHASE shifts both\nwaveforms around the phase circle simultaneously, while SPREAD\nadjusts the phase difference between the left and right\noutputs, enhancing stereo width and movement.\n3. Feedback Control: Use the FEEDBACK knob and input to\ncontrol the intensity of the output fed back into the NODE\nmodulation, adding depth and complexity through resonant and\nechoing effects.\n4. Frequency Multiplier: The MULTIPLY knob emphasizes harmonic\nrelationships by adjusting the frequency of the feedback loop,\nideal for creating metallic timbres and harmonic textures.\n5. Phase Relationship (NODE Control): Adjust the NODE knob to\ntransition between different phase distributions such as\nunison, bimodal, and trimodal, crafting rhythmic patterns and\nevolving textures.\n6. Visualization: The circular display shows the interaction\nof waveforms in real time. The waveforms are displayed in\npolar coordinates, based on the fundamental frequency.\n7. Reset Functionality: The RESET button and input synchronize\noscillator phases to external signals or reset them when\nloading presets, crucial for rhythmic alignment and transient\nshaping\nContext Menu\n1. Presets: Access factory presets from the Context Menu >\nPresets submenu. Presets are divided into three categories:\nClassic waveforms, Instruments, and Shapes.\nOUROS\nOUROS\nSaw\nSine\nClassic Waveforms\nInstruments\nShapes\nSquare\nTriangle\nPiano\nViolin\nSaxophone\nMarimba\nElectric Piano\nFlute\nGlass Harp\nDragonfly\nBunny\nButterfly\nRubber Ducky\nGuinea Pig\nAardvark\nMouse\nHeart\nMitten\nMoth\nManta Ray\nMushroom\nPresets Guide\n1. Classic Waveforms: The default waveform is Sine. A slightly\nrounded version of Saw, Square, and Triangle are possible.\nSince the waveforms are produced additively, they lack the\nhigher harmonics, but also have the benefit to sound nice\nunfiltered.\n2. Instruments: Classic instrument waveforms can be\napproximated. Integer MULTIPLY inputs produce harmonically\nrelated timbres.\n3. Shapes: A wide variety of abstract shapes are possible, and\nthese presets only represent some of the possibilities. Each\nshapes is set to integer MULTIPLY and with SPREAD set to zero.\nExperiment with small offsets of these to produce animated\ntimbres and stereo effects.\nOUROS\nTechnical Notes\n1. How does phase feedback distortion work? Phase-feedback\ndistortion happens because the oscillator’s phase position\nisn’t fixed — instead, it is continuously perturbed by feeding\nback a portion of another oscillator’s output to control the\nphase placement. In essence it works like the ouroboros, the\nsnake that eats its own tail. This feedback loop shifts the\noscillator slightly off its “ideal” phase each cycle, causing\nthe waveform to bend and skew over time. The result is a sine-\nlike signal whose harmonic content and shape depend on the\nfeedback depth, giving a controllable distortion that grows as\nfeedback increases.\n2. Non-linear mapping of multiply knob. The multiply knob\ndetermines how much the phase oscillator is scaled relative to\nthe main oscillator. The scaling effect is similar to the\neffect of an FM operator ratio, and sounds best at integer\nratios. The knob maps with a set of steep 5th order\npolynomials, so that you can span the whole range, but most of\nthe span is on regions very close to integer values.\nMultiply = 2 in this example",
       "patching": ""
     },
     "collection": "free"
@@ -134,19 +172,54 @@
   {
     "name": "Pressed Duck",
     "slug": "pressed-duck",
-    "tagline": "A stereo six channel side-chain ducking mixer with compression, saturation, and feedback distortion.",
+    "vcvSlug": "PressedDuck",
+    "tagline": "A stereo six-channel dynamic compressing mixer with side-chain ducking, tanh saturation and ADAA.",
+    "tags": [
+      "Mixer",
+      "Compressor",
+      "Dynamics",
+      "Distortion",
+      "Panning",
+      "Voltage-controlled Amplifier"
+    ],
     "panelImage": "/panels/free/pressed-duck.png",
     "sections": {
       "panelMap": "PRESSED DUCK\nSIDE:\nLEVELS:\nDUCK:\nMUTES:\nSTEREO INPUTS:\nPRESS:\nFEED:\nLEVEL:\nL/R OUTPUTS:\nPAN:\nStereo input for\nthe side-chain.\nSliders set the\ninput levels.\nVCA inputs\nmultiply with\nthe slider\ninput. The range\nis from 0 to 2x\ngain, with the\nunity gain\nmidpoint marked.\nSets the amount\nthat the SIDE\nsignal ducks\ninto the main\nmix.\nButtons allow for\nclickless muting of the\nmain channels. CV inputs\noverride the buttons,\nwhich indicate the mute\nstatus of the channels.\nShift-click will SOLO the\nselected channel.\nSix stereo inputs that are\ncompressed together by the PRESS\nsetting.\nSets the amount of\ncompression applied\nto the main mix\n(excluding SIDE).\nSets the amount of\nfeedback in the\nmixer. Can be used to\nboost the saturation\neffect to more\nextreme levels of\ndistortion.\nSets the master\noutput volume. The\nrange goes up to 2x\ngain. 1x saturates at\n5V, while 2x\nsaturates at 10V.\nStereo outputs.\nSets the panning of each channel L/R. The\nSIDE channel does not pan, and is\ndefaulted to center.\nPRESSED DUCK will compress and duck your sound into\na deliciously crunchy soundscape. Side-chain ducking\nof the six main channels allows for intense bass\nlines. Envelope followers on all channels allow you\nto compress to the point that incoming signals fill\nthe entire bandwidth. Full CV control over all\nfeatures. Antiderivative antialiasing DSP results in\na cleaner mix with low CPU usage.",
       "basicUse": "1. SIDE: Stereo inputs for the side-chain channel of the\nmixer. This channel can duck into the rest of the mix.\n2. INPUTS: Six channels of stereo inputs are compressed\ntogether by the PRESS parameter. Fully compressing the mix\nwill fill the full voltage range set by the LEVEL with tanh\nsaturation.\n3. Faders: The faders set the input gain, ranging from 0 to 1x\nin the center, to 2x at the top.\n4. VCA INPUTS: Linear VCA inputs are multiplied by the Fader\nsetting.\n5. PRESS: Sets the compression level of the mix. The indicator\nlights show the amount of compression applied.\n6. FEED: The feedback control sets how much additional gain\n(up to 11x) is added to the mix after the compression is\napplied. This can increase the amount of saturation, to the\npoint of full distortion. The indicator lights show how much\nclipping is being applied to the signal before tanh saturation\nis applied.\n7. LEVEL: Sets the voltage range of the final mix.\n8. Filtering: By default a 30Hz high pass filter is applied to\nall inputs to remove DC offsets (and make the saturation\ncleaner). You can disable this feature in the context menu.\n9. Anti-alisaing: This module applies first-order\nantiderivative anti-alising to the saturation to reduce\naliasing, helping you to make a clean sounding mix. However,\nat maximum levels of distortion the module will still audibly\nalias.\n10. Polyphonic Inputs: Poly inputs to the the first column of\nthe main mixer will spread the inputs to the 6 channels.\nPRESSED DUCK\nContext Menu\n1. Apply Filters: Switches the DC-offset filtering on/off.\n2. Muted Sidechain still Ducks: In this mode you can subtract\nout the sidechain signal and just use the envelope follower of\nthis channel for ducking the main mix.",
-      "patching": "1. Mixer: Use it as a regular mixer. Patch the 6 stereo\ninputs, leave PRESS and FEED set to zero.\n2. Ducking: Patch a side-chain signal to the SIDE inputs, and\nyour main signals into the other inputs. Either use an\nenvelope patched to the DUCK VCA input, or send a pre-shaped\nsignal and use PRESSED DUCK\u2019s internal envelope follower. Set\nthe DUCK knob and input to the desired level of ducking.\n3. Chaining: Chain up multiple copies of PRESSED DUCK. Patch\nthe outputs of one mixer into the SIDE input of the next. Set\nthe DUCK levels carefully to balance the mixes. Use the first\nmixer for ducking the kick into the snare, and the second\nmixer for ducking the drum mix into the main mix.\n4. Muting: Use the clickless mutes during performance to turn\non and off channels with smooth 5ms tanh-based transition. The\nbuilt-in compression can keep the total output volume constant\nwhile channels are added and subtracted from the mix.\nPRESSED DUCK"
+      "patching": "1. Mixer: Use it as a regular mixer. Patch the 6 stereo\ninputs, leave PRESS and FEED set to zero.\n2. Ducking: Patch a side-chain signal to the SIDE inputs, and\nyour main signals into the other inputs. Either use an\nenvelope patched to the DUCK VCA input, or send a pre-shaped\nsignal and use PRESSED DUCK’s internal envelope follower. Set\nthe DUCK knob and input to the desired level of ducking.\n3. Chaining: Chain up multiple copies of PRESSED DUCK. Patch\nthe outputs of one mixer into the SIDE input of the next. Set\nthe DUCK levels carefully to balance the mixes. Use the first\nmixer for ducking the kick into the snare, and the second\nmixer for ducking the drum mix into the main mix.\n4. Muting: Use the clickless mutes during performance to turn\non and off channels with smooth 5ms tanh-based transition. The\nbuilt-in compression can keep the total output volume constant\nwhile channels are added and subtracted from the mix.\nPRESSED DUCK"
+    },
+    "collection": "free"
+  },
+  {
+    "name": "Preeeeeeeeeeessed Duck",
+    "slug": "preeeeeeeeeeessed-duck",
+    "vcvSlug": "PreeeeeeeeeeessedDuck",
+    "tagline": "A stereo sixteen-channel dynamic compressing mixer with side-chain ducking, tanh saturation and ADAA.",
+    "tags": [
+      "Mixer",
+      "Compressor",
+      "Dynamics",
+      "Distortion",
+      "Panning",
+      "Voltage-controlled Amplifier"
+    ],
+    "panelImage": "/panels/free/preeeeeeeeeeessed-duck.png",
+    "sections": {
+      "panelMap": "PREEEEEEEEEEESSED DUCK\nPREEEEEEEEEEESSED DUCK will satisfy your hunger and\ncraving for more channels. With 34 inputs in 17\nchannels, this mixer will allow you to patch a fully\nloaded polyphonic signal to the left-most channel\nand duck into it with a SIDE-chain signal.\nSTEREO INPUTS:\nPRESSED DUCK:\nSixteen stereo inputs that are\ncompressed together by the PRESS\nsetting. SIDE allows you to duck\ninto the main mixer.\nRefer to the PRESSED DUCK module\nfor operation instructions.",
+      "basicUse": "",
+      "patching": ""
     },
     "collection": "free"
   },
   {
     "name": "Flower Patch",
     "slug": "flower-patch",
-    "tagline": "A 12-tone scale polar visualizer with FFT.",
+    "vcvSlug": "FlowerPatch",
+    "tagline": "A 12-tone scale polar visualizer with FFT analysis.",
+    "tags": [
+      "Visual",
+      "Utility"
+    ],
     "panelImage": "/panels/free/flower-patch.png",
     "sections": {
       "panelMap": "FLOWER PATCH\nFLOWER PATCH converts your audio signals into a\nbeautiful and responsive display of flower shapes. CV\ncontrol over all parameters allows intuitive\nvisualization of CV signals. FFT analysis of the\ninput tells you the spectral breakdown of your\nsignal in terms of the 12-tone musical scale.\nINPUTS:\nHUE:\nFILL:\nFLOWER:\nPOWER:\nStereo inputs are\naveraged together.\nSignals are\ndisplayed in polar\ncoordinates, with\nthe period defined\nby the 12-tone\nscale\nSets the color\nof the display.\nSets the FILL\namount.\nLeft: monotoned and\ndesaturated colors.\nMiddle: White, with\nFFT peaks in color.\nRight: Background\nin Hue, and Peaks\nhighlighted.\nScale the waves to\ntransition between\nring-shapes and\nflower shapes.\nScale the shapes based\non FFT results, either\npositively or\nnegatively.",
@@ -156,9 +229,31 @@
     "collection": "free"
   },
   {
+    "name": "Magnets",
+    "slug": "magnets",
+    "vcvSlug": "Magnets",
+    "tagline": "Simulate and interact with a small magnetic spin-lattice.",
+    "tags": [
+      "Random",
+      "Low-frequency oscillator"
+    ],
+    "panelImage": "/panels/free/magnets.png",
+    "sections": {
+      "panelMap": "MAGNETS\nTEMP:\nRATE:\nTAPE HEAD:\nRESET:\nPOLARITY:\nINTERACT:\nTemperature of the\nsimulation.\nSets the delay\nbetween simulation\nupdates. Faster\nupdates requires\nmore CPU.\nSets the up/down\nspins of the\ncentral square.\nAlso sums with\nPOLARITY to affect\nthe whole array.\nRandomizes the\nspin state of all\nthe nodes, based\non the POLARITY.\nChanges the\npolarization of\nthe array.\nSets how much\nnodes interact\nwith each other.\nMAGNETS, how do they work? This module allows you to\ninteract with a magnetic spin lattice simulation. CV\ncontrol over the simulation parameters and RATE\nallow for interesting interactions and self-patching\npossibilities. Each light is a spin state, and the\noutputs report the averaged value of all spins in\nthe grid element.\nMAGNETS",
+      "basicUse": "1. TEMP: Set the temperature of the simulation. A low temp can\nfreeze the simulation, while a hot temp adds lots of\nrandomness.\n2. POLARITY: The polarization input allows you to influence all\nof the nodes at once, making them more likely to polarize when\nupdated in the simulation.\n3. RATE: Sets the update timing for the Metropolis/Monte Carlo\nsimulation. Faster rates require more CPU.\n4. RESET: A trigger or gate to the RESET will randomize the\nspin states of all lattice points according to the POLARITY\nsetting.\n5. INTERACT Sets how much neighboring lattice nodes interact\nwith each other. This setting can induce phase changes in the\narray. Lower INTERACT settings allow the array to behave more\nfluid, while higher settings can cause some states to be\ntrapped.\nContext Menu\n1. Voltage Range ±5V: Switches between the default ±10V to ±5V\nfor the output voltage ranges.",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
     "name": "Syncro",
     "slug": "syncro",
-    "tagline": "An 8-channel clock ratio generator.",
+    "vcvSlug": "Syncro",
+    "tagline": "Eight channel clock ratio generator.",
+    "tags": [
+      "Clock generator",
+      "Clock modulator"
+    ],
     "panelImage": "/panels/free/syncro.png",
     "sections": {
       "panelMap": "SYNCRO\nSYNCRO is an eight channel rotating clock multiplier\nand divider that is able to generate fractional\nclock ratios. The SWING setting applies to the\nmaster clock, controlling all channels. FILL and\nROTATE allow for endless self-patching of new\nrhythms.\nCLOCK:\nFILL:\nEXT CLOCK:\nON/OFF:\nOUT and INV\nWIDTH:\nROTATE:\nRESET:\nClock CV control\nallows you to\nprecisely modulate\nthe clock in BPM.\n1V at max\nattenuation will\nadd 10BPM to the\nclock.\nPatching an\nexternal clock\ndisables the CLOCK\ncontrols. The last\ntwo pulses to this\ninput is used to\ncompute the BPM.\nWhen FILL buttons\nor gates are\nactivated, FILL\nadds to the\nnumerator of the\nratio.\nTurns the sequencer\non/off. Gate inputs\nreverse the state of\nthe button.\nGate and inverted gate\noutputs. The top outputs\ncorrespond to the master\nclock and do not rotate.\nSets the pulse width\nof the output gate.\nDefault is 50% width.\nRotates the clock-\nratios for the\ndifferent clocks. The\narrow on the display\nindicates the current\nposition of Row 1.\nResets and re-syncs\nall clocks and\nchannels.\nSYNCRO",
@@ -170,7 +265,12 @@
   {
     "name": "Nona",
     "slug": "nona",
-    "tagline": "A 9-channel CV gain/offset utility mixer.",
+    "vcvSlug": "Nona",
+    "tagline": "Nine-channel CV gain/offset utility mixer.",
+    "tags": [
+      "Attenuator",
+      "Utility"
+    ],
     "panelImage": "/panels/free/nona.png",
     "sections": {
       "panelMap": "NONA\nNONA is a CV utility for scaling, offsetting, and\nmixing your signals. Use it to interface between\ndifferent module voltage ranges, and to mix CV\nsignals.\nGAIN:\nOFFSET:\nOUT:\nKnob scales from -2\nto +2, allowing you\ndo upscale weak\nsignals.\nKnob ranges from -\n10V to +10V,\nallowing you to\nproduce DC offsets\nand DC voltages.\nEach output normals\ndownward, with an output\ncable interrupting the\nsignal chain. Use this to\ncreate sub-mixes, or as a\npallet for making CV\nsignals.",
@@ -182,10 +282,15 @@
   {
     "name": "Decima",
     "slug": "decima",
-    "tagline": "A 10-channel gate sequencer with step probability.",
+    "vcvSlug": "Decima",
+    "tagline": "Ten-channel gate sequencer with per-step probability.",
+    "tags": [
+      "Sequencer",
+      "Utility"
+    ],
     "panelImage": "/panels/free/decima.png",
     "sections": {
-      "panelMap": "DECIMA\nDECIMA is a 10-step gate sequencer with an intuitive\ninterface. Button interface allows you to set your\ngate sequence and jump to any step. Per-step\nprobabilities and CV control of direction unlock\nmusical possibilities. Step gate outputs allow self-\npatching of shorter sequences.\nCLOCK:\nDIR:\nRESET:\nPROB:\nOUT:\nSTEP INDICATOR:\nINV:\nClock input advances\nthe sequencer. The\ntime between the\nprevious two clock\nimpulses is used to\nset the 50% gate\nlength.\nA positive\nvoltage to this\ninput reverses\nthe sequencer\ndirection.\nResets the\nsequencer to the\nfirst stage.\nSets the gate\nprobability per\nstep.\n50% pulse width\ngates are produces\nfor each sequenced\nstep.\nIndicates the\nactive step.\nDoubles as a push\nbutton to jump to\nany step.\nProduces a 50%\npulse width gate\nwhen a step doesn\u2019t\nget a pulse.",
+      "panelMap": "DECIMA\nDECIMA is a 10-step gate sequencer with an intuitive\ninterface. Button interface allows you to set your\ngate sequence and jump to any step. Per-step\nprobabilities and CV control of direction unlock\nmusical possibilities. Step gate outputs allow self-\npatching of shorter sequences.\nCLOCK:\nDIR:\nRESET:\nPROB:\nOUT:\nSTEP INDICATOR:\nINV:\nClock input advances\nthe sequencer. The\ntime between the\nprevious two clock\nimpulses is used to\nset the 50% gate\nlength.\nA positive\nvoltage to this\ninput reverses\nthe sequencer\ndirection.\nResets the\nsequencer to the\nfirst stage.\nSets the gate\nprobability per\nstep.\n50% pulse width\ngates are produces\nfor each sequenced\nstep.\nIndicates the\nactive step.\nDoubles as a push\nbutton to jump to\nany step.\nProduces a 50%\npulse width gate\nwhen a step doesn’t\nget a pulse.",
       "basicUse": "1. CLOCK: Advance the sequencer with gates or triggers. The\ntime between clock pulses is used to set the main output gate\npulses at 50% cycle length. The individual stage outputs are\nthe full step length, unless set differently in the context\nmenu.\n2. DIR: A high gate will reverse the direction of the\nsequencer.\n3. RESET: Resets the sequencer to the first stage.\n4. PROB: Sets the probability per stage.\n5. OUT: 50% pulse width gate output when a stage is activated.\n6. INV: 50% pulse width when a stage is inactive.\n7. GATE: Outputs 10V when a stage is active. Patch a stage to\nRESET to program shorter sequence lengths.\nContext Menu\n1. Active step outputs to Gate output: By default the GATE\noutputs a signal when any gate is active. This option allows\nyou to have the GATE output reflect the main OUT for the\nspecific stage.\nDECIMA",
       "patching": ""
     },
@@ -194,10 +299,16 @@
   {
     "name": "Morta",
     "slug": "morta",
-    "tagline": "A single-knob macro-controller utility with 16 simultaneous outputs in different ranges.",
+    "vcvSlug": "Morta",
+    "tagline": "Single-knob macro-controller utility with 16 simultaneous outputs in different ranges.",
+    "tags": [
+      "Controller",
+      "Utility",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/morta.png",
     "sections": {
-      "panelMap": "MORTA\nMORTA is a single-knob macro controller with 16\noutputs. The input allows you to automate the knob\nturning, and the module displays the voltage of the\nknob/input. Outputs are arranged into unipolar and\nbipolar signals in 1V, 5V, 10V and CV controllable\nranges. Useful for measuring and rescaling signals,\nreversed outputs make this a useful crossfading\ncontroller as well.\nINPUT:\nDISPLAY:\nUnipolar\nPass-through\n1V\n5V\n10V\nRANGE\nBipolar\nReverse Bipolar\nReverse Unipolar\nRANGE:\nPOLYPHONY:\nPatching an input\noverrides turning\nthe knob and\ninstead automates\nthe knob.\nThe display\nindicates the\ninput voltage.\nAllows you to set\nthe range \u2018R\u2019 of\nthe 4th column of\noutputs from 0V to\n10V.\nA polyphonic input\nto INPUT will make\nthe module switch\nto poly mode.\nDisplay reflects the\ntop channel only.",
+      "panelMap": "MORTA\nMORTA is a single-knob macro controller with 16\noutputs. The input allows you to automate the knob\nturning, and the module displays the voltage of the\nknob/input. Outputs are arranged into unipolar and\nbipolar signals in 1V, 5V, 10V and CV controllable\nranges. Useful for measuring and rescaling signals,\nreversed outputs make this a useful crossfading\ncontroller as well.\nINPUT:\nDISPLAY:\nUnipolar\nPass-through\n1V\n5V\n10V\nRANGE\nBipolar\nReverse Bipolar\nReverse Unipolar\nRANGE:\nPOLYPHONY:\nPatching an input\noverrides turning\nthe knob and\ninstead automates\nthe knob.\nThe display\nindicates the\ninput voltage.\nAllows you to set\nthe range ‘R’ of\nthe 4th column of\noutputs from 0V to\n10V.\nA polyphonic input\nto INPUT will make\nthe module switch\nto poly mode.\nDisplay reflects the\ntop channel only.",
       "basicUse": "",
       "patching": ""
     },
@@ -206,7 +317,11 @@
   {
     "name": "Step Wave",
     "slug": "step-wave",
-    "tagline": "An 8-step wave sequencer with rhythmic displacement control over the boundaries between stages, and variable shape control for each stage.",
+    "vcvSlug": "StepWave",
+    "tagline": "8-step programmable sequencer/envelope generator with rhythmic displacement and variable shape.",
+    "tags": [
+      "Sequencer"
+    ],
     "panelImage": "/panels/free/step-wave.png",
     "sections": {
       "panelMap": "STEP WAVE\nSTEP WAVE is an 8-step wave sequencer with rhythmic\ndisplacement and real-time display. Control not only\nthe VALUE of each stage, but the boundaries between\nstages by CV. Knobs let you set the number of BEATS\nper stage, and the SHAPE controller can morph between\n12 different preset shapes. SLEW of the final output\ncan smooth over any discontinuities in the resulting\nwaveform.\nCLOCK:\nON/OFF:\nRESET:\nTRACK:\nLINK:\nCV OUT:\nGATE OUT:\nSLEW:\nDISPLAY:\nSTAGE:\nBEATS:\nVALUE:\nSHAPE:\nRHYTHMIC\nDISPLACEMENT:\nResponds to gates or triggers.\nThis timing translates to one\ngrid-line on the sequencer.\nButton toggles the sequencer on/\noff. A gate to the CV pauses/\nruns the sequencer. The button\ncan also invert the action of\nthe CV.\nResets the\nsequencer to\nthe first stage.\nSequencer tracks\nVALUE inputs.\nWhen off, the\nsequencer\nsamples VALUE at\nthe start of the\nstage.\nWhen active, SHAPE\nrepeats over the\nstage based on the\nnumber of BEATS.\nCV output of the\nsequencer\nGate output of the\nsequencer\nSets the slew amount,\nnormalized by the\nstage length.\nThe blue line displays the outputted\nvoltages. The grey line (when SLEW\nis set to 0) displays the inputted\nwaveform. At the bottom the GATE\noutput with BEATS is displayed.\nClick buttons to\njump to any stage.\nIn OFF mode, you\ncan use this as\nwell.\nSet the number of beat\nmultiples for any stage,\nrange 1-10\nUse the slider to set\nthe height of each\nstage. CV inputs\nbelow override and\nanimate the slider.\nMorph between 12\ndifferent shapes for\neach stage of the\nsequencer.\nControl the boundaries\nbetween each stage of the\nsequencer. Range is -5 to 5,\ncorresponding to 50% of a\nstep length max. This input\ncan be modulated by CV.\nSTEP WAVE",
@@ -216,21 +331,14 @@
     "collection": "free"
   },
   {
-    "name": "Preeeeeeeeeeessed Duck",
-    "slug": "preeeeeeeeeeessed-duck",
-    "tagline": "A sixteen channel version of Pressed Duck",
-    "panelImage": "/panels/free/preeeeeeeeeeessed-duck.png",
-    "sections": {
-      "panelMap": "PREEEEEEEEEEESSED DUCK\nPREEEEEEEEEEESSED DUCK will satisfy your hunger and\ncraving for more channels. With 34 inputs in 17\nchannels, this mixer will allow you to patch a fully\nloaded polyphonic signal to the left-most channel\nand duck into it with a SIDE-chain signal.\nSTEREO INPUTS:\nPRESSED DUCK:\nSixteen stereo inputs that are\ncompressed together by the PRESS\nsetting. SIDE allows you to duck\ninto the main mixer.\nRefer to the PRESSED DUCK module\nfor operation instructions.",
-      "basicUse": "",
-      "patching": ""
-    },
-    "collection": "free"
-  },
-  {
     "name": "Arrange",
     "slug": "arrange",
-    "tagline": "A 7-channel sequencer with the ability to sample and record CV signals.",
+    "vcvSlug": "Arrange",
+    "tagline": "A seven channel sequencer with quantize/volt option per channel, and adjustable length.",
+    "tags": [
+      "Sequencer",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/arrange.png",
     "sections": {
       "panelMap": "ARRANGE\nARRANGE is a simple 7-stage sequencer with\nadjustable number of steps. It can sample input Cvs\nto play back. Each channels can be set into one of\nthree modes: Voltage, Quantized, and Trigger with\nprobability. Switches between record and playback\nfor intuitive control over your sequences.\nSTAGE:\nEND:\nBACK:\nFWD:\nRESET:\nDISPLAY\nREC:\nIN:\nMODE BUTTON:\nSelects the step of\nthe sequencer.\nSelects the length\nof the sequence, up\nto 128 steps.\nMoves the sequencer\nstage back one\nstep.\nMoves the sequencer\nstage forward one\nstep.\nMoves the sequencer\nstage back to the\nfirst stage.\nTop: Displays the current stage\nand number of steps. A white dot\nindicates the sequence progress.\nBottom: Displays the outputted\nvoltage, note, or trigger\nprobability.\nTurn on/off\nrecording mode.\nWhen active it\nsaves the state of\nthe active stage.\nOverrides the knob\nand program Cvs\nwith external\ninputs. A\npolyphonic input to\nIN will distribute\nthe inputs\ndownwards.\nSwitch between\nVoltage (off),\nSemitone quantizer\n(blue) and\nProbability\nTriggers (yellow).",
@@ -242,10 +350,14 @@
   {
     "name": "Tri Delay",
     "slug": "tri-delay",
-    "tagline": "A stereo 3-tap delay effect.",
+    "vcvSlug": "TriDelay",
+    "tagline": "A three tap fractional-delay with ranges from ms to a few seconds.",
+    "tags": [
+      "Delay"
+    ],
     "panelImage": "/panels/free/tri-delay.png",
     "sections": {
-      "panelMap": "TRI DELAY\nTRI DELAY is a 3-tap delay effect with intuitive\nvisual user interface. Envelope followers on the dry\nand wet signal make it easy to see what\u2019s going on\nin the delay, while colored dots indicate the delay\ntime, feedback and panning of the individual taps.\nGently tanh saturation with anti-derivative anti-\nalising, and 8x supersampling anti-aliasing on the\noutputs prevents harsh feedback noises.\nDELAY:\nDISPLAY\nPAN:\nFEEDBACK:\nCLEAR:\nHOLD:\nOUT:\nIN:\nSet the master delay in\nmsec. The buffer is\n3.6sec long, allowing\nup to 3600 msec delays.\nPer tap trimpots can\nadd or subtract from\nthis value.\nEnvelope followers on\nthe dry input signal\nand wet output signal\nare shown in orange and\nblue, respectively.\nThe delay time of each\ntap (0-3.6sec) is\nindicated by dots for\neach tap. The relative\nsize of the dots\nindicates the feedback\namount for each tap.\nThe color indicates the\npanning (red = left,\nblue = right).\nSet the master pan left\nto right. There are 2\ndelay channels, one for\neach stereo output, and\neach tap can output in\nstereo to these two\nbuffers. Per tap\ntrimpots add or subtract\nfrom the master.\nSets the master feedback\nlevel. Per tap trimpots\nadd or subtract from the\nmaster value.\nTanh saturation and anti-\nderivative anti-aliasing\nis implemented to reduce\nharsh feedback tones.\nClears the feedback\nbuffer.\nLoops the current buffer\nwhile button or gate is\nhigh.\nStereo outputs are 8x\noversampled and anti-\naliased to reduce harsh\nfeedback noise.\nStereo inputs. Mono inputs\nwill distribute to both\nchannels.",
+      "panelMap": "TRI DELAY\nTRI DELAY is a 3-tap delay effect with intuitive\nvisual user interface. Envelope followers on the dry\nand wet signal make it easy to see what’s going on\nin the delay, while colored dots indicate the delay\ntime, feedback and panning of the individual taps.\nGently tanh saturation with anti-derivative anti-\nalising, and 8x supersampling anti-aliasing on the\noutputs prevents harsh feedback noises.\nDELAY:\nDISPLAY\nPAN:\nFEEDBACK:\nCLEAR:\nHOLD:\nOUT:\nIN:\nSet the master delay in\nmsec. The buffer is\n3.6sec long, allowing\nup to 3600 msec delays.\nPer tap trimpots can\nadd or subtract from\nthis value.\nEnvelope followers on\nthe dry input signal\nand wet output signal\nare shown in orange and\nblue, respectively.\nThe delay time of each\ntap (0-3.6sec) is\nindicated by dots for\neach tap. The relative\nsize of the dots\nindicates the feedback\namount for each tap.\nThe color indicates the\npanning (red = left,\nblue = right).\nSet the master pan left\nto right. There are 2\ndelay channels, one for\neach stereo output, and\neach tap can output in\nstereo to these two\nbuffers. Per tap\ntrimpots add or subtract\nfrom the master.\nSets the master feedback\nlevel. Per tap trimpots\nadd or subtract from the\nmaster value.\nTanh saturation and anti-\nderivative anti-aliasing\nis implemented to reduce\nharsh feedback tones.\nClears the feedback\nbuffer.\nLoops the current buffer\nwhile button or gate is\nhigh.\nStereo outputs are 8x\noversampled and anti-\naliased to reduce harsh\nfeedback noise.\nStereo inputs. Mono inputs\nwill distribute to both\nchannels.",
       "basicUse": "",
       "patching": ""
     },
@@ -254,7 +366,12 @@
   {
     "name": "Tatami",
     "slug": "tatami",
-    "tagline": "A polyphonic stereo wavefolding effect.",
+    "vcvSlug": "Tatami",
+    "tagline": "A stereo polyphonic wave-shaper and wave-folder with display and ADAA antialising.",
+    "tags": [
+      "Waveshaper",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/tatami.png",
     "sections": {
       "panelMap": "TATAMI\nTATAMI is a stereo polyphonic wavefolder effect\nmodule. The smooth morphing between wavefolding\nshapes gives you access to a wide palette of sonic\ntimbres. Employs advanced antiderivitave antialising\nof signals, gently weaving waveforms into new shapes\nrather than creasing them.\nSets the wavefolding\nshape, morphing smoothly\nfrom a saturating Tanh\nshape at 0, to a Sine at\n1, an exponential Sine at\n2, and back to Tanh at 3.\nStereo inputs can\nsupport up to 16\nchannel polyphony.\nCompresses the IN signal\nbefore wavefolding, and\nthen uncompresses the\nresulting wave by the\nsame amount. This allows\nyou to wavefold dynamic\nsignals.\nApplies a DC offset to\nthe IN signal before\nwavefolding, resulting\nin interesting timbres.\nStereo outputs.\nControls the intensity\nof the wavefolding.\nSeparate CV controls for\nthe left and right\nchannels allow for\ninteresting stereo\nimaging effects.\nSHAPE:\nIN:\nCOMPRESS:\nSYMMETRY:\nOUT:\nDENSITY:",
@@ -266,7 +383,12 @@
   {
     "name": "Cartesia",
     "slug": "cartesia",
-    "tagline": "A 4x4x4 sequencer with up to 4 simultaneous outputs and CV control over knob ranges.",
+    "vcvSlug": "Cartesia",
+    "tagline": "A 4x4x4 sequencer for both quantized and non-quantized voltages, gates per step, and polyphonic outputs with stacked z-layer options.",
+    "tags": [
+      "Sequencer",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/cartesia.png",
     "sections": {
       "panelMap": "CARTESIA\nCARTESIA is a 4x4x4 sequencer with a interactive z-\nslice interface. A LED display shows exactly what is\ngoing on in the 3D sequencer grid, and dynamically\nmapped knobs and buttons update continuously. CV\ncontrol over knob ranges adds a unique twist to the\nsequencer.\nControl the X Y Z\nposition of the\nsequence by CV or\ntriggers or button\npresses.\nScans a sequencer Z\nlayer in X-Y.\nSets the range of the\nknobs in the knob panel.\nCV control dynamically\nupdates to the panel and\noutputs.\nSets the number of\npolyphonic outputs (up\nto 4). Outputs the other\nz-layers, starting with\nthe selected z-slice.\nMoves to a random xyz\nposition.\nAdds to the  final output voltage.\nKnobs have tunable\nranges. The color\nindicates the active z-\nslice. Buttons on each\nposition can turn on/off\nthat step of the\nsequence.\nGate and Inverted Gate\noutputs the button state\nof the selected\nsequencer stage. In POLY\nmodes, these inputs are\nalso polyphonic.\nGate and Inverted Gate\noutputs the button state\nof the selected\nsequencer stage. In POLY\nmodes, these inputs are\nalso polyphonic.\nSwitches between\nquantized notes and\nvoltages.\nXYZ:\nSCAN:\nMIN/RANGE:\nPOLY:\nRANDOM:\nOFFSET:\nSLICE PANEL:\nGATE:\nGATE:\nQUANTIZE:",
@@ -278,7 +400,11 @@
   {
     "name": "Junk DNA",
     "slug": "junk-dna",
-    "tagline": "A DNA-based gate sequencer. Input DNA codes to generate randomized DNA repeats, and then sequence them.",
+    "vcvSlug": "JunkDNA",
+    "tagline": "Input DNA codes to generate repetative genes, convert DNA sequence to numerous simultaneous gate signals.",
+    "tags": [
+      "Sequencer"
+    ],
     "panelImage": "/panels/free/junk-dna.png",
     "sections": {
       "panelMap": "JUNK DNA\nJUNK DNA is a gate sequencer that generates and\nreads DNA sequence variants. Text pattern input can\ndefine anything from short repetitive motifs to full\ngenes. Letter code can indicate fixed sequences as\nwell as partially and fully randomized positions.\nMoves the sequence\nbackwards. The gene is\n2056nts long, and going\npast the end loops\naround.\nScan forward in the\nsequence.\nResets the index of the\nposition on the sequece\nback to 0.\nOutputs a high gate\nwhen on that\nnucleotide.\nOutputs a high gate\nwhen on one of two\nnucleotide types (as\nindicated by the Venn\ndiagram on the panel)\nOutputs a high gate\nwhen NOT on the\ncorresponding\nnucleotide type.\nOutputs a signal (0-3V)\ncorresponding to the DNA sequence\nas it is read out. (A=0V, T=1V,\nC=2V, G=3V).\nEnter a DNA sequence pattern\nusing letter codes: A,T,C,G\nencode the four nucleotides.\nOther letters (RYSWDHBV)\nrepresent combinations (as\nindicated by the Venn\ndiagram).\nREV:\nFWD:\nRESET:\nA,T,C,G:\nR,Y,S,W:\nB,V,D,H:\nDNA:\nREPEAT PATTERN:",
@@ -288,24 +414,17 @@
     "collection": "free"
   },
   {
-    "name": "Hammer",
-    "slug": "hammer",
-    "tagline": "An sample-accurate eight-channel clock ratio module with chain function.",
-    "panelImage": "/panels/free/hammer.png",
-    "sections": {
-      "panelMap": "HAMMER\nHAMMER is a sample-accurate clock with ability to\nchain to other Hammer and Picus modules. Each of the\n8 channels can multiply and divide clock signals to\nproduce any beat ratio or polyrhythm.\nSets the clock rate in BPM.\nSet the clock multiplier/\ndivider ratios by pressing\nthe buttons.\nGate outputs are 50% pulse\nwidth based on the set clock\nratios.\nOutputs the main clock\nsignal.\nSets the swing amount.\nClock multiples will get\nRotates the clock ratio\nchannels. The arrow indicates\nthe rotated position of\nChannel 1.\nTurn the clock outputs on/\noff, or reset the clock\ndivider.\nTurn the clock outputs on/off,\nor reset the clock divider.\nOptional phasor mode in the\ncontext menu.\nClock-chaining function combines the ON/\nOFF, RESET and internal unswung master\nclock for other Hammer or Picus modules.\nThis allows you to have one copy with\nswing and one without, or one in Phasor\nmode etc.\nRATE:\nRATIO:\nOUTPUTS:\nCLOCK OUT\nSWING\nROTATE\nON/OFF RESET\nON/OFF RESET\nPHASORS\nCHAIN",
-      "basicUse": "",
-      "patching": ""
-    },
-    "collection": "free"
-  },
-  {
     "name": "Picus",
     "slug": "picus",
-    "tagline": "A seven-stage clock multiplier busrt sequencer, features programmable pulse patterns and multiple outputs.",
+    "vcvSlug": "Picus",
+    "tagline": "Compose sequences of trigger bursts. Program a sequence of up to seven clock multiplier stages. Customizable trigger patterns.",
+    "tags": [
+      "Sequencer",
+      "Clock modulator"
+    ],
     "panelImage": "/panels/free/picus.png",
     "sections": {
-      "panelMap": "PICUS\nPICUS is a two channel trigger burst generator.\nProgram up to seven stages of clock ratios. A\nvariable-length beat pattern overlays the different\nclocked beats to produce complex rhythms from a\nsimple interface.\nStage select. The sequencer\nwill go to the selected\nstage at the end of the\ncurrent stage.\nSet the number of beats to\nplay per stage. Setting\nBEATS to 0 will mute the\nstage and no drum beats\nwill be produced for the\nduration of that stage.\nSet the length of the stage\nin number of clock cycles.\nSetting CYCLES to 0 will\nturn the stage \u2018off\u2019,\ncausing it to be skipped.\nResets both the stage\nposition and the\npattern position to 0.\nTwo drum outputs DON and KA,\noutput trigger pulses, as\nprogrammed by the pattern. END\ncan be set to pulse at either\nthe end of each stage or loop\nvia context menu option.\nSelect between OFF (O),\nON (I), and 1-shot (1)\nmodes. In 1-shot mode\nthe mode switches to OFF\nat the end of a cycle.\nAdditionally the CLOCK\ninput accepts the CHAIN\nsignal from Hammer\nmodules.\nUp to ten steps can be\nprogrammed. Pushing the buttons\nalternates between DON (large\nwhite), KA (medium blue), and\nOFF (small red) modes. DON or\nKA sends the beat to the\nrespective output.\nSet the pattern length 1-10\nsteps. CV control allows for\nvariations. Context menu option\nsets if the pattern resets, or\nnot.\nSELECT:\nBEATS:\nCYCLES:\nRESET:\nOUTPUTS\nCLOCK:\nCHAIN:\nPATTERN\nPATTERN LENGTH:",
+      "panelMap": "PICUS\nPICUS is a two channel trigger burst generator.\nProgram up to seven stages of clock ratios. A\nvariable-length beat pattern overlays the different\nclocked beats to produce complex rhythms from a\nsimple interface.\nStage select. The sequencer\nwill go to the selected\nstage at the end of the\ncurrent stage.\nSet the number of beats to\nplay per stage. Setting\nBEATS to 0 will mute the\nstage and no drum beats\nwill be produced for the\nduration of that stage.\nSet the length of the stage\nin number of clock cycles.\nSetting CYCLES to 0 will\nturn the stage ‘off’,\ncausing it to be skipped.\nResets both the stage\nposition and the\npattern position to 0.\nTwo drum outputs DON and KA,\noutput trigger pulses, as\nprogrammed by the pattern. END\ncan be set to pulse at either\nthe end of each stage or loop\nvia context menu option.\nSelect between OFF (O),\nON (I), and 1-shot (1)\nmodes. In 1-shot mode\nthe mode switches to OFF\nat the end of a cycle.\nAdditionally the CLOCK\ninput accepts the CHAIN\nsignal from Hammer\nmodules.\nUp to ten steps can be\nprogrammed. Pushing the buttons\nalternates between DON (large\nwhite), KA (medium blue), and\nOFF (small red) modes. DON or\nKA sends the beat to the\nrespective output.\nSet the pattern length 1-10\nsteps. CV control allows for\nvariations. Context menu option\nsets if the pattern resets, or\nnot.\nSELECT:\nBEATS:\nCYCLES:\nRESET:\nOUTPUTS\nCLOCK:\nCHAIN:\nPATTERN\nPATTERN LENGTH:",
       "basicUse": "",
       "patching": ""
     },
@@ -314,22 +433,17 @@
   {
     "name": "Node",
     "slug": "node",
-    "tagline": "A compact two channel polyphonic stereo crossfader and mixer.",
+    "vcvSlug": "Node",
+    "tagline": "A two-channel stereo crossfading mixer.",
+    "tags": [
+      "Voltage-controlled amplifier",
+      "Mixer",
+      "Dual",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/node.png",
     "sections": {
-      "panelMap": "NODE\nNODE is a compact two channel stereo mixer and\ncrossfader with clickless mutes.\nThe VCA is set to have up to\n5X gain, allowing you to\namplify weak signals.\nAt higher gain levels, the\nsignal will gently saturate\nusing tanh saturation.\nAntiderivative antialiasing is\napplied to reduce the aliasing\neffects of non-linear distortion.\nCrossfader allows you to blend\nbetween two stereo signals. CV\ninput on the crossfader\noverrides and animates the\npanel control for visual\nfeedback of the mix. Responds\nto -5\u20265V range.\nMono or Poly inputs get mixed\ndown to a single channel stereo\nmix. If a polyphonic output is\ndesired you can switch to poly\nmode in the context menu.\nClickless mutes smoothly\ntransition on and off over\n10ms-2sec. Set fade intervals\nin the context menu. Bright red\nindicates the channel is muted.\nGAIN:\nSATURATION:\nANTIALIASING\nXFADE\nMIX\nMUTE",
-      "basicUse": "",
-      "patching": ""
-    },
-    "collection": "free"
-  },
-  {
-    "name": "Hub",
-    "slug": "hub",
-    "tagline": "A polyphonic two-channel macrocontroller with gain, offset and VCA control and voltage display.",
-    "panelImage": "/panels/free/hub.png",
-    "sections": {
-      "panelMap": "HUB\nHUB is a macrocontroller CV signal processing hub.\nEach of the two polyphonic inputs has gain, offset\nand VCA control. The displays give live readout of\nthe output voltage, while the animated knob allows\nyou to interrupt the input signal and manually set\nthe CV. Corn cob displays show the CV of all\nchannels when connected to an output.\nDisplays the voltage of the\ntop output channel\nThe corncob display shows the\noutputted voltage of the 16\npolyphonic channels. Small white\nindicates negative voltage and\nlarge yellow indicates positive\nvoltage.\nTwo channels of\npolyphonic inputs.\nSet the input gain up to 2x,\ninvert signals, and offset up\nto 10V.\nSets the maximal signal width of\nthe animated knob, and the\noutput.\nDISPLAY:\nCORN COB:\nINPUT\nATTENUVERT/OFFSET\nVCA",
+      "panelMap": "NODE\nNODE is a compact two channel stereo mixer and\ncrossfader with clickless mutes.\nThe VCA is set to have up to\n5X gain, allowing you to\namplify weak signals.\nAt higher gain levels, the\nsignal will gently saturate\nusing tanh saturation.\nAntiderivative antialiasing is\napplied to reduce the aliasing\neffects of non-linear distortion.\nCrossfader allows you to blend\nbetween two stereo signals. CV\ninput on the crossfader\noverrides and animates the\npanel control for visual\nfeedback of the mix. Responds\nto -5…5V range.\nMono or Poly inputs get mixed\ndown to a single channel stereo\nmix. If a polyphonic output is\ndesired you can switch to poly\nmode in the context menu.\nClickless mutes smoothly\ntransition on and off over\n10ms-2sec. Set fade intervals\nin the context menu. Bright red\nindicates the channel is muted.\nGAIN:\nSATURATION:\nANTIALIASING\nXFADE\nMIX\nMUTE",
       "basicUse": "",
       "patching": ""
     },
@@ -338,7 +452,12 @@
   {
     "name": "Weave",
     "slug": "weave",
-    "tagline": "A six-channel chord quantizer with a unique output permutation function.",
+    "vcvSlug": "Weave",
+    "tagline": "A six note chord quantizer, with the abilty to weave the outputs into different permutations. Individual outputs per channel allow you to split your chords to different voices.",
+    "tags": [
+      "Quantizer",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/weave.png",
     "sections": {
       "panelMap": "WEAVE\nWEAVE is chord quantizer with unique chord voicings\nreminiscent of guitar chords. The module is designed\nwith the idea that you will strum the output voices\nlike a guitar chord, or spatialize the polyphonic\nlayers. Weave the strings into new permutations and\nmove around in chord space in a new interactive way.\nDisplays the note value of\nthe 6 outputs. Each line\nshows the next permutations\nthat will happen when\ntriggered.\nSwitch between different output\nrotation patterns.\nResets the order of the chord\noutputs to the default.\nTriggers the next WEAVE output\narrangement.\nSets the root note of the chord.\nThe + - buttons allow you to move\nup and down by an octave.\nSet the chord type. Input is v/oct,\nwhere every semitone advances one\nsetting, wrapping. CV control\nexcludes the Oct setting.\nDirectly adds to the output chord\nvoltage, allowing you to transpose\nthe different chord voicings.\nDISPLAY:\nWEAVE\nRESET\nTRIGGER\nNOTE\nCHORD\nSHIFT",
@@ -350,10 +469,84 @@
   {
     "name": "Wonk",
     "slug": "wonk",
-    "tagline": "A six-channel low-frequency oscillator with unique phase-feedback wonkyness.",
+    "vcvSlug": "Wonk",
+    "tagline": "Generate clock-synced and wonky modulationss in six phase-locked channels.",
+    "tags": [
+      "Low-frequency Oscillator",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/wonk.png",
     "sections": {
-      "panelMap": "WONK\nWONK is a six-channel low frequency oscillator with\nbuilt in phase-feedback distortion designed to morph\nsynchronous oscillator signals into more chaotic\nones, but that still remain locked to the clock bpm.\nSets the rate multiplier of\nthe clock. Positive numbers\nmultiply the clock. Negative\nnumbers divide the clock.\nThe range -1\u20261 sets the\nclock to 1x.\nSets the channel for Wonk\nfeedback\nSet the modulation depth.\nResets the oscillators.\nSync the oscillators to\nexternal clock. Defaults to\n30 BPM.\nSet the amount of phase-\nfeedback.As wonk increases,\nthe range of nodes is\nnarrowed, and the outputs\nmorph between unison and chaos\nSet the phase spacing between\noscillators.\nOptionally, in the context menu\nyou can enable unipolar mode, to\nhave 0-10V unipolar outputs.\nIndividual outputs for the\nsix oscillators and a\npolyphonic output (P).\nRATE X:\nWONK POS.\nMOD DEPTH\nRESET\nCLOCK\nWONK\nNODES\nUNIPOLAR MODE\nOUTPUTS",
+      "panelMap": "WONK\nWONK is a six-channel low frequency oscillator with\nbuilt in phase-feedback distortion designed to morph\nsynchronous oscillator signals into more chaotic\nones, but that still remain locked to the clock bpm.\nSets the rate multiplier of\nthe clock. Positive numbers\nmultiply the clock. Negative\nnumbers divide the clock.\nThe range -1…1 sets the\nclock to 1x.\nSets the channel for Wonk\nfeedback\nSet the modulation depth.\nResets the oscillators.\nSync the oscillators to\nexternal clock. Defaults to\n30 BPM.\nSet the amount of phase-\nfeedback.As wonk increases,\nthe range of nodes is\nnarrowed, and the outputs\nmorph between unison and chaos\nSet the phase spacing between\noscillators.\nOptionally, in the context menu\nyou can enable unipolar mode, to\nhave 0-10V unipolar outputs.\nIndividual outputs for the\nsix oscillators and a\npolyphonic output (P).\nRATE X:\nWONK POS.\nMOD DEPTH\nRESET\nCLOCK\nWONK\nNODES\nUNIPOLAR MODE\nOUTPUTS",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "Hammer",
+    "slug": "hammer",
+    "vcvSlug": "Hammer",
+    "tagline": "A compact and more-precise version of the Syncro eight-channel clock ratio generator.",
+    "tags": [
+      "Clock generator",
+      "Clock modulator",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/free/hammer.png",
+    "sections": {
+      "panelMap": "HAMMER\nHAMMER is a sample-accurate clock with ability to\nchain to other Hammer and Picus modules. Each of the\n8 channels can multiply and divide clock signals to\nproduce any beat ratio or polyrhythm.\nSets the clock rate in BPM.\nSet the clock multiplier/\ndivider ratios by pressing\nthe buttons.\nGate outputs are 50% pulse\nwidth based on the set clock\nratios.\nOutputs the main clock\nsignal.\nSets the swing amount.\nClock multiples will get\nRotates the clock ratio\nchannels. The arrow indicates\nthe rotated position of\nChannel 1.\nTurn the clock outputs on/\noff, or reset the clock\ndivider.\nTurn the clock outputs on/off,\nor reset the clock divider.\nOptional phasor mode in the\ncontext menu.\nClock-chaining function combines the ON/\nOFF, RESET and internal unswung master\nclock for other Hammer or Picus modules.\nThis allows you to have one copy with\nswing and one without, or one in Phasor\nmode etc.\nRATE:\nRATIO:\nOUTPUTS:\nCLOCK OUT\nSWING\nROTATE\nON/OFF RESET\nON/OFF RESET\nPHASORS\nCHAIN",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "Hub",
+    "slug": "hub",
+    "vcvSlug": "Hub",
+    "tagline": "Two animated knob macro controllers with gain, offset, and knob range CV control.",
+    "tags": [
+      "Voltage-controlled amplifier",
+      "Utility",
+      "Dual",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/free/hub.png",
+    "sections": {
+      "panelMap": "HUB\nHUB is a macrocontroller CV signal processing hub.\nEach of the two polyphonic inputs has gain, offset\nand VCA control. The displays give live readout of\nthe output voltage, while the animated knob allows\nyou to interrupt the input signal and manually set\nthe CV. Corn cob displays show the CV of all\nchannels when connected to an output.\nDisplays the voltage of the\ntop output channel\nThe corncob display shows the\noutputted voltage of the 16\npolyphonic channels. Small white\nindicates negative voltage and\nlarge yellow indicates positive\nvoltage.\nTwo channels of\npolyphonic inputs.\nSet the input gain up to 2x,\ninvert signals, and offset up\nto 10V.\nSets the maximal signal width of\nthe animated knob, and the\noutput.\nDISPLAY:\nCORN COB:\nINPUT\nATTENUVERT/OFFSET\nVCA",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "CV funk Blank 8HP",
+    "slug": "cvfunk-blank",
+    "vcvSlug": "CVfunkBlank",
+    "tagline": "Blank panel for CV funk.",
+    "tags": [
+      "Blank"
+    ],
+    "panelImage": "/panels/free/cvfunk-blank.png",
+    "sections": {
+      "panelMap": "",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "CV funk Blank 4HP",
+    "slug": "cvfunk-blank4-hp",
+    "vcvSlug": "CVfunkBlank4HP",
+    "tagline": "Blank panel for CV funk.",
+    "tags": [
+      "Blank"
+    ],
+    "panelImage": "/panels/free/cvfunk-blank4-hp.png",
+    "sections": {
+      "panelMap": "",
       "basicUse": "",
       "patching": ""
     },
@@ -362,10 +555,15 @@
   {
     "name": "Rat",
     "slug": "rat",
-    "tagline": "A polyphonic V/oct ratio generator for exploring FM synthesis.",
+    "vcvSlug": "Rat",
+    "tagline": "Polyphonic ratio CV generator for exploring FMop ratios. Knob scales non-linearly around ratios, or optionally locks onto exact ratios.",
+    "tags": [
+      "Utility",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/free/rat.png",
     "sections": {
-      "panelMap": "RAT\nRAT is a polyphonic ratio generator designed for\nexploring FM synthesis. The RATIO knob doesn\u2019t scale\nlinearly, giving you more precision around useful\nslightly-detuned ratios.\nDisplays the current Osc\nI/II ratio. In normal mode\nyou can see to 3 decimals\nprecision the amount of de-\ntune. In LOCK mode the\nratios are shown as full\nfractions.\nThe RATIO knob is non-\nlinear, focusing on useful\nratios of 1 and 0.5. In the\ncontext menu you can set the\nlevel of non-linearity. LOCK\noverrides the non-linear\nscale and outputs the\nnearest fixed ratio.\nLock to fractional ratios.\nPolyphonic V/Oct input for\nthe numerator oscillator.\nSets the polyphony of the\nmodule.\nSet the ratio between Osc I\nand Osc II. Positive > 1\nratios create multiples, while\nnegative < -1 ratios create\ndivions. The region from -1 to\n1 is locked to 1:1 ratio.\nPolyphonic V/Oct output scaled by\nthe ratio.\nRATIO DISPLAY\nRATIO NON-LINEAR SCALE\nLOCK\nOSC I INPUT\nRATIO\nOSC II OUTPUT",
+      "panelMap": "RAT\nRAT is a polyphonic ratio generator designed for\nexploring FM synthesis. The RATIO knob doesn’t scale\nlinearly, giving you more precision around useful\nslightly-detuned ratios.\nDisplays the current Osc\nI/II ratio. In normal mode\nyou can see to 3 decimals\nprecision the amount of de-\ntune. In LOCK mode the\nratios are shown as full\nfractions.\nThe RATIO knob is non-\nlinear, focusing on useful\nratios of 1 and 0.5. In the\ncontext menu you can set the\nlevel of non-linearity. LOCK\noverrides the non-linear\nscale and outputs the\nnearest fixed ratio.\nLock to fractional ratios.\nPolyphonic V/Oct input for\nthe numerator oscillator.\nSets the polyphony of the\nmodule.\nSet the ratio between Osc I\nand Osc II. Positive > 1\nratios create multiples, while\nnegative < -1 ratios create\ndivions. The region from -1 to\n1 is locked to 1:1 ratio.\nPolyphonic V/Oct output scaled by\nthe ratio.\nRATIO DISPLAY\nRATIO NON-LINEAR SCALE\nLOCK\nOSC I INPUT\nRATIO\nOSC II OUTPUT",
       "basicUse": "",
       "patching": ""
     },
@@ -374,7 +572,11 @@
   {
     "name": "Count",
     "slug": "count",
-    "tagline": "It counts up or down, and outputs gate and stepped-phase with three operation modes.",
+    "vcvSlug": "Count",
+    "tagline": "Counts up. Counts down. Auto-adapting display can handle very large numbers.",
+    "tags": [
+      "Utility"
+    ],
     "panelImage": "/panels/free/count.png",
     "sections": {
       "panelMap": "COUNT\nCOUNT is a counting module with a large display.\nLooped, bounded or unbounded counting, it is a\nsimple and versatile tool for your patches. Outputs\nboth gate and stepped-phase signals.\nDisplays the current number,\nautomatically adapting the\nfont size to fit.\nOutputs a high gate at the\nloop point or end-points\ndepending on LOOP or STOP\nmode, respectively.\nOutputs a stepped-phase\nsignal 0V-10V that\nrepresents the phase of the\ncurrent number relative to\nthe MAX VAL. In UNBOUNDED\nmode, the phase output is\ncyclical.\nThe counter loops over the\nrange to MAX VAL.\nThe numbers increment or\ndecrement without bound (up to\n64bit integer).\nThe counter stops at the ends\nof the range.\nIncrement, decrement or reset the\nvalue of the counter.\nSet the reset point to zero, midpoint\nor endpoint.\nSet the mMAX VAL of the counter. You\ncan enter any positive number up to\n14 digits.\nSwitch between positive integer (10:\n1-10) and zero-index (10: 0-9)\ncounting in the context menu. Zero-\nindex counting is useful for linking\nmultiple counters into a larger\ndisplay.\nDISPLAY\nGATE\nPHASE\nLOOP\nMODE SETTING:\nUNBOUNDED\nSTOP\nUP/DOWN/RESET\nRESET POINT\nMAX VALUE\nZERO INDEX",
@@ -384,87 +586,213 @@
     "collection": "free"
   },
   {
+    "name": "Clpy",
+    "slug": "clpy",
+    "vcvSlug": "Clpy",
+    "tagline": "Stereo polyphonic waveshaper folds your waves and clips them to a target CV value or audio input.",
+    "tags": [
+      "Waveshaper",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/free/clpy.png",
+    "sections": {
+      "panelMap": "",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "Tuner",
+    "slug": "tuner",
+    "vcvSlug": "Tuner",
+    "tagline": "Dual autocorrelation tuner and zero-centered waveform display.",
+    "tags": [
+      "Tuner",
+      "Dual",
+      "Utility"
+    ],
+    "panelImage": "/panels/free/tuner.png",
+    "sections": {
+      "panelMap": "",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "Alloy",
+    "slug": "alloy",
+    "vcvSlug": "Alloy",
+    "tagline": "A metallic sound generator that uses Karplus–Strong fractional delay networks to produce shimmering, percussive tones.",
+    "tags": [
+      "Drum",
+      "Physical modeling",
+      "Polyphonic",
+      "Effect",
+      "Oscillator"
+    ],
+    "panelImage": "/panels/free/alloy.png",
+    "sections": {
+      "panelMap": "",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "Onion",
+    "slug": "onion",
+    "vcvSlug": "Onion",
+    "tagline": "A polyphonic fader module with layers.",
+    "tags": [
+      "Polyphonic",
+      "Utility"
+    ],
+    "panelImage": "/panels/free/onion.png",
+    "sections": {
+      "panelMap": "",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
+    "name": "Strata",
+    "slug": "strata",
+    "vcvSlug": "Strata",
+    "tagline": "A multi-layered step sequencer.",
+    "tags": [
+      "Sequencer"
+    ],
+    "panelImage": "/panels/free/strata.png",
+    "sections": {
+      "panelMap": "",
+      "basicUse": "",
+      "patching": ""
+    },
+    "collection": "free"
+  },
+  {
     "name": "Syzygy",
     "slug": "syzygy",
-    "collection": "modulations",
-    "tagline": "(TODO)",
+    "vcvSlug": "Syzygy",
+    "tagline": "Dual stereo phase‑feedback oscillator with cross‑FM, ring/AM, wavefolding, and noise.",
+    "tags": [
+      "Synth voice",
+      "Oscillator",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/modulations/syzygy.png",
     "sections": {
-      "panelMap": "(TODO) Add panel map text here.",
-      "basicUse": "(TODO) Add basic use text here.",
-      "patching": "(TODO) Add patching suggestions here."
-    }
+      "panelMap": "SYZYGY is a dual stereo oscillator built from two independent phase‑feedback distortion voices. Each voice can run free or be hard‑synced, and the two voices can interact via cross‑FM plus ring modulation / amplitude modulation. A wavefolder and noise source are integrated for additive, animated timbres.",
+      "basicUse": "• Pitch: Patch V/Oct to Osc I, Osc II, or both.\n• LOCK/SYNC: Choose free‑running or sync one oscillator to the other for tighter harmonic structure.\n• FM: By default the FM inputs are normalized for cross‑modulation; patching breaks the normal.\n• Volume as voice: Set VOLUME to 0 and drive it with an envelope to use Syzygy as a polyphonic synth voice.\n• Fold/Noise/Mix: Use FOLD and the noise blend to push from clean to complex.",
+      "patching": "• Cross‑FM textures: Leave FM normals intact and sweep XFM for evolving harmonic motion.\n• Stereo animation: Use SPREAD/ALIGN style controls to widen and animate L/R motion, then post‑process with chorus/delay.\n• Voice patch: V/Oct + envelope to VOLUME, then use MOD/MIX to morph between clean mix and cross‑mod."
+    },
+    "collection": "modulations"
   },
   {
     "name": "Super Wonk",
     "slug": "super-wonk",
-    "collection": "modulations",
-    "tagline": "(TODO)",
+    "vcvSlug": "SuperWonk",
+    "tagline": "16‑channel clock‑synced LFO bank that morphs from tight phase lock to controlled wonk.",
+    "tags": [
+      "Low-frequency oscillator",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/modulations/super-wonk.png",
     "sections": {
-      "panelMap": "(TODO) Add panel map text here.",
-      "basicUse": "(TODO) Add basic use text here.",
-      "patching": "(TODO) Add patching suggestions here."
-    }
+      "panelMap": "SUPER WONK is a 16‑channel clock‑synced LFO bank with phase relationships that can morph from tightly aligned motion into “wonky” drift while staying BPM‑locked. Phase feedback distortion lets you bend the LFO shapes beyond simple sines.",
+      "basicUse": "• Clock: Patch a clock to lock the engine; RESET re‑aligns phases.\n• RATE: Sets overall speed relative to the clock (and/or internal BPM).\n• NODE / clustering: Morphs the phase distribution across the 16 channels (from grouped to spread).\n• WONK / feedback: Increases phase warble and shape deformation while remaining tempo‑related.\n• Use poly: Treat the outputs as a 16‑lane modulation bus (filters, pans, wavefold, sequencer CV).",
+      "patching": "• 16‑lane mod bus: Patch adjacent channels to related parameters (cutoff, pan, timbre) for coherent motion.\n• Rhythmic phase scenes: Use RESET on bar boundaries to “snap” the modulation field back into alignment.\n• Controlled chaos: Modulate NODE slowly while keeping WONK moderate to avoid losing musical correlation."
+    },
+    "collection": "modulations"
   },
   {
     "name": "Envelope City",
     "slug": "envelope-city",
-    "collection": "modulations",
-    "tagline": "(TODO)",
+    "vcvSlug": "EnvelopeCity",
+    "tagline": "16‑channel envelope/function generator with interpolated times, shared shape, and chaining gates.",
+    "tags": [
+      "Envelope generator",
+      "Function generator",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/modulations/envelope-city.png",
     "sections": {
-      "panelMap": "(TODO) Add panel map text here.",
-      "basicUse": "(TODO) Add basic use text here.",
-      "patching": "(TODO) Add patching suggestions here."
-    }
+      "panelMap": "ENVELOPE CITY is a 16‑channel AD/function generator where channel times interpolate between endpoints. SLANT and CURVE shape the whole city, and per‑channel triggers plus gates support chaining and self‑patching.",
+      "basicUse": "• Set timing span: Use the WIDTH controls (first/last) to define the fastest and slowest channels.\n• Shape: SLANT controls time skew; CURVE morphs log ↔ linear ↔ exp.\n• Triggers: Fire individual channels (or use normalization if configured) for related envelope families.\n• Gates: Use end‑of‑cycle / at‑zero gates for resets, clocking, or envelope chaining.\n• Retrig behavior: Configure retriggering in the context menu depending on whether you want “legato” or hard restarts.",
+      "patching": "• 16‑stage modulation: Patch envelopes to a bank of VCAs for evolving amplitude “cityscapes.”\n• Chained phrases: Route GATE n → TRIG n+1 to create long macro‑envelopes.\n• Self‑oscillation: At fast ranges, patch gates back into triggers for related LFOs."
+    },
+    "collection": "modulations"
   },
   {
     "name": "Arrange XL",
     "slug": "arrange-xl",
-    "collection": "modulations",
-    "tagline": "(TODO)",
+    "vcvSlug": "ArrangeXL",
+    "tagline": "16‑channel CV sequencer for recording, playback, and stage‑addressed scene recall.",
+    "tags": [
+      "Sequencer",
+      "Polyphonic"
+    ],
     "panelImage": "/panels/modulations/arrange-xl.png",
     "sections": {
-      "panelMap": "(TODO) Add panel map text here.",
-      "basicUse": "(TODO) Add basic use text here.",
-      "patching": "(TODO) Add patching suggestions here."
-    }
+      "panelMap": "ARRANGE XL is a 16‑channel sequencer focused on recording and replaying CV. It can sample inputs per stage, play back polyphonic lanes, and provides stage addressing tools for both step‑sequencing and “scene” recall.",
+      "basicUse": "• Set length: END selects the number of active stages and rescales stage addressing.\n• Clock/advance: Drive TRIG/STEP to advance; RESET returns to stage 1.\n• Record: Use RECORD to write CV into the current stage (manual or CV‑controlled).\n• Addressing: Use STAGE to jump/select stages for non‑linear sequencing.\n• Output: Use per‑lane outs (or poly outs, depending on mode) to drive voices and mod destinations.",
+      "patching": "• Parameter automation: Record slow CV into lanes to automate filter/timbre changes across phrases.\n• Live resampling: Feed a mod source into an input lane and punch RECORD rhythmically to capture variations.\n• Scene sequencer: Use STAGE CV to scrub through stored “states” for performance transitions."
+    },
+    "collection": "modulations"
   },
   {
     "name": "Chord Caster",
     "slug": "chord-caster",
-    "collection": "pro",
-    "tagline": "(TODO)",
-    "panelImage": "/panels/pro/chord-caster.png",
+    "vcvSlug": "ChordCaster",
+    "tagline": "6‑note polyphonic stereo synth voice with chord quantizer, automation recorder, and integrated FX.",
+    "tags": [
+      "Synth voice",
+      "Sequencer",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/chord-caster/chord-caster.png",
     "sections": {
-      "panelMap": "(TODO) Add panel map text here.",
-      "basicUse": "(TODO) Add basic use text here.",
-      "patching": "(TODO) Add patching suggestions here."
-    }
+      "panelMap": "CHORD CASTER is a 6‑note polyphonic stereo synth voice with a chord‑based quantizer and internal sequencing/automation. It combines a multi‑parameter recorder, tempo‑synced modulation, compression/saturation, and a 3‑tap fractional delay for finished, mix‑ready chords.",
+      "basicUse": "• Choose chords/notes: Use the chord controls/quantizer to define the active harmony, then drive pitch via V/Oct or internal sequencing.\n• Record automation: Arm parameters in the RECORD section and record per‑step knob states while advancing stages.\n• Modulation bus: Use tempo‑synced modulation to animate timbre, filter/shape, and stereo motion.\n• Dynamics/FX: Use compression + tanh saturation for density; dial the 3‑tap delay for space and rhythmic repeats.\n• Sync: Keep multiple Chord Casters aligned via shared clock/reset (and match chord state as needed).",
+      "patching": "• Layered chord stacks: Run two Chord Casters in unison with different timbres; hard‑sync their clock and use slight detune/spread.\n• Automation phrases: Record a 8–16 step “gesture” (timbre + delay) and transpose chords externally for full song sections.\n• Sidechain polish: If you mix elsewhere, keep Chord Caster fairly clean and sidechain/compress in your master buss."
+    },
+    "collection": "chord-caster"
   },
   {
     "name": "Poly Map",
     "slug": "poly-map",
-    "collection": "pro",
-    "tagline": "(TODO)",
-    "panelImage": "/panels/pro/poly-map.png",
+    "vcvSlug": "PolyMap",
+    "tagline": "Repack poly V/Oct by gate activity; outputs only the currently held notes.",
+    "tags": [
+      "Utility",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/chord-caster/poly-map.png",
     "sections": {
-      "panelMap": "(TODO) Add panel map text here.",
-      "basicUse": "(TODO) Add basic use text here.",
-      "patching": "(TODO) Add patching suggestions here."
-    }
+      "panelMap": "POLY MAP converts a polyphonic V/Oct + gate stream into a compact, “only active notes” poly output. It reads gates to determine which notes are currently held, then repacks the active pitches—ideal for driving Chord Caster’s chord inputs cleanly.",
+      "basicUse": "• Patch poly V/Oct in and matching poly gates.\n• Gates define which channels are active; inactive notes are dropped.\n• Output is a repacked poly V/Oct containing only the active notes (stable voice ordering).",
+      "patching": "• MIDI → Chord Caster: Put POLY MAP between a MIDI-CV module and Chord Caster to eliminate “dead” channels.\n• Active‑note quantizing: Feed the packed output into a quantizer/chord module for cleaner harmony control."
+    },
+    "collection": "chord-caster"
   },
   {
     "name": "Chordy",
     "slug": "chordy",
-    "collection": "pro",
-    "tagline": "(TODO)",
-    "panelImage": "/panels/pro/chordy.png",
+    "vcvSlug": "Chordy",
+    "tagline": "Compact 6‑note chord sequencer with individual note outs and voicing/rotation controls.",
+    "tags": [
+      "Sequencer",
+      "Polyphonic"
+    ],
+    "panelImage": "/panels/chord-caster/chordy.png",
     "sections": {
-      "panelMap": "(TODO) Add panel map text here.",
-      "basicUse": "(TODO) Add basic use text here.",
-      "patching": "(TODO) Add patching suggestions here."
-    }
+      "panelMap": "CHORDY is the chord sequencer core of Chord Caster in a compact module. It sequences 6‑note chords and provides individual note CV outs, with utilities (e.g., rotate/voicing control) for distributing chord tones across voices.",
+      "basicUse": "• Program or sequence chord steps; drive with clock + reset.\n• Use individual note outputs to route chord tones to separate voices.\n• Use rotation/voicing controls to permute which note goes to which output without changing the chord.",
+      "patching": "• Split‑voice chords: Send each note output to a different oscillator/voice for wide, orchestrated chords.\n• Voice‑leading: Use rotate/permutation to minimize jumps while stepping chords.\n• Chord as mod source: Use chord tones as related CVs for filters/waveshapers tied to harmony."
+    },
+    "collection": "chord-caster"
   }
 ]

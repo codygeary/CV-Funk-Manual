@@ -15,7 +15,7 @@ const { modules, currentCollection = 'free' } = Astro.props;
         <nav class="collections" aria-label="Collections">
           <a class={['tab', currentCollection === 'free' && 'active'].filter(Boolean).join(' ')} href="/free">Free</a>
           <a class={['tab', currentCollection === 'modulations' && 'active'].filter(Boolean).join(' ')} href="/modulations">Modulations</a>
-          <a class={['tab', currentCollection === 'pro' && 'active'].filter(Boolean).join(' ')} href="/pro">Pro</a>
+          <a class={['tab', currentCollection === 'chord-caster' && 'active'].filter(Boolean).join(' ')} href="/chord-caster">Chord Caster</a>
         </nav>
 
         <div class="picker">
