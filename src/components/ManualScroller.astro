@@ -1,5 +1,5 @@
 ---
-const { modules } = Astro.props;
+const { modules, currentCollection = 'free' } = Astro.props;
 
 /**
  * modules: [
@@ -12,6 +12,12 @@ const { modules } = Astro.props;
   <aside class="manual-left">
     <div class="sticky">
       <div class="left-top">
+        <nav class="collections" aria-label="Collections">
+          <a class={['tab', currentCollection === 'free' && 'active'].filter(Boolean).join(' ')} href="/free">Free</a>
+          <a class={['tab', currentCollection === 'modulations' && 'active'].filter(Boolean).join(' ')} href="/modulations">Modulations</a>
+          <a class={['tab', currentCollection === 'pro' && 'active'].filter(Boolean).join(' ')} href="/pro">Pro</a>
+        </nav>
+
         <div class="picker">
           <label class="picker-label" for="moduleJump">Jump</label>
           <select id="moduleJump" class="picker-select">
@@ -76,10 +82,29 @@ const { modules } = Astro.props;
     const moduleJump = document.getElementById('moduleJump');
     const themeToggle = document.getElementById('themeToggle');
 
+    function toDarkVariant(src) {
+      // Supports .png/.jpg/.jpeg/.webp
+      return src.replace(/\.(png|jpg|jpeg|webp)$/i, '-dark.$1');
+    }
+
+    function setPanelImage(lightSrc, name) {
+      const isDark = document.documentElement.classList.contains('dark');
+      const desired = isDark ? toDarkVariant(lightSrc) : lightSrc;
+
+      // Try desired first; if missing, fall back to light.
+      panelImg.onerror = () => {
+        if (panelImg.src.endsWith(toDarkVariant(lightSrc))) {
+          panelImg.onerror = null;
+          panelImg.src = lightSrc;
+        }
+      };
+      panelImg.src = desired;
+      panelImg.alt = name;
+    }
+
     function setActive(moduleEl) {
       if (!moduleEl) return;
-      panelImg.src = moduleEl.dataset.img;
-      panelImg.alt = moduleEl.dataset.name;
+      setPanelImage(moduleEl.dataset.img, moduleEl.dataset.name);
       panelTitle.textContent = moduleEl.dataset.name;
       panelTagline.textContent = moduleEl.dataset.tagline;
       moduleJump.value = moduleEl.dataset.slug;
@@ -107,6 +132,10 @@ const { modules } = Astro.props;
       const html = document.documentElement;
       html.classList.toggle('dark');
       localStorage.setItem('cvfunk_theme', html.classList.contains('dark') ? 'dark' : 'light');
+
+      // Refresh left image to match theme.
+      const active = document.querySelector('.module.active') || modules[0];
+      setActive(active);
     });
 
     // Restore theme

@@ -30,6 +30,12 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans)}
 .manual-left .sticky{position:sticky;top:78px;display:flex;flex-direction:column;gap:12px}
 .left-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
 
+.collections{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--card);color:var(--fg);
+  padding:7px 10px;border-radius:999px;text-decoration:none;font-size:12px;line-height:1}
+.tab:hover{filter:brightness(1.05)}
+.tab.active{background:color-mix(in srgb,var(--fg) 10%,var(--bg));border-color:color-mix(in srgb,var(--fg) 22%,var(--line))}
+
 .picker{display:flex;align-items:center;gap:10px}
 .picker-label{font-size:12px;color:var(--muted)}
 .picker-select{border:1px solid var(--line);background:var(--bg);color:var(--fg);
@@ -58,3 +64,15 @@ pre{margin:0;white-space:pre-wrap;font-family:var(--sans);line-height:1.55;font-
 .site-footer{border-top:1px solid var(--line);padding:18px 0 28px}
 .footer-inner{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}
 .muted{color:var(--muted)}
+
+/* Landing */
+.landing{padding:28px 0 48px}
+.landing-title{margin:0;font-size:34px;letter-spacing:.2px}
+.landing-sub{margin:10px 0 0;max-width:70ch}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+@media (max-width:900px){.cards{grid-template-columns:1fr}}
+.card{display:block;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 94%,var(--card));
+  border-radius:var(--radius);padding:16px 16px 18px;text-decoration:none;box-shadow:var(--shadow)}
+.card:hover{filter:brightness(1.03)}
+.card-title{font-weight:800;font-size:18px}
+.card-text{margin-top:6px;font-size:13px}

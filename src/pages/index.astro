@@ -1,6 +1,4 @@
 ---
-import ManualScroller from '../components/ManualScroller.astro';
-import modules from '../data/modules.json';
 import '../styles/global.css';
 ---
 
@@ -9,25 +7,42 @@ import '../styles/global.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CV funk Manual</title>
-    <meta name="description" content="CV funk modules manual for VCV Rack." />
+    <meta name="description" content="CV funk modules manuals for VCV Rack." />
   </head>
   <body>
     <header class="site-header">
       <div class="wrap header-inner">
         <div class="brand">
           <div class="brand-title">CV funk Manual</div>
-          <div class="brand-sub">Module Collection for VCV Rack</div>
+          <div class="brand-sub">Module collections for VCV Rack</div>
         </div>
 
         <nav class="header-actions">
           <a class="btn" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_Manual.pdf" target="_blank" rel="noreferrer">PDF</a>
         </nav>
       </div>
     </header>
 
     <main class="wrap">
-      <ManualScroller modules={modules} />
+      <section class="landing">
+        <h1 class="landing-title">Choose a collection</h1>
+        <p class="landing-sub muted">Scrollable manual format with a sticky panel view.</p>
+
+        <div class="cards">
+          <a class="card" href="/free">
+            <div class="card-title">Free</div>
+            <div class="card-text muted">Core CV funk modules.</div>
+          </a>
+          <a class="card" href="/modulations">
+            <div class="card-title">Modulations</div>
+            <div class="card-text muted">Premium modulation collection.</div>
+          </a>
+          <a class="card" href="/pro">
+            <div class="card-title">Pro</div>
+            <div class="card-text muted">Premium tools and composition modules.</div>
+          </a>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
