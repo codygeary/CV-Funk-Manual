@@ -2,6 +2,8 @@
 import ManualScroller from '../components/ManualScroller.astro';
 import allModules from '../data/modules.json';
 import '../styles/global.css';
+let base = import.meta.env.BASE_URL;
+if (!base.endsWith('/')) base += '/';
 
 const modules = allModules.filter((m) => m.collection === 'chord-caster');
 ---
@@ -17,8 +19,8 @@ const modules = allModules.filter((m) => m.collection === 'chord-caster');
     <header class="site-header">
       <div class="wrap header-inner">
         <div class="brand">
-          <a class="brand-title" href="/">CV funk Manual</a>
-          <div class="brand-sub">Chord Caster Collection</div>
+        <a href={import.meta.env.BASE_URL}>CV funk Manual</a>
+        <div class="brand-sub">Chord Caster Collection</div>
         </div>
 
         <nav class="header-actions">
