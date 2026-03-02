@@ -41,9 +41,21 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans)}
 .picker-select{border:1px solid var(--line);background:var(--bg);color:var(--fg);
   border-radius:12px;padding:8px 10px;font-size:13px}
 
+/* 
 .panel-frame{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);
   box-shadow:var(--shadow);overflow:hidden;position:relative}
 .panel-img{width:100%;height:auto;display:block}
+ */
+.panel-frame{
+  max-height: calc(100vh - 160px);
+  overflow: auto;                 /* scroll instead of crop */
+}
+
+.panel-img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .panel-overlay{position:absolute;left:0;right:0;bottom:0;padding:12px 12px 14px;
   background:linear-gradient(to top,color-mix(in srgb,var(--bg) 92%,transparent),transparent)}
 .panel-title{font-weight:800;letter-spacing:.3px}
