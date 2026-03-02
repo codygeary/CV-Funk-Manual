@@ -1,3 +1,15 @@
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  pointer-events:none;
+  opacity:.18;
+  background:
+    linear-gradient(to right, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--line) 55%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(700px 500px at 50% 0%, #000 60%, transparent 100%);
+}
+
 :root{
   --bg:#fff; --fg:#111; --muted:rgba(17,17,17,.65);
   --card:rgba(17,17,17,.04); --line:rgba(17,17,17,.12);
@@ -41,7 +53,49 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans)}
 .picker-select{border:1px solid var(--line);background:var(--bg);color:var(--fg);
   border-radius:12px;padding:8px 10px;font-size:13px}
 
+/* Panel: scale by height; scroll horizontally if it gets too wide */
+.panel-frame{
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  position:relative;
 
+  /* critical: give it a real height so the image can size to it */
+  height: calc(100vh - 160px);
+  max-height: calc(100vh - 160px);
+
+  /* we never want vertical cropping; we allow horizontal scroll instead */
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /* optional: nicer centering when image is narrower than the frame */
+  display: flex;
+  align-items: center;
+}
+
+/* Scale to height; width is whatever it needs to be.
+   If width exceeds the frame, frame scrolls horizontally. */
+.panel-img{
+  height: 100%;
+  width: auto;
+
+  /* important: allow it to exceed container width (so scroll works) */
+  max-width: none;
+
+  display: block;
+  margin: 0 auto; /* centers when narrower */
+}
+
+/* Optional: make horizontal scrollbar less ugly */
+.panel-frame::-webkit-scrollbar{height:10px}
+.panel-frame::-webkit-scrollbar-thumb{
+  background: color-mix(in srgb, var(--fg) 18%, transparent);
+  border-radius:999px;
+}
+.panel-frame::-webkit-scrollbar-track{
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+}
 
 .panel-overlay{position:absolute;left:0;right:0;bottom:0;padding:12px 12px 14px;
   background:linear-gradient(to top,color-mix(in srgb,var(--bg) 92%,transparent),transparent)}
