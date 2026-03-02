@@ -13,10 +13,10 @@ const { modules, currentCollection = 'free' } = Astro.props;
     <div class="sticky">
       <div class="left-top">
         <nav class="collections" aria-label="Collections">
-          <a class={['tab', currentCollection === 'free'         && 'active'].filter(Boolean).join(' ')} href="/free">Free</a>
-          <a class={['tab', currentCollection === 'modulations'  && 'active'].filter(Boolean).join(' ')} href="/modulations">Modulations</a>
-          <a class={['tab', currentCollection === 'chord-caster' && 'active'].filter(Boolean).join(' ')} href="/chord-caster">Chord Caster</a>
-          <a class={['tab', currentCollection === 'sands'        && 'active'].filter(Boolean).join(' ')} href="/sands">Sands</a>
+          <a class={['tab', currentCollection === 'free'         && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}$1`}>Free</a>
+          <a class={['tab', currentCollection === 'modulations'  && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}$1`}>Modulations</a>
+          <a class={['tab', currentCollection === 'chord-caster' && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}$1`}>Chord Caster</a>
+          <a class={['tab', currentCollection === 'sands'        && 'active'].filter(Boolean).join(' ')} href={`${import.meta.env.BASE_URL}$1`}>Sands</a>
         </nav>
 
         <div class="picker">
