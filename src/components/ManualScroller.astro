@@ -31,7 +31,7 @@ const asset = (p: string) => base + String(p).replace(/^\/+/, '');
       </div>
 
       <div class="panel-frame">
-        <img id="panelImg" class="panel-img" src={modules[0].panelImage} alt={modules[0].name} loading="eager" />
+        <img id="panelImg" class="panel-img" src={asset(modules[0].panelImage)} alt={modules[0].name} loading="eager" />
         <div id="panelOverlay" class="panel-overlay">
           <div id="panelTitle" class="panel-title">{modules[0].name}</div>
           <div id="panelTagline" class="panel-tagline">{modules[0].tagline}</div>
@@ -84,6 +84,13 @@ const asset = (p: string) => base + String(p).replace(/^\/+/, '');
   </div>
 
   <script>
+    const BASE = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+    function resolveAsset(p: string) {
+      // "/panels/x.png" -> "<BASE>panels/x.png"
+      return BASE + String(p).replace(/^\/+/, '');
+    }
+  
     const modules = Array.from(document.querySelectorAll('.module'));
     const panelImg    = document.getElementById('panelImg')    as HTMLImageElement;
     const panelTitle  = document.getElementById('panelTitle')  as HTMLElement;
@@ -94,23 +101,27 @@ const asset = (p: string) => base + String(p).replace(/^\/+/, '');
     // ---- Theme helpers ----
 
     function toDarkVariant(src: string) {
-      return src.replace(/\.(png|jpg|jpeg|webp)$/i, '-dark.');
+      return src.replace(/\.(png|jpg|jpeg|webp)$/i, '-dark.$1');
     }
-
+    
     function setPanelImage(lightSrc: string, name: string) {
       const isDark = document.documentElement.classList.contains('dark');
-      const desired = isDark ? toDarkVariant(lightSrc) : lightSrc;
+
+      const resolvedLight = resolveAsset(lightSrc);
+      const resolvedDark  = toDarkVariant(resolvedLight);
+      const desired = isDark ? resolvedDark : resolvedLight;
 
       panelImg.onerror = () => {
-        if (panelImg.src.endsWith(toDarkVariant(lightSrc))) {
+        // If dark variant is missing, fall back to light.
+        if (panelImg.src.endsWith(resolvedDark)) {
           panelImg.onerror = null;
-          panelImg.src = lightSrc;
+          panelImg.src = resolvedLight;
         }
       };
+
       panelImg.src = desired;
       panelImg.alt = name;
     }
-
     // ---- Active module ----
 
     function setActive(moduleEl: Element | null) {
