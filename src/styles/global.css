@@ -1,44 +1,4 @@
 :root{
-  --accent:#ff7a2f; /* tune this to match your panel orange */
-  --card2: color-mix(in srgb, var(--card) 70%, transparent);
-}
-
-/* subtle background that feels technical */
-body{
-  background:
-    radial-gradient(900px 500px at 15% 5%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%),
-    radial-gradient(900px 500px at 85% 10%, color-mix(in srgb, var(--fg) 10%, transparent), transparent 55%),
-    var(--bg);
-}
-
-/* more “UI panel” buttons */
-.btn{
-  border: 1px solid color-mix(in srgb, var(--line) 75%, var(--accent));
-}
-.btn:hover{
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
-}
-
-/* landing cards: cleaner + more modern */
-.card{
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg) 92%, var(--card)), color-mix(in srgb, var(--bg) 82%, var(--card)));
-  border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
-  position: relative;
-}
-.card:before{
-  content:"";
-  position:absolute; inset:0;
-  border-radius: var(--radius);
-  pointer-events:none;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
-  opacity:.0;
-  transition: opacity .15s ease;
-}
-.card:hover:before{opacity:1}
-.card-title{letter-spacing:.4px}
-
-:root{
   --bg:#fff; --fg:#111; --muted:rgba(17,17,17,.65);
   --card:rgba(17,17,17,.04); --line:rgba(17,17,17,.12);
   --shadow:0 10px 30px rgba(0,0,0,.08); --radius:16px;
@@ -81,24 +41,31 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans)}
 .picker-select{border:1px solid var(--line);background:var(--bg);color:var(--fg);
   border-radius:12px;padding:8px 10px;font-size:13px}
 
-
-
 .panel-frame{
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  position:relative;
+
+  /* fixed viewing height so tall panels fit */
   height: calc(100vh - 160px);
+
+  /* never crop vertically; allow horizontal scroll for wide panels */
   overflow-x: auto;
   overflow-y: hidden;
+
   display:flex;
   align-items:center;
 }
 
-/* scale by height, but never render narrower than 360px (tune this) */
+/* Preserve aspect ratio: only constrain ONE dimension */
 .panel-img{
   height: 100%;
   width: auto;
-  min-width: 360px;   /* acts like your “minimum shrink” */
-  max-width: none;
+  max-width: none;   /* allow it to exceed frame width */
+  display:block;
 }
-
 
 .panel-overlay{position:absolute;left:0;right:0;bottom:0;padding:12px 12px 14px;
   background:linear-gradient(to top,color-mix(in srgb,var(--bg) 92%,transparent),transparent)}
