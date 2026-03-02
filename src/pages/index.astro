@@ -1,7 +1,10 @@
 ---
 import '../styles/global.css';
 
-const base = import.meta.env.BASE_URL; // "/CV-Funk-Manual/" on GitHub Pages
+const { modules, currentCollection = 'free' } = Astro.props;
+
+let base = import.meta.env.BASE_URL;
+if (!base.endsWith('/')) base += '/';
 ---
 
 <html lang="en">
@@ -111,7 +114,7 @@ const base = import.meta.env.BASE_URL; // "/CV-Funk-Manual/" on GitHub Pages
 
         <div class="cards">
           <!-- If Free is your root manual page, keep href={base}. If Free is /free/, use `${base}free/` instead. -->
-          <a class="card" href={base}>
+          <a class="card" href={`${base}free/`}>
             <div class="card-body">
               <div class="card-title">Free Modules</div>
               <div class="card-text">Core CV funk modules</div>
