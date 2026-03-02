@@ -1,0 +1,121 @@
+---
+const { modules } = Astro.props;
+
+/**
+ * modules: [
+ *  { name, slug, tagline, panelImage, sections: { panelMap, basicUse, patching } }
+ * ]
+ */
+---
+
+<section class="manual">
+  <aside class="manual-left">
+    <div class="sticky">
+      <div class="left-top">
+        <div class="picker">
+          <label class="picker-label" for="moduleJump">Jump</label>
+          <select id="moduleJump" class="picker-select">
+            {modules.map((m) => <option value={m.slug}>{m.name}</option>)}
+          </select>
+        </div>
+
+        <div class="toggle">
+          <button id="themeToggle" class="btn" type="button" aria-label="Toggle theme">Theme</button>
+        </div>
+      </div>
+
+      <div class="panel-frame">
+        <img id="panelImg" class="panel-img" src={modules[0].panelImage} alt={modules[0].name} loading="eager" />
+        <div id="panelOverlay" class="panel-overlay">
+          <div id="panelTitle" class="panel-title">{modules[0].name}</div>
+          <div id="panelTagline" class="panel-tagline">{modules[0].tagline}</div>
+        </div>
+      </div>
+
+      <div class="hint muted">Scroll on the right to advance modules.</div>
+    </div>
+  </aside>
+
+  <div class="manual-right">
+    {modules.map((m) => (
+      <article id={m.slug} class="module" data-slug={m.slug} data-name={m.name} data-tagline={m.tagline} data-img={m.panelImage}>
+        <header class="module-header">
+          <h2 class="module-title">{m.name}</h2>
+          <p class="module-tagline">{m.tagline}</p>
+        </header>
+
+        <section class="module-section">
+          <h3>Panel map</h3>
+          <div class="prose"><pre>{m.sections.panelMap}</pre></div>
+        </section>
+
+        {m.sections.basicUse?.trim() ? (
+          <section class="module-section">
+            <h3>Basic use</h3>
+            <div class="prose"><pre>{m.sections.basicUse}</pre></div>
+          </section>
+        ) : null}
+
+        {m.sections.patching?.trim() ? (
+          <section class="module-section">
+            <h3>Patching suggestions</h3>
+            <div class="prose"><pre>{m.sections.patching}</pre></div>
+          </section>
+        ) : null}
+
+        <div class="module-divider"></div>
+      </article>
+    ))}
+  </div>
+
+  <script>
+    const modules = Array.from(document.querySelectorAll('.module'));
+    const panelImg = document.getElementById('panelImg');
+    const panelTitle = document.getElementById('panelTitle');
+    const panelTagline = document.getElementById('panelTagline');
+    const moduleJump = document.getElementById('moduleJump');
+    const themeToggle = document.getElementById('themeToggle');
+
+    function setActive(moduleEl) {
+      if (!moduleEl) return;
+      panelImg.src = moduleEl.dataset.img;
+      panelImg.alt = moduleEl.dataset.name;
+      panelTitle.textContent = moduleEl.dataset.name;
+      panelTagline.textContent = moduleEl.dataset.tagline;
+      moduleJump.value = moduleEl.dataset.slug;
+      modules.forEach((el) => el.classList.toggle('active', el === moduleEl));
+    }
+
+    // Scroll spy: pick the module whose top is closest to the viewport top.
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target);
+    }, { root: null, threshold: [0.25, 0.5, 0.75] });
+
+    modules.forEach((m) => io.observe(m));
+
+    moduleJump.addEventListener('change', (e) => {
+      const slug = e.target.value;
+      const el = document.getElementById(slug);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Theme toggle (simple): toggles a class on <html>.
+    themeToggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+      localStorage.setItem('cvfunk_theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Restore theme
+    (() => {
+      const saved = localStorage.getItem('cvfunk_theme');
+      if (saved === 'dark') document.documentElement.classList.add('dark');
+    })();
+
+    // Initialize
+    setActive(modules[0]);
+  </script>
+</section>
