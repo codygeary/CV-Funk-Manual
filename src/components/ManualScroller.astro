@@ -16,7 +16,7 @@ const asset = (p: string) => base + String(p).replace(/^\/+/, '');
           <a class={['tab', currentCollection === 'free'         && 'active'].filter(Boolean).join(' ')} href={`${base}free/`}>Free</a>
           <a class={['tab', currentCollection === 'modulations'  && 'active'].filter(Boolean).join(' ')} href={`${base}modulations/`}>Modulations</a>
           <a class={['tab', currentCollection === 'chord-caster' && 'active'].filter(Boolean).join(' ')} href={`${base}chord-caster/`}>Chord Caster</a>
-<!--           <a class={['tab', currentCollection === 'sands'        && 'active'].filter(Boolean).join(' ')} href={`${base}sands/`}>Sands</a> -->
+          <a class={['tab', currentCollection === 'sands'        && 'active'].filter(Boolean).join(' ')} href={`${base}sands/`}>Sands</a>
         </nav>
         <div class="picker">
           <label class="picker-label" for="moduleJump">Jump</label>
