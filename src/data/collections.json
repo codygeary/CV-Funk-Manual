@@ -22,5 +22,13 @@
     "version": "2.1.10",
     "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_PRO_Manual.pdf",
     "license": "https://vcvrack.com/eula"
+  },
+  {
+    "id": "sands",
+    "name": "Sands",
+    "pluginSlug": "CVfunkSands",
+    "version": "2.3.3",
+    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_SANDS_Manual.pdf",
+    "license": "https://vcvrack.com/eula"
   }
 ]
