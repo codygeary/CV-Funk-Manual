@@ -695,7 +695,7 @@
   "name": "Aulos",
   "slug": "aulos",
   "vcvSlug": "Aulos",
-  "tagline": "Polyphonic physical-model wind instrument with reed-to-flute excitation morph, dual waveguide bore, register detection, ASR breath envelope, and stereo R voice for drone or harmony.",
+  "tagline": "Polyphonic dual wind instrument physical model with register detection and ASR envelope.",
   "tags": [
     "Physical modeling",
     "Synth voice",
