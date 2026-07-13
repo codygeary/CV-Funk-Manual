@@ -3,32 +3,32 @@
     "id": "free",
     "name": "Free",
     "pluginSlug": "CVfunk",
-    "version": "2.0.40",
-    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_Manual.pdf",
+    "version": "2.0.47",
+    "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_Manual.pdf",
     "license": "MIT"
   },
   {
     "id": "modulations",
     "name": "Modulations",
     "pluginSlug": "CVfunkModulations",
-    "version": "2.2.12",
-    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_MOD_Manual.pdf",
+    "version": "2.2.14",
+    "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_MOD_Manual.pdf",
     "license": "https://vcvrack.com/eula"
   },
   {
     "id": "chord-caster",
     "name": "Chord Caster",
     "pluginSlug": "CVfunkChordCaster",
-    "version": "2.1.10",
-    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_PRO_Manual.pdf",
+    "version": "2.1.11",
+    "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_CC_Manual.pdf",
     "license": "https://vcvrack.com/eula"
   },
   {
     "id": "sands",
     "name": "Sands",
     "pluginSlug": "CVfunkSands",
-    "version": "2.3.3",
-    "manualUrl": "https://github.com/codygeary/CVfunk-Modules/blob/main/img/CV_funk_SANDS_Manual.pdf",
+    "version": "2.3.8",
+    "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_SANDS_Manual.pdf",
     "license": "https://vcvrack.com/eula"
   }
 ]
