@@ -241,3 +241,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 /* anchors clear the sticky header */
 section[id], #mod{scroll-margin-top:72px}
+
+/* ---------- one type voice for the header and section heads ---------- */
+.mark small{font:400 15px var(--panel);font-style:normal;letter-spacing:0;text-transform:none;color:var(--muted)}
+.sitenav{font:400 15px var(--panel)}
+.shead{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:20px}
+.shead h2{font:italic 700 clamp(24px,3vw,30px)/1.1 var(--panel);margin:0}
+.shead .filterbar{margin:0}
+.slead{max-width:68ch;margin:0 0 24px;font-size:16px;color:var(--muted)}
+.filterbar select{font:14px var(--panel);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+.about-name{font:italic 700 18px var(--panel);margin:0 0 10px !important}

@@ -6,8 +6,8 @@
     "version": "2.0.53",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_Manual.pdf",
     "license": "MIT",
-    "tagline": "The core collection. Free and open source.",
-    "intro": "Envelopes, sequencers, clocks, macro controllers, oscillators, physical models, mixers and effects. Each one turns simple inputs into a wide spread of modulation and sound, and they're built to be patched into each other.",
+    "tagline": "Something for almost every job.",
+    "intro": "Envelopes, sequencers, clocks, macro controllers, oscillators, physical models, mixers and effects. This is the core of CV funk, and it's where many of the best modules live. Free and open source.",
     "showcase": [
       "twang",
       "impulse-controller",
@@ -52,8 +52,8 @@
         ]
       }
     ],
-    "tagline": "Polyphonic modulation, built around a complex oscillator.",
-    "intro": "SYZYGY, a complex oscillator grown from OUROS, with a fully polyphonic sequencer (ARRANGE XL), envelope generator (ENVELOPE CITY) and LFO (SUPER WONK), all with a streamlined workflow.",
+    "tagline": "For 16-voice polyphonic workflows, and an experimental complex oscillator.",
+    "intro": "SYZYGY, a complex oscillator grown from OUROS, alongside 16-channel takes on the sequencer (ARRANGE XL), the envelope generator (ENVELOPE CITY) and the LFO (SUPER WONK).",
     "showcase": [
       "syzygy",
       "super-wonk",
@@ -76,8 +76,8 @@
         "start": 0
       }
     ],
-    "tagline": "A complete poly synth and composition tool in one module.",
-    "intro": "CHORD CASTER sequences chords, voicings and rhythms bar by bar through a six-voice oscillator, modulation bus, mixer and delay. Every step can recall all 42 knobs and 20 button states. POLY MAP and CHORDY extend it.",
+    "tagline": "For automating and sequencing chords and complex strumming rhythms.",
+    "intro": "CHORD CASTER sequences chords, voicings and strum patterns bar by bar through its own six-voice oscillator, modulation, mixer and delay. Every step can recall all 42 knobs and 20 buttons. POLY MAP and CHORDY extend it.",
     "showcase": [
       "chord-caster",
       "chordy",
@@ -122,8 +122,8 @@
         ]
       }
     ],
-    "tagline": "Add a non-linear dimension to your patches.",
-    "intro": "The 2026 collection: physical models (DROPLET, STRANDS), a living ecosystem (SIROCCO), morphing oscillators (ZEPHYR, DRIFTS), probabilistic routing (ARCS), displaced rhythms (CROSSWINDS, DUNES) and a chord-aware quantizer (MIRAGE).",
+    "tagline": "A themed, non-linear synth engine.",
+    "intro": "A self-contained ecosystem that needs few other modules: physical models (DROPLET, STRANDS), a living desert (SIROCCO), morphing oscillators (ZEPHYR, DRIFTS), probabilistic routing (ARCS), displaced rhythms (CROSSWINDS, DUNES) and a chord-aware quantizer (MIRAGE).",
     "showcase": [
       "droplet",
       "sirocco",

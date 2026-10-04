@@ -64,8 +64,10 @@ const yt = (id: string, t = 0) => `https://www.youtube.com/watch?v=${id}${t ? `&
       </section>
 
       <section class="wrap section" id="collections" aria-labelledby="collections-title">
-        <p class="eyebrow">Four collections</p>
-        <h2 id="collections-title" class="section-title">Start with the free collection. Go further with the premium ones.</h2>
+        <header class="shead">
+          <h2 id="collections-title">Collections</h2>
+        </header>
+        <p class="slead">The free collection covers almost every category on its own, and many of the best CV funk modules are in it. The three premium collections each go deeper in one direction, and their sales are what keep the free modules free.</p>
         <div class="colgrid">
           {collections.map((c) => {
             const paid = c.license !== 'MIT';
@@ -95,14 +97,13 @@ const yt = (id: string, t = 0) => `https://www.youtube.com/watch?v=${id}${t ? `&
       </section>
 
       <section class="wrap browse section" id="modules" aria-label="Browse modules">
-        <p class="eyebrow">The rack</p>
-        <h2 class="section-title">Every module, in one rack</h2>
-        <div class="filterbar">
-          <div class="seg" id="colls" role="group" aria-label="Collection"></div>
-          <label class="typesel" for="type">Type
-            <select id="type"></select>
-          </label>
-        </div>
+        <header class="shead">
+          <h2>Modules</h2>
+          <div class="filterbar">
+            <div class="seg" id="colls" role="group" aria-label="Collection"></div>
+            <select id="type" aria-label="Filter by type"></select>
+          </div>
+        </header>
         <div class="banner" id="banner"></div>
         <div class="rackbox" id="rackbox">
           <div class="fade l"></div><div class="fade r"></div>
@@ -118,11 +119,13 @@ const yt = (id: string, t = 0) => `https://www.youtube.com/watch?v=${id}${t ? `&
       </section>
 
       <section class="wrap section" id="about" aria-labelledby="about-title">
+        <header class="shead">
+          <h2 id="about-title">About</h2>
+        </header>
         <div class="about">
           <img src={`${base}img/cody-portrait.jpg`} alt="Portrait of Cody Geary" loading="lazy" decoding="async" />
           <div>
-            <p class="eyebrow">About</p>
-            <h2 id="about-title" class="section-title">Made by Cody Geary</h2>
+            <p class="about-name">Cody Geary</p>
             <p>CV funk modules are focused on expressive modulation, sequencing and patch-programmable control. They favour macro-driven modulation, nonlinear approaches to sequencing, and compact, information-dense panels, and they're designed to reward patching, feedback and cross-modulation, especially with each other.</p>
             <p>The free collection is open source under the MIT license. The three premium collections, Modulations, Chord Caster and Sands, are sold through the VCV Library, and buying them directly supports maintenance, new modules and this manual.</p>
             <div class="colactions">
