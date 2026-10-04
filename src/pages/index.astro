@@ -14,6 +14,12 @@ if (!base.endsWith('/')) base += '/';
 const css = siteCss.replaceAll('__BASE__', base);
 const data = JSON.stringify({ base, modules, collections, ratios }).replace(/</g, '\\u003c');
 const year = new Date().getFullYear();
+
+const LIB: Record<string, string> = { free: 'CVfunk', modulations: 'CVfunkModulations', 'chord-caster': 'CVfunkChordCaster', sands: 'CVfunkSands' };
+const bySlug = Object.fromEntries(modules.map((m) => [m.slug, m]));
+const counts = Object.fromEntries(collections.map((c) => [c.id, modules.filter((m) => m.collection === c.id).length]));
+const freeCount = counts.free ?? 0;
+const yt = (id: string, t = 0) => `https://www.youtube.com/watch?v=${id}${t ? `&t=${t}s` : ''}`;
 ---
 <!doctype html>
 <html lang="en">
@@ -32,6 +38,9 @@ const year = new Date().getFullYear();
     <header class="top">
       <div class="wrap">
         <a class="mark" href="#" id="home">CV funk <small>Manual</small></a>
+        <nav class="sitenav" aria-label="Sections">
+          <a href="#collections">Collections</a><a href="#modules">Modules</a><a href="#about">About</a>
+        </nav>
         <label class="search" for="q"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
           <input id="q" type="search" placeholder="Search modules, controls, techniques" autocomplete="off" aria-label="Search the manual" /></label>
         <a class="tbtn" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">GitHub</a>
@@ -40,9 +49,60 @@ const year = new Date().getFullYear();
     </header>
 
     <main>
-      <section class="wrap browse" aria-label="Browse modules">
-        <div class="chips" id="colls"></div>
-        <div class="chips" id="types"></div>
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-img" src={`${base}img/landing-hero.png`} alt="A rack of CV funk modules patched together" />
+        <div class="wrap hero-inner">
+          <h1 id="hero-title" class="hero-mark">CV funk</h1>
+          <p class="hero-lede">Modules for VCV Rack that reward patching.</p>
+          <p class="hero-text">Expressive modulation, sequencing and patch-programmable control: envelopes, sequencers, clocks, macro controllers, oscillators, physical models and effects. Simple inputs, complex results, and everything is designed to be patched into everything else.</p>
+          <p class="hero-facts"><span>{modules.length} modules</span><span>{collections.length} collections</span><span>{freeCount} free and open source</span></p>
+          <div class="hero-ctas">
+            <a class="cta" href="#modules">Browse the modules</a>
+            <a class="cta ghost" href="https://library.vcvrack.com/CVfunk" target="_blank" rel="noreferrer">Get the free collection</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section" id="collections" aria-labelledby="collections-title">
+        <p class="eyebrow">Four collections</p>
+        <h2 id="collections-title" class="section-title">Start with the free collection. Go further with the premium ones.</h2>
+        <div class="colgrid">
+          {collections.map((c) => {
+            const paid = c.license !== 'MIT';
+            const video = (c.videos ?? [])[0];
+            return (
+              <article class="colcard" style={`--cc:var(--c-${c.id})`}>
+                <div class="colstrip" aria-hidden="true">
+                  {(c.showcase ?? []).filter((s) => bySlug[s]).map((s) => (
+                    <img data-slug={s} src={`${base}panels-web/${s}.jpg`} alt="" loading="lazy" style={`aspect-ratio:${(ratios as Record<string, number>)[s] ?? 0.5}`} />
+                  ))}
+                </div>
+                <div class="colbody">
+                  <h3><span class="dot"></span>{c.name}<span class={`badge ${paid ? 'paid' : 'free'}`}>{paid ? 'Premium' : 'Free · MIT'}</span></h3>
+                  <p class="coltag">{c.tagline}</p>
+                  <p>{c.intro}</p>
+                  <p class="colmeta">{counts[c.id]} modules · v{c.version}</p>
+                  <div class="colactions">
+                    <button class="cta small" type="button" data-coll={c.id} data-go-modules>Browse {c.name}</button>
+                    {video ? <a class="cta small ghost" href={yt(video.id, video.start)} target="_blank" rel="noreferrer">▶ Walkthrough</a> : null}
+                    <a class="cta small ghost" href={`https://library.vcvrack.com/${LIB[c.id]}`} target="_blank" rel="noreferrer">{paid ? 'Buy' : 'Install'}</a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section class="wrap browse section" id="modules" aria-label="Browse modules">
+        <p class="eyebrow">The rack</p>
+        <h2 class="section-title">Every module, in one rack</h2>
+        <div class="filterbar">
+          <div class="seg" id="colls" role="group" aria-label="Collection"></div>
+          <label class="typesel" for="type">Type
+            <select id="type"></select>
+          </label>
+        </div>
         <div class="banner" id="banner"></div>
         <div class="rackbox" id="rackbox">
           <div class="fade l"></div><div class="fade r"></div>
@@ -57,12 +117,18 @@ const year = new Date().getFullYear();
         <div class="mod" id="mod"><div class="empty">Loading the manual…</div></div>
       </section>
 
-      <section class="wrap">
+      <section class="wrap section" id="about" aria-labelledby="about-title">
         <div class="about">
           <img src={`${base}img/cody-portrait.jpg`} alt="Portrait of Cody Geary" loading="lazy" decoding="async" />
           <div>
-            <h2>About</h2>
-            <p>Cody Geary builds CV funk modules for VCV Rack, focused on patch-programmable control, modulation, and performance-friendly workflows. This site is the manual for all four collections.</p>
+            <p class="eyebrow">About</p>
+            <h2 id="about-title" class="section-title">Made by Cody Geary</h2>
+            <p>CV funk modules are focused on expressive modulation, sequencing and patch-programmable control. They favour macro-driven modulation, nonlinear approaches to sequencing, and compact, information-dense panels, and they're designed to reward patching, feedback and cross-modulation, especially with each other.</p>
+            <p>The free collection is open source under the MIT license. The three premium collections, Modulations, Chord Caster and Sands, are sold through the VCV Library, and buying them directly supports maintenance, new modules and this manual.</p>
+            <div class="colactions">
+              <a class="cta small ghost" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">Source on GitHub</a>
+              <a class="cta small ghost" href="https://library.vcvrack.com/CVfunk" target="_blank" rel="noreferrer">CV funk in the VCV Library</a>
+            </div>
           </div>
         </div>
       </section>

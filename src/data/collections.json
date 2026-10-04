@@ -5,7 +5,19 @@
     "pluginSlug": "CVfunk",
     "version": "2.0.53",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_Manual.pdf",
-    "license": "MIT"
+    "license": "MIT",
+    "tagline": "The core collection. Free and open source.",
+    "intro": "Envelopes, sequencers, clocks, macro controllers, oscillators, physical models, mixers and effects. Each one turns simple inputs into a wide spread of modulation and sound, and they're built to be patched into each other.",
+    "showcase": [
+      "twang",
+      "impulse-controller",
+      "ouros",
+      "hotpot",
+      "glass",
+      "step-wave",
+      "mala",
+      "syncro"
+    ]
   },
   {
     "id": "modulations",
@@ -39,6 +51,14 @@
           ]
         ]
       }
+    ],
+    "tagline": "Polyphonic modulation, built around a complex oscillator.",
+    "intro": "SYZYGY, a complex oscillator grown from OUROS, with a fully polyphonic sequencer (ARRANGE XL), envelope generator (ENVELOPE CITY) and LFO (SUPER WONK), all with a streamlined workflow.",
+    "showcase": [
+      "syzygy",
+      "super-wonk",
+      "envelope-city",
+      "arrange-xl"
     ]
   },
   {
@@ -55,6 +75,13 @@
         "by": "Omri Cohen",
         "start": 0
       }
+    ],
+    "tagline": "A complete poly synth and composition tool in one module.",
+    "intro": "CHORD CASTER sequences chords, voicings and rhythms bar by bar through a six-voice oscillator, modulation bus, mixer and delay. Every step can recall all 42 knobs and 20 button states. POLY MAP and CHORDY extend it.",
+    "showcase": [
+      "chord-caster",
+      "chordy",
+      "poly-map"
     ]
   },
   {
@@ -94,6 +121,16 @@
           ]
         ]
       }
+    ],
+    "tagline": "Add a non-linear dimension to your patches.",
+    "intro": "The 2026 collection: physical models (DROPLET, STRANDS), a living ecosystem (SIROCCO), morphing oscillators (ZEPHYR, DRIFTS), probabilistic routing (ARCS), displaced rhythms (CROSSWINDS, DUNES) and a chord-aware quantizer (MIRAGE).",
+    "showcase": [
+      "droplet",
+      "sirocco",
+      "drifts",
+      "strands",
+      "mirage",
+      "arcs"
     ]
   }
 ]

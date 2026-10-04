@@ -111,32 +111,30 @@ const shown = () => MODS.filter(matches);
 function buildChips(){
   const counts = {};
   MODS.forEach(m => m.tags.forEach(t => { t = normTag(t); counts[t] = (counts[t]||0) + 1; }));
-  const types = Object.entries(counts).filter(([t,n]) => n >= 3 && t !== "Blank").sort((a,b) => b[1]-a[1]);
+  const types = Object.entries(counts).filter(([t,n]) => n >= 3 && t !== "Blank").sort((a,b) => a[0].localeCompare(b[0]));
   const on = (k,v) => sel.kind === k && (v === undefined || sel.value === v);
-  $("#colls").innerHTML = `<span class="flabel">Collection</span>
-    <button class="chip" data-all aria-pressed="${on("all")}">All<b>${MODS.length}</b></button>` +
-    ORDER.map(c => `<button class="chip" data-coll="${c}" aria-pressed="${on("coll",c)}"><span class="dot" style="background:var(--c-${c})"></span>${COLL[c].label}${COLL[c].paid ? `<span class="prem">Premium</span>` : ""}<b>${MODS.filter(m => m.collection === c).length}</b></button>`).join("");
-  $("#types").innerHTML = `<span class="flabel">Type</span>` +
-    types.map(([t,n]) => `<button class="chip" data-tag="${esc(t)}" aria-pressed="${on("tag",t)}">${esc(t)}<b>${n}</b></button>`).join("");
+  $("#colls").innerHTML =
+    `<button class="segbtn" data-all aria-pressed="${on("all") || sel.kind === "tag"}">All</button>` +
+    ORDER.map(c => `<button class="segbtn" data-coll="${c}" aria-pressed="${on("coll",c)}"><span class="dot" style="background:var(--c-${c})"></span>${COLL[c].label}</button>`).join("");
+  $("#type").innerHTML = `<option value="">All types</option>` +
+    types.map(([t,n]) => `<option value="${esc(t)}"${on("tag",t) ? " selected" : ""}>${esc(t)} (${n})</option>`).join("");
 }
 
 function buildBanner(list){
   const b = $("#banner");
+  b.style.removeProperty("--cc");
   if (sel.kind === "coll"){
     const c = sel.value, meta = COLL[c], col = COLLS[c] || {};
     b.style.setProperty("--cc", `var(--c-${c})`);
-    b.innerHTML = `<div><h1><span class="dot"></span>${meta.label}</h1><p>${list.length} modules${col.version ? ` · v${col.version}` : ""} · ${meta.paid ? "Premium" : "Free and open source (MIT)"}. Includes ${esc(names(list))}.</p></div>
-      <div class="ctas">${(col.videos || []).map(v => `<a class="cta ghost" href="${yt(v.id, v.start)}" target="_blank" rel="noreferrer">▶ Watch the walkthrough</a>`).join("")}<a class="cta" href="${libUrl(c)}" target="_blank" rel="noreferrer">${meta.paid ? "Buy" : "Install"} ${meta.label} in the VCV Library</a></div>`;
+    b.innerHTML = `<p><span class="dot"></span><strong>${meta.label}</strong> · ${list.length} modules · ${meta.paid ? "Premium" : "Free and open source"}. ${esc(col.tagline || "")}</p>
+      <a class="cta small" href="${libUrl(c)}" target="_blank" rel="noreferrer">${meta.paid ? "Buy" : "Install"} in the VCV Library</a>`;
   } else if (sel.kind === "tag"){
     const colls = [...new Set(list.map(m => m.collection))].map(c => COLL[c].label);
-    b.style.removeProperty("--cc");
-    b.innerHTML = `<div><h1>${esc(sel.value)}</h1><p>${list.length} module${list.length === 1 ? "" : "s"} across ${colls.join(", ").replace(/, ([^,]*)$/, " and $1")}.</p></div>`;
+    b.innerHTML = `<p><strong>${esc(sel.value)}</strong> · ${list.length} module${list.length === 1 ? "" : "s"} in ${colls.join(", ").replace(/, ([^,]*)$/, " and $1")}.</p>`;
   } else if (sel.kind === "search"){
-    b.style.removeProperty("--cc");
-    b.innerHTML = `<div><h1>“${esc(sel.value)}”</h1><p>${list.length ? `${list.length} module${list.length === 1 ? "" : "s"} mention this.` : "Nothing in the manual matches. Try a control name like HEAT or a technique like FM."}</p></div>`;
+    b.innerHTML = `<p>${list.length ? `<strong>${list.length} module${list.length === 1 ? "" : "s"}</strong> mention “${esc(sel.value)}”.` : `Nothing in the manual matches “${esc(sel.value)}”. Try a control name like HEAT, or a technique like FM.`}</p>`;
   } else {
-    b.style.removeProperty("--cc");
-    b.innerHTML = `<div><h1>Every module, in one rack</h1><p>${MODS.length} modules in four collections. Click a faceplate to open its manual, or pick a collection or type above.</p></div>`;
+    b.innerHTML = `<p>Click a faceplate to open its manual.</p>`;
   }
 }
 
@@ -151,7 +149,8 @@ function buildRack(list){
     for (const m of g) html += `<button class="pnl${m.slug === slug ? " on" : ""}" data-slug="${m.slug}" aria-label="${esc(m.name)}" style="aspect-ratio:${RATIO[m.slug] || .5}"><img loading="lazy" alt="" data-slug="${m.slug}" src="${img(m.slug)}"></button>`;
     html += `</div></div>`;
   }
-  const rack = $("#rack");
+  $("#type").addEventListener("change", e => e.target.value ? select("tag", e.target.value) : select("all", null));
+const rack = $("#rack");
   rack.innerHTML = html + `</div><div class="rail"></div>`;
   rack.style.scrollBehavior = "auto"; rack.scrollLeft = 0; rack.style.scrollBehavior = "";
   $("#count").textContent = sel.kind === "all" ? `${MODS.length} modules` : `Showing ${list.length} of ${MODS.length} modules`;
@@ -178,10 +177,10 @@ function select(kind, value){
 }
 
 /* ---------- module view ---------- */
-function open(s, scroll){
+function open(s, scroll, quiet){
   const m = MODS.find(x => x.slug === s); if (!m) return;
   slug = s;
-  try { history.replaceState(null, "", "#" + s); } catch {}
+  if (!quiet) try { history.replaceState(null, "", "#" + s); } catch {}
   const c = m.collection, col = COLLS[c] || {}, meta = COLL[c];
   const peers = MODS.filter(x => x.collection === c), i = peers.indexOf(m);
   const prev = peers[(i - 1 + peers.length) % peers.length], next = peers[(i + 1) % peers.length];
@@ -248,9 +247,10 @@ document.addEventListener("click", e => {
   const g = e.target.closest("[data-go]"); if (g){ open(g.dataset.go); return; }
   const pn = e.target.closest(".pnl"); if (pn){ open(pn.dataset.slug, true); return; }
   if (e.target.closest("[data-all]")){ select("all", null); return; }
-  const c = e.target.closest("[data-coll]"); if (c){ select("coll", c.dataset.coll); return; }
+  const c = e.target.closest("[data-coll]");
+  if (c){ select("coll", c.dataset.coll); if (c.hasAttribute("data-go-modules")) $("#modules").scrollIntoView({behavior:"smooth"}); return; }
   const tg = e.target.closest("[data-tag]");
-  if (tg){ select("tag", tg.dataset.tag); $(".browse").scrollIntoView({behavior:"smooth"}); }
+  if (tg){ select("tag", tg.dataset.tag); $("#modules").scrollIntoView({behavior:"smooth"}); }
 });
 const rack = $("#rack");
 rack.addEventListener("scroll", updateEdges, {passive:true});
@@ -287,5 +287,22 @@ try { const t = localStorage.getItem("cvfunk-theme"); if (t) document.documentEl
   const coll = h.startsWith("c-") ? h.slice(2) : null;
   slug = MODS.some(m => m.slug === h) ? h : (coll ? (MODS.find(m => m.collection === coll) || MODS[0]).slug : MODS[0].slug);
   select(coll && COLL[coll] ? "coll" : "all", coll && COLL[coll] ? coll : null);
-  open(slug);
+  const isModule = MODS.some(m => m.slug === h);
+  // plain section anchors (#collections, #about) are left to the browser
+  open(slug, false, !(isModule || coll));
+  swapImages();
+  // deep links land on their content, not the hero
+  const target = isModule ? $("#mod") : coll ? $("#modules") : (h && document.getElementById(h));
+  if (target){
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    // images above the target keep loading and shifting it, so stay aligned while the layout settles
+    const go = () => target.scrollIntoView();
+    const settle = () => {
+      go();
+      const ro = new ResizeObserver(go); ro.observe(document.body);
+      const stop = () => ro.disconnect();
+      setTimeout(stop, 2000); addEventListener("wheel", stop, { once: true }); addEventListener("touchstart", stop, { once: true });
+    };
+    document.readyState === "complete" ? settle() : addEventListener("load", settle, { once: true });
+  }
 })();
