@@ -1,47 +1,16 @@
 ---
-import ManualScroller from '../components/ManualScroller.astro';
-import allModules from '../data/modules.json';
-import '../styles/global.css';
-let base = import.meta.env.BASE_URL || '/';
-if (!base.startsWith('/')) base = '/' + base;
+// Old collection page: now a view on the home page.
+let base = import.meta.env.BASE_URL;
 if (!base.endsWith('/')) base += '/';
-const modules = allModules.filter((m) => m.collection === 'sands');
+const target = `${base}#c-sands`;
 ---
-
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CV funk Manual — Sands</title>
-    <meta name="description" content="CV funk Sands 2026 collection  - IN DEVELOPMENT" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>CV funk Manual</title>
   </head>
-  <body>
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <div class="brand">
-          <a href={import.meta.env.BASE_URL}>CV funk Manual</a>
-          <div class="brand-sub">Sands Collection</div>
-        </div>
-
-        <nav class="header-actions">
-          <a class="btn" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">GitHub</a>
-          <span class="btn" aria-disabled="true" title="The Sands PDF manual is coming soon">PDF (TBA)</span>
-          <!-- Update this to your store / product link -->
-          <a class="btn" href="https://library.vcvrack.com/CVfunkSands" rel="noreferrer">Buy</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="wrap">
-        <ManualScroller modules={modules} currentCollection="sands" />
-    </main>
-
-
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <div>© {new Date().getFullYear()} CV funk / Cody Geary</div>
-        <div class="muted">Built with Astro.</div>
-      </div>
-    </footer>
-  </body>
+  <body><p>Moved to <a href={target}>the CV funk manual</a>.</p></body>
 </html>

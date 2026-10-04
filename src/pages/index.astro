@@ -1,187 +1,78 @@
 ---
-import '../styles/global.css';
-
-const { modules, currentCollection = 'free' } = Astro.props;
+// The CV funk manual: a rack of every panel, filters, and the manual for the
+// selected module. All content comes from src/data; the page itself is
+// rendered in the browser by src/scripts/site.js.
+import modules from '../data/modules.json';
+import collections from '../data/collections.json';
+import ratios from '../data/panel-ratios.json';
+import siteCss from '../styles/site.css?raw';
+import siteJs from '../scripts/site.js?raw';
 
 let base = import.meta.env.BASE_URL;
 if (!base.endsWith('/')) base += '/';
----
 
+const css = siteCss.replaceAll('__BASE__', base);
+const data = JSON.stringify({ base, modules, collections, ratios }).replace(/</g, '\\u003c');
+const year = new Date().getFullYear();
+---
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CV funk Manual</title>
-    <meta name="description" content="CV funk modules manuals for VCV Rack." />
-
-    <style>
-      /* ---- Landing-only styles ---- */
-      .landing-title{ text-align:center; }
-      .landing-sub{
-        max-width:78ch;
-        margin:10px auto 0;
-        text-align:justify;
-        text-justify:inter-word;
-      }
-      .landing-hero{
-        margin:28px auto 0;
-        max-width:980px;
-        max-height:62vh;
-        border:1px solid var(--line);
-        border-radius:var(--radius);
-        background:color-mix(in srgb, var(--bg) 94%, var(--card));
-        box-shadow:var(--shadow);
-        overflow:hidden;
-      }
-      .landing-hero img{
-        display:block;
-        width:100%;
-        height:auto;
-        max-height:62vh;
-        object-fit:cover;
-        object-position:center top;
-      }
-      .about{
-        margin:22px auto 0;
-        max-width:980px;
-        border:1px solid var(--line);
-        border-radius:var(--radius);
-        background:color-mix(in srgb, var(--bg) 94%, var(--card));
-        box-shadow:var(--shadow);
-        padding:16px;
-      }
-      .about h2{
-        margin:0 0 10px;
-        font-size:13px;
-        letter-spacing:.12em;
-        text-transform:uppercase;
-        color:var(--muted);
-      }
-      .about-inner{
-        display:grid;
-        grid-template-columns:88px 1fr;
-        gap:14px;
-        align-items:center;
-      }
-      .about-portrait{
-        width:88px;
-        height:88px;
-        border-radius:999px;
-        border:1px solid var(--line);
-        object-fit:cover;
-        background:var(--card);
-      }
-      .about p{ margin:0; line-height:1.55; }
-      .collections-label{
-        font-size:13px;
-        letter-spacing:.1em;
-        text-transform:uppercase;
-        color:var(--muted);
-        margin:28px 0 10px;
-      }
-      @media (max-width:600px){
-        .about-inner{ grid-template-columns:1fr; justify-items:center; text-align:center; }
-        .landing-sub{ text-align:left; }
-        .landing-hero{ max-height:45vw; }
-      }
-    </style>
+    <meta name="description" content="The manual for CV funk modules for VCV Rack: Free, Modulations, Chord Caster and Sands. Panel guides, patch ideas, diagrams and videos." />
+    <link rel="icon" href={`${base}panels-web/cvfunk-blank4-hp.jpg`} />
+    <script is:inline>
+      try { const t = localStorage.getItem('cvfunk-theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
+    </script>
+    <style is:inline set:html={css}></style>
   </head>
-
-  <body class="is-landing">
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <div class="brand">
-          <div class="brand-title">CV funk Manual</div>
-          <div class="brand-sub">Module collections for VCV Rack</div>
-        </div>
-
-        <nav class="header-actions">
-          <a class="btn" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">GitHub</a>
-        </nav>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="mark" href="#" id="home">CV funk <small>Manual</small></a>
+        <label class="search" for="q"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Search modules, controls, techniques" autocomplete="off" aria-label="Search the manual" /></label>
+        <a class="tbtn" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">GitHub</a>
+        <button class="tbtn" id="theme" type="button">Theme</button>
       </div>
     </header>
 
-    <main class="wrap">
-      <section class="landing">
-        <h1 class="landing-title">CV funk Module Collection for VCV Rack</h1>
-
-        <p class="landing-sub muted">
-          Explore the CV funk module collection for VCV Rack: a set of patch-programmable tools for modulation, sequencing, and control.
-          The goal is fast, musical results from simple inputs, with enough depth to stay interesting as patches grow.
-        </p>
-
-        <p class="collections-label">Collections</p>
-
-        <div class="cards">
-          <!-- If Free is your root manual page, keep href={base}. If Free is /free/, use `${base}free/` instead. -->
-          <a class="card" href={`${base}free/`}>
-            <div class="card-body">
-              <div class="card-title">Free Modules</div>
-              <div class="card-text">Free CV funk modules</div>
-            </div>
-            <span class="card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a class="card" href={`${base}chord-caster/`}>
-            <div class="card-body">
-              <div class="card-title">Chord Caster</div>
-              <div class="card-text">CV funk semi-modular system</div>
-            </div>
-            <span class="card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a class="card" href={`${base}modulations/`}>
-            <div class="card-body">
-              <div class="card-title">Modulations</div>
-              <div class="card-text">CV funk polyphonic workflow</div>
-            </div>
-            <span class="card-arrow" aria-hidden="true">→</span>
-          </a>
-
-          <a class="card" href={`${base}sands/`}>
-            <div class="card-body">
-              <div class="card-title">Sands</div>
-              <div class="card-text">CV funk Sands ecosystem</div>
-            </div>
-            <span class="card-arrow" aria-hidden="true">→</span>
-          </a>
-
+    <main>
+      <section class="wrap browse" aria-label="Browse modules">
+        <div class="chips" id="colls"></div>
+        <div class="chips" id="types"></div>
+        <div class="banner" id="banner"></div>
+        <div class="rackbox" id="rackbox">
+          <div class="fade l"></div><div class="fade r"></div>
+          <button class="arrow l" id="left" type="button" aria-label="Scroll the rack left">‹<span id="nl"></span></button>
+          <button class="arrow r" id="right" type="button" aria-label="Scroll the rack right"><span id="nr"></span>›</button>
+          <div class="rack" id="rack"></div>
         </div>
+        <div class="rackfoot"><span id="count"></span></div>
+      </section>
 
-        <div class="landing-hero" aria-hidden="true">
-          <img src={`${base}img/landing-hero.png`} alt="" loading="lazy" decoding="async" />
-        </div>
+      <section class="wrap">
+        <div class="mod" id="mod"><div class="empty">Loading the manual…</div></div>
+      </section>
 
-        <section class="about">
-          <h2>About</h2>
-          <div class="about-inner">
-            <img
-              class="about-portrait"
-              src={`${base}img/cody-portrait.jpg`}
-              alt="Portrait of Cody Geary"
-              loading="lazy"
-              decoding="async"
-            />
-            <p class="muted">
-              Cody Geary builds CV funk modules for VCV Rack, focused on patch-programmable control, modulation, and performance-friendly workflows.
-              This site is a compact manual for the collections, with a scrollable reference format designed for patching at the rack.
-            </p>
+      <section class="wrap">
+        <div class="about">
+          <img src={`${base}img/cody-portrait.jpg`} alt="Portrait of Cody Geary" loading="lazy" decoding="async" />
+          <div>
+            <h2>About</h2>
+            <p>Cody Geary builds CV funk modules for VCV Rack, focused on patch-programmable control, modulation, and performance-friendly workflows. This site is the manual for all four collections.</p>
           </div>
-        </section>
+        </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <div>© {new Date().getFullYear()} CV funk / Cody Geary</div>
-      </div>
-    </footer>
+    <footer><div class="wrap"><span>© {year} CV funk / Cody Geary</span><span id="vers"></span></div></footer>
+    <div class="tip" id="tip" hidden></div>
+    <noscript><p class="wrap">This manual needs JavaScript to show the modules. The PDF manuals are linked from each collection on GitHub.</p></noscript>
 
-    <script>
-      (() => {
-        const saved = localStorage.getItem('cvfunk_theme');
-        if (saved === 'dark') document.documentElement.classList.add('dark');
-      })();
-    </script>
+    <script id="cvf-data" type="application/json" set:html={data}></script>
+    <script is:inline set:html={siteJs}></script>
   </body>
 </html>

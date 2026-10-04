@@ -15,18 +15,17 @@ npm run preview
 ```
 
 ## Content
-- Module data/text: `src/data/modules.json`
-- Panel images:
-  - `public/panels/free/<slug>.png`
-  - `public/panels/modulations/<slug>.png`
-  - `public/panels/pro/<slug>.png`
+- Module data/text: `src/data/modules.json`; collections: `src/data/collections.json`
+- Panel images: `public/panels/<collection>/<slug>.png`, plus `<slug>-dark.png` for the dark theme.
+  The site shows web-sized copies from `public/panels-web/`. After adding or recapturing panels, run
+  `python3 scripts/make-web-panels.py` (needs Pillow) to regenerate them and `src/data/panel-ratios.json`.
 
-### Dark panel variants
-If a `-dark` image exists it will be used automatically when the site theme is dark.
-
-Example:
-- `public/panels/free/syncro.png`
-- `public/panels/free/syncro-dark.png`
+## Layout
+- `src/pages/index.astro`: the whole manual. The rack, filters and module pages are rendered in the
+  browser by `src/scripts/site.js` from the data embedded at build time.
+- `src/styles/site.css`: styles. Panel-style text uses Menlo, with DejaVu Sans Mono (`public/fonts/`) as the fallback.
+- `src/pages/{free,modulations,chord-caster,sands}.astro`: redirect old links to `/#c-<collection>`.
+- Deep links: `#<slug>` opens a module (`#twang`), `#c-<collection>` opens a collection (`#c-sands`).
 
 ## Deploy (GitHub Pages)
 This project is preconfigured for a repo named `cvfunk-manual`:

@@ -1,46 +1,16 @@
 ---
-import ManualScroller from '../components/ManualScroller.astro';
-import allModules from '../data/modules.json';
-import '../styles/global.css';
-let base = import.meta.env.BASE_URL || '/';
-if (!base.startsWith('/')) base = '/' + base;
+// Old collection page: now a view on the home page.
+let base = import.meta.env.BASE_URL;
 if (!base.endsWith('/')) base += '/';
-const modules = allModules.filter((m) => m.collection === 'free');
+const target = `${base}#c-free`;
 ---
-
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CV funk Manual — Free</title>
-    <meta name="description" content="CV funk Free modules manual for VCV Rack." />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>CV funk Manual</title>
   </head>
-  <body>
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <div class="brand">
-          <a href={import.meta.env.BASE_URL}>CV funk Manual</a>
-          <div class="brand-sub">Free Collection</div>
-        </div>
-
-        <nav class="header-actions">
-          <a class="btn" href="https://github.com/codygeary/CVfunk-Modules" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://codygeary.github.io/CV-Funk-Manual/CV_funk_Manual.pdf" target="_blank" rel="noreferrer">PDF</a>
-          <a class="btn" href="https://library.vcvrack.com/CVfunk" rel="noreferrer">Install Free</a>
-
-        </nav>
-      </div>
-    </header>
-
-    <main class="wrap">
-      <ManualScroller modules={modules} currentCollection="free" />
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <div>© {new Date().getFullYear()} CV funk / Cody Geary</div>
-        <div class="muted">Built with Astro.</div>
-      </div>
-    </footer>
-  </body>
+  <body><p>Moved to <a href={target}>the CV funk manual</a>.</p></body>
 </html>
