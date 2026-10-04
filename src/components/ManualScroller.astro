@@ -6,6 +6,38 @@ if (!base.endsWith('/')) base += '/';
 
 // Convert "/panels/x.png" -> "<base>panels/x.png"
 const asset = (p: string) => base + String(p).replace(/^\/+/, '');
+
+// Figures: each module may list figures as
+//   { id, src, srcDark?, caption?, alt?, section? }   (section defaults to "panelMap")
+// A line "[[fig:<id>]]" in a section's text places that figure there.
+// Figures that are not placed in any text go at the end of their section.
+const FIG_LINE = /^\s*\[\[fig:([\w-]+)\]\]\s*$/;
+type Part = { text?: string; fig?: any };
+function sectionParts(m: any, key: string): Part[] {
+  const figs: any[] = m.figures ?? [];
+  const placed = new Set<string>();
+  for (const t of Object.values(m.sections ?? {}) as string[])
+    for (const line of String(t).split('\n')) { const k = line.match(FIG_LINE); if (k) placed.add(k[1]); }
+  const out: Part[] = [];
+  let buf: string[] = [];
+  const flush = () => { const t = buf.join('\n').replace(/^\n+|\s+$/g, ''); if (t) out.push({ text: t }); buf = []; };
+  for (const line of String(m.sections?.[key] ?? '').split('\n')) {
+    const k = line.match(FIG_LINE);
+    if (!k) { buf.push(line); continue; }
+    flush();
+    const f = figs.find((x) => x.id === k[1]);
+    if (f) out.push({ fig: f });
+  }
+  flush();
+  for (const f of figs) if (!placed.has(f.id) && (f.section ?? 'panelMap') === key) out.push({ fig: f });
+  return out;
+}
+const hasSection = (m: any, key: string) =>
+  !!m.sections?.[key]?.trim() || (m.figures ?? []).some((f: any) => (f.section ?? 'panelMap') === key);
+// Videos: { id, title, by, start?, chapters?: [[seconds, label], ...] }
+const ytUrl = (id: string, t = 0) => `https://www.youtube.com/watch?v=${id}${t ? `&t=${t}s` : ''}`;
+const mmss = (t: number) => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
+const SECTIONS: [string, string][] = [['panelMap', 'Panel map'], ['basicUse', 'Basic use'], ['patching', 'Patching suggestions']];
 ---
 
 <section class="manual">
@@ -59,22 +91,49 @@ const asset = (p: string) => base + String(p).replace(/^\/+/, '');
           <p class="module-tagline">{m.tagline}</p>
         </header>
 
-        <section class="module-section">
-          <h3>Panel map</h3>
-          <div class="prose"><pre>{m.sections.panelMap}</pre></div>
-        </section>
-
-        {m.sections.basicUse?.trim() ? (
+        {SECTIONS.filter(([key]) => key === 'panelMap' || hasSection(m, key)).map(([key, label]) => (
           <section class="module-section">
-            <h3>Basic use</h3>
-            <div class="prose"><pre>{m.sections.basicUse}</pre></div>
+            <h3>{label}</h3>
+            {sectionParts(m, key).map((part) => part.fig ? (
+              <figure class="module-figure">
+                <img
+                  src={asset(part.fig.src)}
+                  data-light={asset(part.fig.src)}
+                  data-dark={part.fig.srcDark ? asset(part.fig.srcDark) : undefined}
+                  alt={part.fig.alt ?? part.fig.caption ?? ''}
+                  loading="lazy"
+                />
+                {part.fig.caption ? <figcaption>{part.fig.caption}</figcaption> : null}
+              </figure>
+            ) : (
+              <div class="prose"><pre>{part.text}</pre></div>
+            ))}
           </section>
-        ) : null}
+        ))}
 
-        {m.sections.patching?.trim() ? (
+        {m.videos?.length ? (
           <section class="module-section">
-            <h3>Patching suggestions</h3>
-            <div class="prose"><pre>{m.sections.patching}</pre></div>
+            <h3>Videos</h3>
+            <ul class="module-videos">
+              {m.videos.map((v) => (
+                <li>
+                  <a class="video-thumb" href={ytUrl(v.id, v.start)} target="_blank" rel="noreferrer">
+                    <img src={`https://img.youtube.com/vi/${v.id}/mqdefault.jpg`} alt="" loading="lazy" />
+                  </a>
+                  <div>
+                    <a href={ytUrl(v.id, v.start)} target="_blank" rel="noreferrer">{v.title}</a>
+                    <div class="video-meta">{v.by}{v.start ? ` · from ${mmss(v.start)}` : ''}</div>
+                    {v.chapters?.length ? (
+                      <div class="video-chapters">
+                        {v.chapters.map(([t, label]) => (
+                          <a href={ytUrl(v.id, t)} target="_blank" rel="noreferrer">{mmss(t)} {label}</a>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ul>
           </section>
         ) : null}
 
@@ -238,6 +297,7 @@ const asset = (p: string) => base + String(p).replace(/^\/+/, '');
 
       const active = document.querySelector('.module.active') || modules[0];
       setActive(active);
+      swapFigures();
     });
 
     // Restore saved theme
@@ -246,7 +306,16 @@ const asset = (p: string) => base + String(p).replace(/^\/+/, '');
       if (saved === 'dark') document.documentElement.classList.add('dark');
     })();
 
+    // Figures with a dark variant follow the theme
+    function swapFigures() {
+      const dark = document.documentElement.classList.contains('dark');
+      document.querySelectorAll<HTMLImageElement>('.module-figure img[data-dark]').forEach((img) => {
+        img.src = (dark ? img.dataset.dark : img.dataset.light) as string;
+      });
+    }
+
     // Init
     setActive(modules[0]);
+    swapFigures();
   </script>
 </section>

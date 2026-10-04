@@ -3,7 +3,7 @@
     "id": "free",
     "name": "Free",
     "pluginSlug": "CVfunk",
-    "version": "2.0.47",
+    "version": "2.0.53",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_Manual.pdf",
     "license": "MIT"
   },
@@ -13,7 +13,33 @@
     "pluginSlug": "CVfunkModulations",
     "version": "2.2.14",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_MOD_Manual.pdf",
-    "license": "https://vcvrack.com/eula"
+    "license": "https://vcvrack.com/eula",
+    "videos": [
+      {
+        "id": "eaU2KAXOeCI",
+        "title": "CV funk Modulations overview and tutorial",
+        "by": "Omri Cohen",
+        "start": 0,
+        "chapters": [
+          [
+            48,
+            "SYZYGY"
+          ],
+          [
+            373,
+            "Arrange XL"
+          ],
+          [
+            862,
+            "Super Wonk"
+          ],
+          [
+            1103,
+            "Envelope City"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "chord-caster",
@@ -21,14 +47,53 @@
     "pluginSlug": "CVfunkChordCaster",
     "version": "2.1.11",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_CC_Manual.pdf",
-    "license": "https://vcvrack.com/eula"
+    "license": "https://vcvrack.com/eula",
+    "videos": [
+      {
+        "id": "x65hqgAlfEA",
+        "title": "Chord Caster overview and tutorial",
+        "by": "Omri Cohen",
+        "start": 0
+      }
+    ]
   },
   {
     "id": "sands",
     "name": "Sands",
     "pluginSlug": "CVfunkSands",
-    "version": "2.3.8",
-    "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_SANDS_Manual.pdf",
-    "license": "https://vcvrack.com/eula"
+    "version": "2.3.9",
+    "manualUrl": null,
+    "license": "https://vcvrack.com/eula",
+    "libraryUrl": "https://library.vcvrack.com/CVfunkSands",
+    "videos": [
+      {
+        "id": "x1XtCPUz2BU",
+        "title": "Exploring CV funk Sands: 5 generative patches",
+        "by": "SATURATA MODULAR",
+        "start": 0,
+        "chapters": [
+          [
+            29,
+            "Patch 1: Sands"
+          ],
+          [
+            273,
+            "Patch 2: Sands"
+          ],
+          [
+            410,
+            "Patch 3: Droplets"
+          ],
+          [
+            547,
+            "Patch 4: Drone"
+          ],
+          [
+            646,
+            "Patch 5: Sands"
+          ]
+        ]
+      }
+    ]
   }
 ]

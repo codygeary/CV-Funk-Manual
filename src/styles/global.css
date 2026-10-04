@@ -364,3 +364,24 @@ pre{
 @media (max-width:600px){
   .landing-title{ font-size:26px; }
 }
+
+/* =========================================================
+   MODULE FIGURES (charts, zooms, waveforms)
+========================================================= */
+.module-figure{ margin:14px 0 18px; }
+.module-figure img{
+  display:block; max-width:100%; height:auto; max-height:520px;
+  border:1px solid var(--line); border-radius:8px; background:#fff;
+}
+.module-figure figcaption{ margin-top:6px; font-size:13px; color:var(--muted); line-height:1.45; max-width:70ch; }
+
+/* =========================================================
+   MODULE VIDEOS
+========================================================= */
+.module-videos{ list-style:none; padding:0; margin:8px 0 0; display:grid; gap:14px; }
+.module-videos li{ display:grid; grid-template-columns:160px 1fr; gap:12px; align-items:start; }
+.video-thumb img{ display:block; width:160px; aspect-ratio:16/9; object-fit:cover; border-radius:6px; border:1px solid var(--line); }
+.video-meta{ font-size:13px; color:var(--muted); margin-top:2px; }
+.video-chapters{ display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.video-chapters a{ font-size:12px; border:1px solid var(--line); border-radius:999px; padding:1px 8px; text-decoration:none; color:inherit; }
+@media (max-width:520px){ .module-videos li{ grid-template-columns:1fr; } }
