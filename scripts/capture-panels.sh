@@ -39,6 +39,7 @@ for theme in light dark; do
     cp -R "$APP/Resources" "$SYS"
     ln -sf "$APP/Resources/libRack.dylib" "$SYS/libRack.dylib"
     darken "$SYS/res" "$U/plugins-mac-arm64"
+    cp "$SYS/res/ComponentLibrary/ScrewBlack.svg" "$SYS/res/ComponentLibrary/ScrewSilver.svg"   # the one part not named -dark
     echo '{"preferDarkPanels": true}' > "$U/settings.json"
     args=(-s "$SYS" $args)
   else

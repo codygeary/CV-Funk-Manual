@@ -96,6 +96,8 @@ def merge(hand, render, regions, whole=False, thresh=45, min_pixels=300):
     W = warp(hand, render.size, p)
     if whole:
         keep = np.zeros((render.height, render.width), bool); keep[8:-8, 8:-8] = True
+        for ys in (slice(0, 34), slice(-34, None)):          # screws always come from the render
+            for xs in (slice(0, 70), slice(-70, None)): keep[ys, xs] = False
         alpha = Image.fromarray((keep * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1))
         out = render.copy(); out.paste(W, (0, 0), alpha)
         return out, len(regions), err

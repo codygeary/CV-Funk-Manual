@@ -13,7 +13,20 @@ const SECTIONS = [["panelMap","Panel map"],["basicUse","Basic use"],["patching",
 const yt = (id, t) => `https://www.youtube.com/watch?v=${id}${t ? `&t=${t}s` : ""}`;
 const mmss = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`;
 function videosHTML(vs){
-  return `<ul class="videos">${vs.map(v => `<li><a class="vt" href="${yt(v.id, v.start)}" target="_blank" rel="noreferrer">▶ ${esc(v.title)}</a><div class="vm">${esc(v.by)}${v.start ? ` · from ${mmss(v.start)}` : ""}</div>${(v.chapters || []).length ? `<div class="vc">${v.chapters.map(([t, l]) => `<a href="${yt(v.id, t)}" target="_blank" rel="noreferrer">${mmss(t)} ${esc(l)}</a>`).join("")}</div>` : ""}</li>`).join("")}</ul>`;
+  return `<ul class="videos">${vs.map(v => `<li class="vcard" data-vid="${v.id}">
+    <a class="vplay" href="${yt(v.id, v.start)}" target="_blank" rel="noreferrer" data-start="${v.start || 0}" aria-label="Play: ${esc(v.title)}">
+      <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy">
+      <span class="vbtn" aria-hidden="true"></span>${v.start ? `<span class="vfrom">from ${mmss(v.start)}</span>` : ""}
+    </a>
+    <div class="vbody"><a class="vt" href="${yt(v.id, v.start)}" target="_blank" rel="noreferrer">${esc(v.title)}</a><div class="vm">${esc(v.by)}</div>${(v.chapters || []).length ? `<div class="vc">${v.chapters.map(([t, l]) => `<a href="${yt(v.id, t)}" target="_blank" rel="noreferrer" data-start="${t}">${mmss(t)} ${esc(l)}</a>`).join("")}</div>` : ""}</div></li>`).join("")}</ul>`;
+}
+/* Swap a video's thumbnail for the player, starting at t seconds. */
+function playVideo(card, t){
+  const box = card.querySelector(".vplay, .vframe");
+  const f = document.createElement("div"); f.className = "vframe";
+  f.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${card.dataset.vid}?autoplay=1&rel=0&start=${t}" title="${esc(card.querySelector(".vt").textContent)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  box.replaceWith(f);
+  card.querySelectorAll(".vc a").forEach(a => a.classList.toggle("on", +a.dataset.start === t));
 }
 
 let MODS = [], COLLS = {}, slug = null, tab = "panelMap";
@@ -243,6 +256,8 @@ function sectionHTML(m, k){
 
 /* ---------- events ---------- */
 document.addEventListener("click", e => {
+  const vp = e.target.closest(".vplay, .vc a[data-start]");
+  if (vp && !e.metaKey && !e.ctrlKey && !e.shiftKey){ e.preventDefault(); playVideo(vp.closest(".vcard"), +vp.dataset.start); return; }
   const t = e.target.closest("[data-tab]"); if (t){ showTab(t.dataset.tab); return; }
   const g = e.target.closest("[data-go]"); if (g){ open(g.dataset.go); return; }
   const pn = e.target.closest(".pnl"); if (pn){ open(pn.dataset.slug, true); return; }
