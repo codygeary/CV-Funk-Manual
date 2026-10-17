@@ -1,11 +1,11 @@
 MODULES = {
 "fuzzy": {
 "tagline": "Eight classic fuzz and overdrive pedals simulated from their schematics, with a guitar volume knob for clean-up and a battery that drains until the circuit sputters out.",
-"panelMap": """FUZZY is a fuzz pedal with eight circuits inside, each one simulated from the original schematic, transistor by transistor. The input is levelled so whatever you patch in arrives like a hot single-coil pickup, so synths, drums and samples all hit the circuit the way a guitar would.
+"panelMap": """FUZZY is a fuzz pedal with eight circuits inside, each one simulated from the original schematic, transistor by transistor. The input is leveled so whatever you patch in arrives like a hot single-coil pickup, so synths, drums and samples all hit the circuit the way a guitar would.
 
 Display
 - The model's name and its circuit: how many transistors, germanium or silicon, and the topology.
-- A glyph for each transistor and diode, which glows with the current through it and changes colour when it saturates.
+- A glyph for each transistor and diode, which glows with the current through it and changes color when it saturates.
 - A level meter on the left and a battery icon on the right.
 
 Models
@@ -25,7 +25,7 @@ Controls
 - GUITAR: the guitar's volume knob, in front of the circuit. Rolling it back cleans up the fuzz the way it does on a real guitar, and the taper spreads the clean-up across the whole knob. With trim and CV.
 - MODEL: picks the circuit. The CV is 1V per model and wraps around. Changes crossfade and are rate-limited, so CV can't switch models at audio rate.
 - VOL: output volume. The CV covers the full range at 10V.
-- SWITCH: the footswitch. The button or a trigger at the jack toggles the pedal, and the red light shows it's on. It fades between the circuit and the clean, levelled input.
+- SWITCH: the footswitch. The button or a trigger at the jack toggles the pedal, and the red light shows it's on. It fades between the circuit and the clean, leveled input.
 - IN and OUT: mono. The output has a DC blocker and a soft limiter.
 
 Context menu

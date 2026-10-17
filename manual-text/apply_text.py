@@ -56,7 +56,7 @@ for path in sorted(glob.glob(os.path.join(HERE, "b*.py"))):
                     im = Image.open(os.path.join(EXTRACTED, FROM[key])).convert("RGB")
                 if key in FROM:
                     im.thumbnail((1400, 1400))
-                    # 256-colour palette: these are diagrams and screenshots, and it cuts size ~4x
+                    # 256-color palette: these are diagrams and screenshots, and it cuts size ~4x
                     im = im.quantize(256, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
                     im.save(dst, optimize=True)
                 elif not os.path.exists(dst):

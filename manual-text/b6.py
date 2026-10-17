@@ -111,7 +111,7 @@ Jacks and controls:
 - OSC II V/OCT: polyphonic pitch output, scaled by the ratio.
 
 Context menu:
-- Ratio Non-Linearity: how strongly the knob favours ratios near whole numbers. LOCK overrides it and outputs the nearest fixed ratio.""",
+- Ratio Non-Linearity: how strongly the knob favors ratios near whole numbers. LOCK overrides it and outputs the nearest fixed ratio.""",
 "basicUse": """1. Patch your carrier's pitch into OSC I V/OCT, and OSC II V/OCT into your modulator.
 2. Turn RATIO to choose the relationship. Small moves near a whole number give gentle detuning and slow beating.
 3. Press LOCK for exact ratios like 3:2 or 7:4.""",

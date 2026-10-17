@@ -1,13 +1,13 @@
 MODULES = {
 "magnets": {
 "tagline": "A magnetic spin lattice you can play with. 24 outputs read the average spin of each zone.",
-"panelMap": """MAGNETS, how do they work? This module runs a small magnetic spin-lattice simulation. Every light is one spin, flipping between up and down. Each spin is pulled toward the way its neighbours point and shaken up by temperature. The 24 outputs report the average spin in each zone of the grid, so you get 24 related, slowly shifting CVs.
+"panelMap": """MAGNETS, how do they work? This module runs a small magnetic spin-lattice simulation. Every light is one spin, flipping between up and down. Each spin is pulled toward the way its neighbors point and shaken up by temperature. The 24 outputs report the average spin in each zone of the grid, so you get 24 related, slowly shifting CVs.
 
 Controls (each with an attenuverter and CV input):
 - TEMP: temperature. Cold and the lattice freezes into big stable regions. Hot and the spins flip constantly.
 - POLARITY: pushes all the spins toward up or down, making them more likely to line up that way as they update.
 - RATE: time between simulation updates, 0.15–2 ms. Faster updates use more CPU.
-- INTERACT: how strongly each spin follows its neighbours. Low lets the lattice flow; high can trap it in a state.
+- INTERACT: how strongly each spin follows its neighbors. Low lets the lattice flow; high can trap it in a state.
 
 Jacks:
 - TAPE HEAD: sets the spins of the central square, and adds to POLARITY across the whole lattice. Write a signal into the middle and watch it spread.
@@ -21,8 +21,8 @@ Context menu:
 3. Set INTERACT. Higher values make larger regions that move together, and can cause sudden phase changes.
 4. Use POLARITY to lean the whole lattice one way.
 5. Press RESET to scramble it and start again.
-6. Patch any of the 24 outputs as CV. Neighbouring outputs move together.""",
-"patching": """• Connected motion: Send neighbouring outputs to related parameters, like a filter's cutoff and resonance, or the pans of two voices. They move in a way that feels physically linked.
+6. Patch any of the 24 outputs as CV. Neighboring outputs move together.""",
+"patching": """• Connected motion: Send neighboring outputs to related parameters, like a filter's cutoff and resonance, or the pans of two voices. They move in a way that feels physically linked.
 
 • Swells: Patch a slow LFO into POLARITY. The whole lattice tips toward positive, then negative, taking all 24 outputs with it.
 
@@ -30,7 +30,7 @@ Context menu:
 
 • New state every bar: Patch a clock division into RESET to snap the lattice into a fresh state on the downbeat.
 
-• Writing into the lattice: Patch an LFO or a sequence into TAPE HEAD. It flips the centre spins, and the change ripples outward through the zones."""
+• Writing into the lattice: Patch an LFO or a sequence into TAPE HEAD. It flips the center spins, and the change ripples outward through the zones."""
 },
 
 "ouros": {
@@ -106,7 +106,7 @@ Why the MULTIPLY knob feels sticky: MULTIPLY scales the phase oscillator against
 "panelMap": """PRESSED DUCK compresses and ducks your sound into a deliciously crunchy mix. Six stereo channels are compressed together, and a stereo sidechain channel can duck all of them, which is great for pumping bass lines. Everything is under CV, and the saturation uses antiderivative anti-aliasing for a cleaner mix at low CPU.
 
 Channels:
-- SIDE: stereo sidechain input. It ducks the six main channels and sits in the centre of the mix. It isn't compressed.
+- SIDE: stereo sidechain input. It ducks the six main channels and sits in the center of the mix. It isn't compressed.
 - STEREO INPUTS: six stereo channels. A poly cable in channel 1 spreads across the six channels.
 - LEVELS: sliders for input level, 0 to 2x. The middle mark is unity.
 - VCA INPUTS: linear VCA CV, multiplied with the slider.
@@ -147,7 +147,7 @@ Context menu:
 "panelMap": """FLOWER PATCH draws your audio as a field of flowers. Each column of the display is one note of the 12-tone scale (C to B), and each row is an octave. The signal is drawn in polar form around each flower, with the period set by that flower's note, so each one shows how your audio lines up with that pitch. An FFT measures how much of each note is in the signal, and FLOWER PATCH also sends the strongest peaks out as V/oct.
 
 Controls (each with an attenuverter and CV input):
-- HUE: colour of the display. Left gives monotone, desaturated colours; the middle gives white with the FFT peaks in colour; right gives a coloured background with the peaks highlighted.
+- HUE: color of the display. Left gives monotone, desaturated colors; the middle gives white with the FFT peaks in color; right gives a colored background with the peaks highlighted.
 - FILL: how much the shapes are filled in.
 - FLOWER: morphs the shapes from rings into flowers.
 - POWER: scales the shapes by the FFT result, positively or negatively, so loud notes grow (or shrink).
@@ -162,7 +162,7 @@ Context menu:
 "basicUse": """1. Patch audio into IN.
 2. Turn up FLOWER to grow petals, and FILL to fill them in.
 3. Use POWER to make the notes in your signal stand out.
-4. Pick colours with HUE.
+4. Pick colors with HUE.
 5. Try the Waterfall and Scope views in the context menu.""",
 "patching": """• Note watcher: Put FLOWER PATCH on a chord bus to see which notes are sounding.
 

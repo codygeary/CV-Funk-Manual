@@ -34,7 +34,7 @@ Pitch:
 
 Tone (each with an attenuverter and CV):
 - SHAPE: how the nodes are tuned. Negative scatters them into a chaotic, cymbal-like cluster; positive spreads them evenly for a clearer metallic shimmer.
-- TEMPER: coupling between neighbouring nodes. More coupling gives a more blended, sympathetic ring.
+- TEMPER: coupling between neighboring nodes. More coupling gives a more blended, sympathetic ring.
 - RESONANCE: feedback in the ring, which sets how long it rings.
 - OVERDRIVE: saturation after the nodes.
 
@@ -79,7 +79,7 @@ Controls:
 2. Set the sliders.
 3. With LAYERS at 1, use the outputs as 18 separate CV sources.
 4. Turn LAYERS up to get poly stacks from each output.""",
-"patching": """• Chord shapes: Set LAYERS to 4 and use the sliders as pitches. Each output is a different four-note chord made of neighbouring sliders.
+"patching": """• Chord shapes: Set LAYERS to 4 and use the sliders as pitches. Each output is a different four-note chord made of neighboring sliders.
 
 • Poly voice settings: Set LAYERS to the number of voices in a poly patch and use the sliders as per-voice settings like detune or pan.
 

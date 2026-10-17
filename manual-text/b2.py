@@ -203,7 +203,7 @@ Context menu:
    - (0,0) Bank 1: dominant 7th, major, minor, sus2. The everyday chords. Relative majors and minors sit next to each other, so moving between them is easy.
    - (1,0) Bank 2: barre chords (dominant 7th, major and minor barre) and 6ths, plus open B and E major in the top row. The minor row adds Bb7 and Abmaj.
    - (0,1) Bank 3: sus4, major 7th, minor 7th, 7sus4. Major and minor 7ths add tension. Row 3 adds an Ab7.
-   - (1,1) Bank 4: add9, augmented, minor 6th, minor 9th. The colourful ones.
+   - (1,1) Bank 4: add9, augmented, minor 6th, minor 9th. The colorful ones.
    With Classical Chord Set on: Bank 1 swaps sus2 for diminished, Bank 2 swaps 6th for diminished 7th, Bank 3 is 2nd, major 7th, minor 7th, 9th, and Bank 4 is 6th, 7+5, minor 6th, augmented.
 
 3. Handle the mutes:

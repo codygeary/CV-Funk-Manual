@@ -1,7 +1,7 @@
 MODULES = {
 "dunes": {
 "tagline": "Two function generators that rise, fall and wait. With curve shaping, phase gates, and MIN, SUM and MAX of both.",
-"panelMap": """DUNES is two function generators, I and II, mirrored on either side of a shared centre. Each one rises, falls, then waits before it can go again, so the rest between shapes is part of the rhythm. The centre combines the two into MIN, SUM and MAX, with a meter to watch them. All inputs are polyphonic.
+"panelMap": """DUNES is two function generators, I and II, mirrored on either side of a shared center. Each one rises, falls, then waits before it can go again, so the rest between shapes is part of the rhythm. The center combines the two into MIN, SUM and MAX, with a meter to watch them. All inputs are polyphonic.
 
 Each side
 - RANGE switch: Slow (0.4 s to 6.8 min), Mid (10 ms to 10 s, the default) or Fast (0.4 ms to 410 ms).
@@ -17,7 +17,7 @@ Each side
 - CYCLE: input and latching button (yellow). Loops continuously.
 - Mixer knob (below the meter), with trim and CV: this side's level into OUT, MIN, SUM and MAX.
 
-Centre
+Center
 - Meter: columns for I, MIN, SUM, MAX and II.
 
 Outputs (bottom row)
@@ -193,7 +193,7 @@ Context menu
 
 Display
 - Keyboard: the chord. Click keys to set it by hand, or patch a chord into CHORD.
-- Strip: chord tones (bright) and active passing notes (dimmer), placed on the current tuning grid. The top passing notes are labelled by interval or ratio, like 7/4 or 6/5. They turn grey while GATE is closed.
+- Strip: chord tones (bright) and active passing notes (dimmer), placed on the current tuning grid. The top passing notes are labeled by interval or ratio, like 7/4 or 6/5. They turn gray while GATE is closed.
 - Chord name: below the keyboard.
 
 Controls
@@ -221,14 +221,14 @@ Outputs
 The quantizer leans the way the melody is moving, so a rising line snaps up and a falling line snaps down. A sine LFO into CV runs cleanly up and down the scale.
 
 Context menu
-- Adaptive tuning: off by default, so microtonal notes are added alongside the chord as flavour notes. Turn it on and they replace the tempered chord tones, so the chord itself retunes toward just intonation as EXPRESSION rises.
+- Adaptive tuning: off by default, so microtonal notes are added alongside the chord as flavor notes. Turn it on and they replace the tempered chord tones, so the chord itself retunes toward just intonation as EXPRESSION rises.
 - Delta as modulation (x20): scales DELTA up to about ±5V for filters and VCAs. Leave it off when DELTA goes to a pitch input.""",
 "basicUse": """1. Set a chord on the keyboard, or patch a poly chord into CHORD.
 2. Patch your melody into CV and take LEAD to an oscillator.
 3. Start with EXPRESSION at 0 to hear chord tones only, then turn it up to let in passing notes.
 4. Choose a MODE. Try JUST and PYTH for notes between the keys, and patch BEND to the oscillator's fine tune.
 5. Use a gate to switch passing notes on for some phrases and off for others.""",
-"patching": """• Lead over chord changes: WEAVE's POLY or CHORD CASTER's NOTES into CHORD. Sweep EXPRESSION with an envelope to add colour only at the peaks of phrases.
+"patching": """• Lead over chord changes: WEAVE's POLY or CHORD CASTER's NOTES into CHORD. Sweep EXPRESSION with an envelope to add color only at the peaks of phrases.
 
 • DRIFTS into MIRAGE: DRIFTS' MIX OUT into CV for wandering lines that always fit the chord.
 

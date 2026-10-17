@@ -1,7 +1,7 @@
 MODULES = {
 "syzygy": {
 "tagline": "Two stereo phase-feedback oscillators that cross over: ring mod, AM, cross-FM, folding and noise. From glass bells to metallic chaos.",
-"panelMap": """SYZYGY is a complex oscillator made of two stereo phase-feedback oscillators that can ring-modulate, amplitude-modulate and cross-FM each other. It's inspired by chromosomal crossover: the two oscillators recombine, and on the display their product bridges the two centres like a pair of chromosomes. It covers everything from bell and glass-like ring modulation to the metallic clang of linear through-zero cross-FM.
+"panelMap": """SYZYGY is a complex oscillator made of two stereo phase-feedback oscillators that can ring-modulate, amplitude-modulate and cross-FM each other. It's inspired by chromosomal crossover: the two oscillators recombine, and on the display their product bridges the two centers like a pair of chromosomes. It covers everything from bell and glass-like ring modulation to the metallic clang of linear through-zero cross-FM.
 
 Oscillators I and II (each)
 - V/OCT knob and input. A polyphonic V/OCT turns on polyphony for the whole module and every CV input.
@@ -23,7 +23,7 @@ Harmonic palette (sliders for each oscillator, each with an attenuverter and CV)
 [[fig:node-ii]]
 
 Display
-- The left (orange) and right (blue) channels of each oscillator, drawn as one cycle in polar form. The cross-modulation product bridges the two centres.
+- The left (orange) and right (blue) channels of each oscillator, drawn as one cycle in polar form. The cross-modulation product bridges the two centers.
 - CHAN: which poly channel to show. Above the poly count, it shows the last one.
 - ALIGN: pulses both SYNC inputs at once, realigning the two oscillators.
 
@@ -33,7 +33,7 @@ Mixer (sliders, each with an attenuverter and CV)
 - RING/AM: ring modulation to AM. In AM you hear the carrier; in ring modulation only the sidebands. The difference can be subtle, but it's lovely when the oscillators are tuned to an interval.
 - SYM: DC offset before the wavefolder.
 - FOLD: wavefolding. At the top it turns into saturation.
-- PINK/WHITE: noise colour.
+- PINK/WHITE: noise color.
 - NOISE/CLEAN: from the clean signal to noise.
 
 Outputs
@@ -108,7 +108,7 @@ Clock
 Shaping (each with an attenuverter and CV)
 - PHASE: a phase offset for all sixteen. Use it for fine timing, or modulate it for much more complex outputs.
 - MOD DEPTH: output level, up to 5V.
-- WONK: amount of phase feedback. Any WONK makes the oscillators drift slowly out of phase while staying centred on the beat. As WONK rises, the range of NODES narrows and the outputs morph from unison into chaos.
+- WONK: amount of phase feedback. Any WONK makes the oscillators drift slowly out of phase while staying centered on the beat. As WONK rises, the range of NODES narrows and the outputs morph from unison into chaos.
 - FDBK POS: which channel the feedback comes from, 1–16. Each gives the wonk a slightly different feel.
 - NODES: phase spacing between the channels, -8 to +8.
   - 0: all in unison.
@@ -133,7 +133,7 @@ Context menu
 3. Set NODES to spread the sixteen channels in phase.
 4. Raise WONK to let them drift and bend while staying on the beat.
 5. Send a gate into ALIGN to pull them together, and release it to let them spread out again.""",
-"patching": """• Sixteen-lane mod bus: Patch neighbouring outputs to related parameters (filter cutoffs, pans, wavefolders) for motion that feels connected.
+"patching": """• Sixteen-lane mod bus: Patch neighboring outputs to related parameters (filter cutoffs, pans, wavefolders) for motion that feels connected.
 
 • Phase collapse: Moderate WONK, and a gate into ALIGN every 4 or 8 bars. Everything sweeps into unison and back.
 
@@ -155,7 +155,7 @@ FIRST (left) and LAST (right), each with attenuverter and CV
 - CURVE: from log to linear to exponential.
 - RETRIG: one button for channels 1–8 and one for 9–16. On, an envelope can be retriggered while it falls. Off, a trigger waits for the envelope to finish.
 
-INTERPOLATED ENVELOPES (centre slider): skews how the in-between channels are distributed between FIRST and LAST.
+INTERPOLATED ENVELOPES (center slider): skews how the in-between channels are distributed between FIRST and LAST.
 
 [[fig:shapes]]
 
@@ -165,7 +165,7 @@ Channels (16)
 - ENVELOPES: sixteen outputs.
 - GATES: go high while their envelope is at 0V. Use them to chain and loop.
 - POLY: poly outputs for the envelopes and for the gates.
-The display colours match the colours of the cables you patch.
+The display colors match the colors of the cables you patch.
 
 Context menu
 - Output Polyphony Settings: how many channels each envelope output and each gate output carries. The groups wrap back to 1 after 16.

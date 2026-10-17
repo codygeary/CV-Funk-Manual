@@ -12,7 +12,7 @@ Weather (knob, attenuverter and CV)
 Ecology (sliders, each with CV)
 - BLOOM: how fast grass grows back.
 - WILT: drought. Grass dies off on its own, without locusts. This unsettles the cycle and makes it less regular.
-- CYCLE (centre, ⟳): the master tempo of the whole predator-prey cycle.
+- CYCLE (center, ⟳): the master tempo of the whole predator-prey cycle.
 - EAT: how fast locusts turn grass into more locusts.
 - GROW: how long locusts survive without food.
 
@@ -34,7 +34,7 @@ Outputs
 Context menu
 - Seed Timing: Seed maturation rate, and the Re-seed die-back threshold.
 - RAIN Output Mode: Intensity (default), Rain gate, or Dust storm gate.""",
-"basicUse": """1. Let it run. At the default settings the ecosystem organises itself. Watch the grass grow, the swarms bloom and the rain fall.
+"basicUse": """1. Let it run. At the default settings the ecosystem organizes itself. Watch the grass grow, the swarms bloom and the rain fall.
 2. Change the weather with WIND and SQUALL, or press RAIN and STORM.
 3. Change the life cycle: BLOOM for how quickly grass recovers, EAT and GROW for how locusts boom and bust, WILT for drought, CYCLE for the overall speed.
 4. Press WADI to switch between a looped strip and a walled valley.
@@ -108,7 +108,7 @@ Context menu
 "panelMap": """DROPLET is two physical models joined together: a ring of eight resonating nodes (the drop) feeding an eight-node plate reverb (the plate). Strike the ring for bells, tines and cymbals, or feed it audio and use it as a resonant reverb. Everything is polyphonic. The poly input with the most channels sets the voice count, and an input with fewer channels holds its last channel for the voices above it.
 
 How it works
-- The drop: each node is a tuned delay line with gentle saturation and its own compression. The eight nodes are spread across the stereo field. TEMPER couples each node to its neighbours.
+- The drop: each node is a tuned delay line with gentle saturation and its own compression. The eight nodes are spread across the stereo field. TEMPER couples each node to its neighbors.
 - The plate: a network of allpass delays mixed together, shaped by PLATE, DIFFUSE, COUPLE, DECAY and DAMP.
 - SHIMMER links the two. It slowly drifts the tuning of each node, which keeps the ring from building up on one note, and it raises extra connections: across the ring, across the plate, and from the plate back into the ring, following the lines on the panel. At zero those connections are off; turned up, the two models exchange more and more energy and the sound gets bigger and more complex.
 
@@ -119,7 +119,7 @@ Inputs (left)
 - PLATE IN L/R: audio straight into the plate.
 - STRIKE: trigger input and button. Polyphonic triggers strike each voice separately; the button strikes them all.
 
-The grid (centre)
+The grid (center)
 - Sixteen lights: the top two rows are the drop's nodes, the bottom two the plate's. The large light is the node's energy and the small white light its detuning. The grid shows the first voice.
 - Every light is also a button that changes the node's mode. Modes are shared by all voices, saved with the patch, and crossfade when you click them. Hover over a node to see its mode.
   - Drop nodes: Normal (blue) or Hollow (white). A Hollow node flips its feedback and halves its delay, so it rings at the same pitch with odd harmonics only, like a tube or a clarinet. Hollow nodes ring much longer and bloom: they're held up at a steady level, then let go once they fade below a threshold.
@@ -128,7 +128,7 @@ The grid (centre)
 
 Mix (top right)
 - WET: dry to wet, with trim and CV.
-- BLEND: the wet sound, from pure ring (zero) to pure plate (full), with trim and CV. In between, the ring is mixed in inverted, as it would be physically, which gives a natural comb-like colour.
+- BLEND: the wet sound, from pure ring (zero) to pure plate (full), with trim and CV. In between, the ring is mixed in inverted, as it would be physically, which gives a natural comb-like color.
 - VOL.: output level, with CV.
 
 Outputs
@@ -209,7 +209,7 @@ The wheel is a real rosined wheel, not a perfect one. Its surface repeats with e
 - Wobble: slow variation in the crank speed, from the player's hand. It fades out at very low speeds, so a stopped wheel really stops.
 The bow's grip also follows the wheel speed, so a faster wheel is louder but keeps the clean sawtooth motion of a bowed string instead of turning thin and reedy.
 
-The display shows the melody string, fixed at both ends, with an ellipse for the wheel's contact point and speed. It warms from blue-grey to amber as you bow harder and add DRIVE.
+The display shows the melody string, fixed at both ends, with an ellipse for the wheel's contact point and speed. It warms from blue-gray to amber as you bow harder and add DRIVE.
 
 Stereo: the two chanterelles and the two trompettes each have their own chain (saturation and body resonator), one per side. The other drones and the sympathetic strings sit in the middle.
 
@@ -256,7 +256,7 @@ Context menu
 
 6. Shape the wheel and body:
    - Wheel menu: Grit for a rough, rosiny catch, Unevenness for a swell on every turn, Wobble for hand drift. Set all three to zero for a perfectly smooth wheel.
-   - Body menu: Body Feedback for sustain and a boxy warmth, Body Diffusion for its colour.
+   - Body menu: Body Feedback for sustain and a boxy warmth, Body Diffusion for its color.
 
 7. If it locks up on high notes:
    - Notes above about +2V fold down an octave automatically. If it still saturates, use Panic.""",

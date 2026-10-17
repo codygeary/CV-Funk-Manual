@@ -38,7 +38,7 @@ Context menu:
 
 Display and slice panel:
 - 3D display: the cube, with the current step lit. The four buttons above select which Z layer the knobs show.
-- 16 knobs: the step values for the shown layer. The colour shows the layer. Each knob's display shows its note or voltage.
+- 16 knobs: the step values for the shown layer. The color shows the layer. Each knob's display shows its note or voltage.
 - Buttons by each knob: turn that step's gate on or off.
 
 Moving through the cube (each row has a CV input, a reverse trigger and a forward trigger with button):
@@ -103,7 +103,7 @@ Outputs, laid out on the Venn diagram:
 - A, T, C, G: high while the current base is that letter.
 - R, Y, S, W: high while the current base is either of their two letters.
 - B, D, H, V: high while the current base is not their letter.
-- N (centre): a trigger at every position.
+- N (center): a trigger at every position.
 - DNA: a voltage for the current base. A = 0V, T = 1V, C = 2V, G = 3V by default.
 - P (bottom right): all twelve gates in one poly cable, in the order A, T, C, G, R, Y, S, W, D, H, V, B.
 
@@ -178,7 +178,7 @@ Channels I and II (each):
 - CV: a VCA input for the gain.
 - MUTE: clickless mute. Bright red means muted.
 
-Centre:
+Center:
 - XFADE: blends between channel I and channel II. The CV input takes -5V to +5V and moves the slider so you can see the mix.
 - VOL.: output volume.
 - OUT L / R.

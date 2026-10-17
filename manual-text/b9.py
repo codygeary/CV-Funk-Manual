@@ -1,7 +1,7 @@
 MODULES = {
 "twang": {
 "tagline": "A polyphonic string you can bow, pluck, or both. With palm mute, tension twang, and a body that runs from a whistle to a cello.",
-"panelMap": """TWANG is a physical model of a single string, played with a bow, a pick, or both at once. The string is a waveguide running from nut to bridge, with a stick-slip bow at one point and a pluck at another. At the bridge it's loaded by a modelled body, so string and body work together like a real instrument instead of a string run through a filter. Up to 16 voices; the voice count follows the widest of the PITCH, PLUCK and BOW inputs, so a poly bow cable alone can play chords.
+"panelMap": """TWANG is a physical model of a single string, played with a bow, a pick, or both at once. The string is a waveguide running from nut to bridge, with a stick-slip bow at one point and a pluck at another. At the bridge it's loaded by a modeled body, so string and body work together like a real instrument instead of a string run through a filter. Up to 16 voices; the voice count follows the widest of the PITCH, PLUCK and BOW inputs, so a poly bow cable alone can play chords.
 
 The display shows the first voice's string from nut (left) to bridge (right). The blue line with the bow is where the bow touches; the white line with the pick is where the pluck lands. The trace warms toward amber as you bow harder and add DRIVE.
 
@@ -90,19 +90,19 @@ TWANG sleeps when nothing is bowing or plucking and the strings have rung out.""
 
 "mala": {
 "tagline": "A spicy stereo complex oscillator. Grafts harmonics and noise onto the crests of a sine, with a built-in LFO that moves left and right in opposite directions.",
-"panelMap": """MALA is a polyphonic stereo complex oscillator named after mala, the numbing-spicy Sichuan flavour. Oscillator A is a shaped sine. Oscillator B is an additive voice with 8 partials and an optional noise layer. HEAT drives A into a waveshaper, and wherever A's crests cross the threshold, B is grafted in. Near A's zero crossings nothing changes. So the crests take on B's harmonics while the fundamental stays solid, even at heavy settings.
+"panelMap": """MALA is a polyphonic stereo complex oscillator named after mala, the numbing-spicy Sichuan flavor. Oscillator A is a shaped sine. Oscillator B is an additive voice with 8 partials and an optional noise layer. HEAT drives A into a waveshaper, and wherever A's crests cross the threshold, B is grafted in. Near A's zero crossings nothing changes. So the crests take on B's harmonics while the fundamental stays solid, even at heavy settings.
 
 The built-in LFO is the MALA bus. MA is its rate and LA its depth. It's applied in opposite directions to the left and right channels, so anything it touches moves across the stereo field.
 
 Displays
 - A (top left): the shaped sine, with the graft zones shaded.
 - B (bottom left): B's waveform and its ratio to A. A band shows how much noise is in it.
-- Scope (right): one cycle of the output, left and right overlaid, with the grafted parts in the heat colour.
+- Scope (right): one cycle of the output, left and right overlaid, with the grafted parts in the heat color.
 
 HEAT (big knob, trim and CV): graft amount, 0–10. At zero you hear A alone.
 
 Sliders (each with a MAP button above, trim and CV below)
-- SHAPE (yellow): A's shape. Centre is a sine; left thins the crests to a point; right saturates toward a rounded square.
+- SHAPE (yellow): A's shape. Center is a sine; left thins the crests to a point; right saturates toward a rounded square.
 - RATIO (blue): B's frequency against A, 1/8x to 16x.
 - MORPH (red): B's spectrum, through 20 stops: Sine, Octave, Triangle, Hollow, Square, Reed, Saw (default), Pulse 1/4, Pulse 1/8, Bright, Nasal, Vowel oo, Vowel ah, Vowel ee, Bell, Glass, Comb, Clang, Haze, Noise. The last few add noise.
 - SPREAD (green): stretches B's partials from harmonic toward bell-like.
@@ -172,17 +172,17 @@ Context menu
 
 "hotpot": {
 "tagline": "A spatial mixer for up to 96 sources. Place and move them around the listener, in a shared room, through a tube-warmed bus.",
-"panelMap": """HOTPOT is a three-track polyphonic spatial mixer, with controls named after a hot pot dinner. Every input channel is a source placed around a virtual listener. Each source gets real distance and direction cues: level, timing between the ears, head shadow, air absorption, front and back colouring, and Doppler when it moves. All sources share one diffuse room, and the mix runs through a saturating stereo bus. Each track has two poly inputs, so a track holds up to 32 sources and the whole pot up to 96.
+"panelMap": """HOTPOT is a three-track polyphonic spatial mixer, with controls named after a hot pot dinner. Every input channel is a source placed around a virtual listener. Each source gets real distance and direction cues: level, timing between the ears, head shadow, air absorption, front and back coloring, and Doppler when it moves. All sources share one diffuse room, and the mix runs through a saturating stereo bus. Each track has two poly inputs, so a track holds up to 32 sources and the whole pot up to 96.
 
 The tracks
 - STIR (cyan): a ring around the listener, 4 m away at 1x. Position is the angle, ±180°.
 - SHABU (chili): a stage 6 m in front, ±12 m left to right.
 - FAN (yellow): two tracks, one each side, running from narrow behind you to wide in front. IN A goes to the left track and IN B to the right (if only A is patched, its channels alternate sides). Position runs back to front.
 
-The pot (top centre) is a map seen from above, front at the top. Each source is a dot in its track's colour, sized by its level. SKIM sits in the middle, where the listener is: press it and every source glides home, the light stays on while they settle, and motion starts again from the beginning.
+The pot (top center) is a map seen from above, front at the top. Each source is a dot in its track's color, sized by its level. SKIM sits in the middle, where the listener is: press it and every source glides home, the light stays on while they settle, and motion starts again from the beginning.
 
 Track strips (one per track)
-- ↔ button: motion mode, Parallel (the default) or Mirrored, lit in the track colour when mirrored.
+- ↔ button: motion mode, Parallel (the default) or Mirrored, lit in the track color when mirrored.
   - Stir: parallel turns everything together; mirrored turns the two halves opposite ways.
   - Shabu: parallel swishes the group side to side; mirrored opens and closes the two halves.
   - Fan: parallel moves both tracks front and back together; mirrored rocks them against each other.

@@ -71,7 +71,7 @@ Outputs, in a 4 × 4 grid. Columns are 1V, 5V, 10V and R. Rows are:
 "tagline": "An eight-step sequencer that draws a waveform. You shape each step, and move the boundaries between them.",
 "panelMap": """STEP WAVE is an eight-step sequencer that outputs a continuous waveform rather than plain steps. Each stage has a VALUE, a SHAPE and a number of BEATS, and you can push the boundaries between stages back and forth with CV. SLEW smooths over any jumps in the result.
 
-The display shows the output in blue. With SLEW at 0, a grey line shows the waveform before slew. Along the bottom is the GATE output with its BEATS.
+The display shows the output in blue. With SLEW at 0, a gray line shows the waveform before slew. Along the bottom is the GATE output with its BEATS.
 
 Timing:
 - CLOCK: each clock sets the length of one stage (one grid line on the display). With no clock it runs at 120 BPM. The clock sets the timing only, it doesn't advance the stages, so use RESET to line up with your master clock.
@@ -189,7 +189,7 @@ Context menu:
 
 "tri-delay": {
 "tagline": "A stereo delay with three taps and a display that shows you what each tap is doing.",
-"panelMap": """TRI DELAY is a stereo delay with three taps. Each tap has its own time, feedback and pan, set as offsets from the master knobs. The display shows envelope followers for the dry input (orange) and wet output (blue), plus a dot for each tap: its position is the delay time, its size is the feedback, and its colour is the pan (red left, blue right). Gentle tanh saturation with anti-aliasing, and 8x oversampled outputs, keep the feedback from turning harsh.
+"panelMap": """TRI DELAY is a stereo delay with three taps. Each tap has its own time, feedback and pan, set as offsets from the master knobs. The display shows envelope followers for the dry input (orange) and wet output (blue), plus a dot for each tap: its position is the delay time, its size is the feedback, and its color is the pan (red left, blue right). Gentle tanh saturation with anti-aliasing, and 8x oversampled outputs, keep the feedback from turning harsh.
 
 Master controls (each with an attenuverter and CV):
 - DELAY: master delay time, in ms.
@@ -197,7 +197,7 @@ Master controls (each with an attenuverter and CV):
 - FEEDBACK: master feedback, 0–100%.
 - WET/DRY: mix, 50% by default.
 
-Taps I, II and III: a trimpot for each of DELAY, PAN and FEEDBACK adds to or subtracts from the master. By default the taps are panned left, centre and right.
+Taps I, II and III: a trimpot for each of DELAY, PAN and FEEDBACK adds to or subtracts from the master. By default the taps are panned left, center and right.
 
 Buffer:
 - BUFFER SIZE switch: 36 ms, 360 ms or 3600 ms. Delays up to 3.6 seconds. The same choice is in the context menu under Delay Time.

@@ -29,7 +29,7 @@ The panel is laid out in 16 areas, numbered in the two pictures below.
 
 8. Modulation: a six-channel modulation bus related to HEX MOD.
    - RATE x: cycles per stage. 1 is one cycle per stage; -2 is one cycle every two stages, down to -16. Between -1 and 1 it stays at 1, a wide landing pad for resyncing while you play.
-   - NODES: how the six channels are spread in phase, -3 to +3. 0 is unison; ±1 spaces them 60° apart (positive turns clockwise, negative anticlockwise); ±2 spaces them 120° apart, two copies of three; ±3 spaces them 180° apart, three copies of two opposed pairs.
+   - NODES: how the six channels are spread in phase, -3 to +3. 0 is unison; ±1 spaces them 60° apart (positive turns clockwise, negative counterclockwise); ±2 spaces them 120° apart, two copies of three; ±3 spaces them 180° apart, three copies of two opposed pairs.
    - WONK: self-modulation of RATE and NODES, taken from the channel set by POS.
    - MOD. DEPTH: depth for all six channels.
    The bus restarts whenever a new note comes in, so repeated stages of the same chord play as a tie. With WONK past 0.5 the modulators run free.
@@ -44,7 +44,7 @@ The panel is laid out in 16 areas, numbered in the two pictures below.
    - TAPS I, II, III: offsets from DELAY.
    - CENTER: how the feedback is shared between the taps.
    - DRY/WET and VOLUME.
-   The scope shows the dry envelope in orange and the wet in blue. The three dots are the taps: position is time, size is feedback, colour is pan.
+   The scope shows the dry envelope in orange and the wet in blue. The three dots are the taps: position is time, size is feedback, color is pan.
 
 12. STRUM and RETRIG ENV.: STRUM lets the modulation bus trigger the envelopes instead of the beats, for strum patterns that follow the stages. RETRIG ENV. lets envelopes retrigger before they finish.
 

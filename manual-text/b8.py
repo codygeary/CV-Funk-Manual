@@ -1,7 +1,7 @@
 MODULES = {
 "aulos": {
 "tagline": "A polyphonic double-pipe wind instrument. Morph from flute to reed, flare the bore into brass, and overblow into higher registers.",
-"panelMap": """AULOS is a physical model of a wind instrument, named after the ancient Greek double pipe. Each voice is a waveguide: a tube with waves travelling up and down it, reflecting at both ends. REED and BORE change those reflections directly, which reshapes the instrument itself. There are two pipes: MAIN, and a SECondary pipe you can tune to an interval or hold as a drone.
+"panelMap": """AULOS is a physical model of a wind instrument, named after the ancient Greek double pipe. Each voice is a waveguide: a tube with waves traveling up and down it, reflecting at both ends. REED and BORE change those reflections directly, which reshapes the instrument itself. There are two pipes: MAIN, and a SECondary pipe you can tune to an interval or hold as a drone.
 
 The display shows both tubes, MAIN on top and SEC. below. Each one shows its length, the breath filling it, a standing wave, its register and any overblow, with air streaming out of the bell and bursts of chiff on each attack. The bell flares with BORE, and the SEC. tube dims in drone mode.
 
@@ -187,7 +187,7 @@ Context menu
 6. Modulate:
    - A slow LFO into RATE CV with the trim low gives a drifting chorus speed.
    - An envelope into HAZE CV pushes loud moments into resonance and lets quiet moments stay clean.""",
-"patching": """• Classic stereo chorus: RATE slow, DEPTH a quarter, HAZE zero, MIX 50%. Widens a mono source without colouring it.
+"patching": """• Classic stereo chorus: RATE slow, DEPTH a quarter, HAZE zero, MIX 50%. Widens a mono source without coloring it.
 
 • Thick ensemble: Push DENSITY toward full for gentle saturation in the feedback.
 
