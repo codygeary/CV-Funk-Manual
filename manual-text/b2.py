@@ -176,7 +176,7 @@ Selecting chords:
 - BUTTONS: press any chord in the grid. The lit button shows the current chord's root, and the chord type is printed to the right of each row.
 
 Changing the pitch:
-- CAPO: transposes everything in semitones, -12 to +12. The CV input takes 1V per semitone, so 12V is an octave. Negative values tune the guitar down.
+- CAPO: transposes everything in semitones, -12 to +12. The CV input is V/oct: 1/12V per semitone, 1V per octave. Negative values tune the guitar down.
 - PITCH BEND (one per string): bends that string up. The input is rectified, and 10V bends 2 semitones, so an envelope makes a natural bend.
 - WHAMMY: the same bend applied to all six strings, on top of PITCH BEND.
 - SLASH BASS: a V/oct note here becomes the bass note of the chord. STRINGS frets it on the low E or A string within reach of the chord shape and mutes any strings that would sound below it. If it can't be reached, the low string is retuned, like a drop tuning. Unpatched, chords play in root position.

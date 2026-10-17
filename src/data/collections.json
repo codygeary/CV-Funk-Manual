@@ -3,7 +3,7 @@
     "id": "free",
     "name": "Free",
     "pluginSlug": "CVfunk",
-    "version": "2.0.53",
+    "version": "2.0.54",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_Manual.pdf",
     "license": "MIT",
     "tagline": "Something for almost every job.",
@@ -23,7 +23,7 @@
     "id": "modulations",
     "name": "Modulations",
     "pluginSlug": "CVfunkModulations",
-    "version": "2.2.14",
+    "version": "2.2.16",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_MOD_Manual.pdf",
     "license": "https://vcvrack.com/eula",
     "videos": [
@@ -65,7 +65,7 @@
     "id": "chord-caster",
     "name": "Chord Caster",
     "pluginSlug": "CVfunkChordCaster",
-    "version": "2.1.11",
+    "version": "2.1.12",
     "manualUrl": "https://codygeary.github.io/CV-Funk-Manual/CV_funk_CC_Manual.pdf",
     "license": "https://vcvrack.com/eula",
     "videos": [

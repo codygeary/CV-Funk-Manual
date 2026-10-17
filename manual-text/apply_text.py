@@ -47,6 +47,8 @@ for path in sorted(glob.glob(os.path.join(HERE, "b*.py"))):
                 key = f["src"].split("/figures/")[1].rsplit(".", 1)[0]
                 dst = os.path.join(ROOT, "public", f["src"].lstrip("/"))
                 os.makedirs(os.path.dirname(dst), exist_ok=True)
+                if key in FROM and not os.path.isdir(EXTRACTED) and os.path.exists(dst):
+                    continue   # PDF sources not in this checkout: keep the figure already built
                 if key in FROM and FROM[key].startswith("pdf:"):
                     # "pdf:<file>:<page>": every figure on that page as one image
                     im = render_page_figures(*FROM[key][4:].split(":"))

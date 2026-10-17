@@ -171,7 +171,8 @@ Context menu:
 - Stop Record At End: REC turns off when the sequence wraps, so you can record exactly one loop.
 - Edit Mode: when on, moving to a stage while recording loads its stored values onto the knobs for editing. When off, the knobs stay where they are, which suits live recording.
 - Set Polyphony for Channel 1: OUT 1 carries the channels as one poly cable.
-- Copy Stage, Copy All Stages (up to current), Paste (insert after current), Clone Stage to All, Clear Stage, Add Stage (after current), Delete Stage: edit the sequence directly.""",
+- Copy Stage, Copy All Stages (up to current), Paste (insert after current), Clone Stage to All, Clear Stage, Add Stage (after current), Delete Stage: edit the sequence directly.
+- Rotate Sequence to Start Here: the current stage becomes stage 1, and the stages before it wrap around to the end.""",
 "basicUse": """1. Set END for the number of stages.
 2. Clock FWD to play.
 3. Set each channel's MODE: plain voltage, semitones, or probability.

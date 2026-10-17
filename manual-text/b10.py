@@ -215,8 +215,8 @@ Channels (16)
 
 Editing buttons
 - COPY: copies the current stage. COPY ALL copies every stage up to the current one. Their lights show the copy buffer is full.
-- PASTE: inserts the buffer after the current stage, adding stages as needed.
-- CLONE: copies the first copied stage over every stage.
+- PASTE: inserts the copied stages after the current one. The stages after it move back to make room.
+- ROTATE: makes the current stage stage 1. The stages before it wrap around to the end.
 - CLEAR: resets the current stage.
 - ADD / DELETE: inserts or removes a stage, changing the length by one.
 - Shift-click a knob while recording to apply its value to every stage.
@@ -224,7 +224,9 @@ Editing buttons
 Context menu
 - Individual Output Polyphony: how many channels each output carries, wrapping after 16.
 - Set Max Sequence Length: 128, 256, 512, 1024 or 2048.
-- Stop Record At End: REC turns off when the sequence loops, so you capture exactly one pass.""",
+- Stop Record At End: REC turns off when the sequence loops, so you capture exactly one pass.
+- Clone Copied Stage to All: copies the first copied stage over every stage.
+- Rotate Sequence to Start Here: the same as ROTATE.""",
 "basicUse": """1. Set END.
 2. Clock FWD.
 3. Choose a MODE for each channel.

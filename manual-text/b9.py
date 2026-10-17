@@ -40,6 +40,8 @@ Context menu
 - Twang: Max Bend (0–24 semitones, default 3), Twang Bounce (how far the pitch rebounds), Bounce Rate. Past 12 semitones the rebound speeds up and rings through several aftershocks.
 - Pitch: FM Depth (semitones).
 - Output: Poly Out (each voice on its own channel, with its own body, instead of the stereo mix), Stereo Width.
+- Pickup Output: OUT L and R both carry one dry pickup on the strings, with no body, drive or stereo widening. It's what a guitar sends down the cable, ready for a fuzz or amp sim such as FUZZY.
+- Pickup Position: Neck, Middle or Bridge (the default, and wound a little hotter, like a real guitar).
 - Panic: Clear All Energy.""",
 "basicUse": """1. Pluck it:
    - Patch a V/oct sequence into PITCH and triggers into PLUCK.
@@ -81,7 +83,9 @@ TWANG sleeps when nothing is bowing or plucking and the strings have rung out.""
 
 • Zither: MAT high, SIZE low, HARD high, PICK POS near the end, long DECAY.
 
-• Spatial strings: Turn on Poly Out and patch OUT L into HOTPOT to place each string in the room."""
+• Spatial strings: Turn on Poly Out and patch OUT L into HOTPOT to place each string in the room.
+
+• Fuzz guitar: Turn on Pickup Output, keep the Bridge pickup, and patch OUT L into FUZZY. TWANG is the guitar, FUZZY is the pedal."""
 },
 
 "mala": {
@@ -172,21 +176,21 @@ Context menu
 
 The tracks
 - STIR (cyan): a ring around the listener, 4 m away at 1x. Position is the angle, ±180°.
-- SHABU (chili): a stage 8 m in front, ±12 m left to right.
+- SHABU (chili): a stage 6 m in front, ±12 m left to right.
 - FAN (yellow): two tracks, one each side, running from narrow behind you to wide in front. IN A goes to the left track and IN B to the right (if only A is patched, its channels alternate sides). Position runs back to front.
 
 The pot (top centre) is a map seen from above, front at the top. Each source is a dot in its track's colour, sized by its level. SKIM sits in the middle, where the listener is: press it and every source glides home, the light stays on while they settle, and motion starts again from the beginning.
 
 Track strips (one per track)
-- ↔ button: motion mode, lit in the track colour when mirrored (the default).
+- ↔ button: motion mode, Parallel (the default) or Mirrored, lit in the track colour when mirrored.
   - Stir: parallel turns everything together; mirrored turns the two halves opposite ways.
   - Shabu: parallel swishes the group side to side; mirrored opens and closes the two halves.
-  - Fan: parallel rocks the two tracks against each other; mirrored moves them front and back together.
+  - Fan: parallel moves both tracks front and back together; mirrored rocks them against each other.
 - M button: mute, with a fade. The room tail rings out naturally.
 - ANGLE (Stir) or POS slider: home position. Polyphonic CV positions each source.
 - SPREAD slider: how far apart the sources sit.
 - LEVEL slider: track level, unity at three-quarters. The CV is a 0–10V VCA, normalled to 10V; polyphonic CV sets each source.
-- RATE knob: motion speed, 0.01–0.5 Hz, off at the bottom. Stir's is bipolar: right turns clockwise, left counterclockwise.
+- RATE knob: motion speed, 0.01 Hz up to 7 Hz, off at the bottom. The top of the range is fast enough for rotating-speaker effects.
 - IN A and IN B (polyphonic).
 Moving sources keep their order and spacing, and close up near the end of a track instead of folding back.
 
@@ -207,7 +211,7 @@ Headroom is automatic. Each track shares out the level of its active channels, a
 
 Context menu
 - Motion shape: Sine, Triangle or Stepped (8 steps per cycle with short glides), for each track.
-- Ear delay (ITD): timing difference between the ears. On by default.
+- Haas far-ear delay: how far the far ear lags. Natural (default), Wide, Wider or Widest (60 ms) for an exaggerated stereo spread.
 - Doppler: pitch shift from moving sources, kept to a few cents. On by default.
 - Full-bandwidth room (more CPU): runs the room at the full sample rate instead of half.""",
 "basicUse": """1. Fill the pot:
@@ -233,7 +237,7 @@ Context menu
    - SIMMER past halfway warms the whole mix.
 
 HOTPOT is made for headphones and stereo speakers. Directional cues come across best on headphones.""",
-"patching": """• Surround chord: A poly chord into STIR IN A, SPREAD full, RATE slow. The notes orbit you, half one way and half the other.
+"patching": """• Surround chord: A poly chord into STIR IN A, SPREAD full, RATE slow, ↔ on Mirrored. The notes orbit you, half one way and half the other.
 
 • Band on a stage: Drums into SHABU IN A, bass and keys into SHABU IN B, SPREAD around 0.5, BROTH 20–30%.
 
@@ -242,6 +246,8 @@ HOTPOT is made for headphones and stereo speakers. Directional cues come across 
 • Notes in their own places: Poly random or sequence CV into STIR's ANGLE CV puts every note of a chord at its own angle.
 
 • Spatial VCA: Poly envelopes into LEVEL CV. Each source is gated on its own while sharing the room.
+
+• Rotating speaker: An organ or pad alone on STIR, SPREAD at zero, RATE near the top (6–7 Hz). It spins around your head like a fast Leslie, with Doppler and head shadow doing the work.
 
 • Hopping sources: Stepped motion on SHABU with RATE low. The sources jump between eight places with short glides.
 
