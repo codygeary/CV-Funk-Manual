@@ -1180,7 +1180,15 @@
       "basicUse": "1. Pluck it:\n   - Patch a V/oct sequence into PITCH and triggers into PLUCK.\n   - Gates are all 10V, so every hit is a full-strength pluck. Turn the velocity trimmer down for a gentler range, or send velocity as the trigger voltage.\n   - Shape the attack with PICK POS and HARD, and the ring with DECAY.\n\n2. Bow it:\n   - Turn up BOW, or patch an envelope into the BOW CV with the trim open. The bow eases in and coasts out.\n   - PRESS and SLIP set the bow's grip; BOW POS sets where it touches. If the note sputters, add pressure or speed. If it crunches, ease off.\n   - A pluck lifts the bow for a moment, so you can bow and pluck the same string.\n\n3. Choose the body:\n   - SIZE for small and bright up to big and boomy, MAT for how long it rings.\n   - TONE darkens the bridge; DRIVE adds grit.\n\n4. Add expression:\n   - TWANG makes hard plucks bend sharp and settle. Raise Max Bend for rubbery bends.\n   - MUTE for palm-muted chugs.\n\n5. Play chords:\n   - A poly PITCH and PLUCK play one string per channel. Turn on Poly Out to pan or process each string.\n\nTWANG sleeps when nothing is bowing or plucking and the strings have rung out.",
       "patching": "\u2022 Guitar: Poly PITCH and PLUCK from a chord sequencer, SIZE at its default, MAT low, HARD around 0.5, DECAY around 0.6, a touch of TWANG.\n\n\u2022 Palm-muted chug: A gate pattern into MUTE CV and fast triggers into PLUCK. DRIVE up for rock.\n\n\u2022 Cello: SIZE high, MAT low, BOW POS around 0.7, and a slow envelope on the BOW CV. Keep TONE fairly dark.\n\n\u2022 Strum: Press PLUCK, or send one trigger on a mono cable, to pluck every voice of a held chord.\n\n\u2022 Guitar with STRINGS: STRINGS' leftmost V/OCT into PITCH, its leftmost MUTE into the MUTE CV (trim fully up), and its TRIG into PLUCK. You get real guitar fingerings, with the strings each chord leaves out palm-muted.\n\n\u2022 Bowed pads: A poly envelope into the BOW CV so each string swells on its own.\n\n\u2022 Pluck over bow: Bow a quiet drone and pluck the same string on top.\n\n\u2022 Rubber-band bass: Low notes, TWANG at full, Max Bend 12 or more, Twang Bounce around 1.\n\n\u2022 Zither: MAT high, SIZE low, HARD high, PICK POS near the end, long DECAY.\n\n\u2022 Spatial strings: Turn on Poly Out and patch OUT L into HOTPOT to place each string in the room.\n\n\u2022 Fuzz guitar: Turn on Pickup Output, keep the Bridge pickup, and patch OUT L into FUZZY. TWANG is the guitar, FUZZY is the pedal."
     },
-    "collection": "free"
+    "collection": "free",
+    "videos": [
+      {
+        "id": "5MLyIORD8Zc",
+        "title": "Generative Acoustic Jazz in VCV Rack: Twang waveguide physical modeling",
+        "by": "cg_funk",
+        "start": 0
+      }
+    ]
   },
   {
     "name": "Mala",
@@ -1197,7 +1205,15 @@
       "basicUse": "1. Start with A:\n   - Patch V/oct into PITCH. With HEAT at zero you hear the shaped sine. Move SHAPE to thin or round it.\n\n2. Graft B:\n   - Turn up HEAT slowly. B's harmonics bloom on the crests while the fundamental holds.\n   - Choose B's spectrum with MORPH and its ratio with RATIO. With SYNC on, sweeping RATIO moves a formant.\n   - Press QUANT to lock RATIO to clean intervals. Toggle SYM to hear bright against hollow.\n\n3. Widen it:\n   - DETUNE for a chorused split, PHASE to move B on the crests, SPREAD for metal.\n\n4. Animate it:\n   - Light one or more MAP buttons and raise LA. MA sets the speed. Even one destination moves in stereo.\n\n5. Play it:\n   - The outputs are polyphonic by default, so patch them into a poly VCA or mixer, or use the VOL CV as a built-in VCA.",
       "patching": "\u2022 Spicy bass: Low notes, SHAPE a little right, MORPH on Saw, RATIO 2x with QUANT, HEAT around 4. An envelope on HEAT gives a filter-like bite that keeps the fundamental.\n\n\u2022 Talking lead: MORPH on the vowels with SYNC on. Sweep MORPH and RATIO for vowel and formant movement.\n\n\u2022 Stereo shimmer pad: A poly chord into PITCH, DETUNE up, MAP on PHASE and SPREAD, MA slow, LA moderate.\n\n\u2022 Bells and gongs: SPREAD high, MORPH on Bell or Glass, SYNC off, a non-integer RATIO, and a percussive envelope on VOL CV.\n\n\u2022 Breathy tone: MORPH toward Haze or Noise with HEAT low. The noise only appears on the crests, so it sounds like breath riding the note.\n\n\u2022 Through-zero FM: Patch another oscillator into FM. HEAT adds its harmonics on top of the FM sidebands.\n\n\u2022 External bus: Turn on Ma CV overrides Mala and patch a sequencer or envelope into MA. The MAP buttons and the stereo movement now follow your modulation."
     },
-    "collection": "free"
+    "collection": "free",
+    "videos": [
+      {
+        "id": "fpM3YqSksi4",
+        "title": "Mala + HotPot Sonic Soup",
+        "by": "cg_funk",
+        "start": 0
+      }
+    ]
   },
   {
     "name": "HotPot",
@@ -1217,7 +1233,15 @@
       "basicUse": "1. Fill the pot:\n   - Patch poly voices into a track's IN A. Each channel is a source and appears as a dot.\n   - STIR for sounds all around, SHABU for a band in front, FAN for sounds coming from behind.\n\n2. Place them:\n   - ANGLE / POS sets where the group sits; SPREAD sets how far apart.\n   - LEVEL sets the track level. Patch envelopes into the LEVEL CV for a VCA on each source.\n\n3. Set the room:\n   - BROTH sets how much goes into the room; MSG how long it rings.\n   - LID darkens it; STEAM thickens it and, higher up, sets it gently moving.\n   - POT scales the whole scene from a small room to a hall.\n\n4. Make it move:\n   - Turn up RATE on a track. Try both settings of the \u2194 button.\n   - Pick Sine, Triangle or Stepped motion in the context menu.\n   - Press SKIM to bring everything home.\n\n5. Season to taste:\n   - SPICE above 100% for a more vivid space, below for something closer to a plain panner.\n   - SIMMER past halfway warms the whole mix.\n\nHOTPOT is made for headphones and stereo speakers. Directional cues come across best on headphones.",
       "patching": "\u2022 Surround chord: A poly chord into STIR IN A, SPREAD full, RATE slow, \u2194 on Mirrored. The notes orbit you, half one way and half the other.\n\n\u2022 Band on a stage: Drums into SHABU IN A, bass and keys into SHABU IN B, SPREAD around 0.5, BROTH 20\u201330%.\n\n\u2022 Fly-by: One source on FAN with Triangle motion and RATE moderate. It sweeps from behind to in front, with Doppler and air absorption.\n\n\u2022 Notes in their own places: Poly random or sequence CV into STIR's ANGLE CV puts every note of a chord at its own angle.\n\n\u2022 Spatial VCA: Poly envelopes into LEVEL CV. Each source is gated on its own while sharing the room.\n\n\u2022 Rotating speaker: An organ or pad alone on STIR, SPREAD at zero, RATE near the top (6\u20137 Hz). It spins around your head like a fast Leslie, with Doppler and head shadow doing the work.\n\n\u2022 Hopping sources: Stepped motion on SHABU with RATE low. The sources jump between eight places with short glides.\n\n\u2022 Vivid space: SPICE at 200%, POT large, BROTH 40%. Distant sources sink into the room while near ones stay close and dry.\n\n\u2022 Warm bus: SIMMER three-quarters up, with a slow LFO on its CV for breathing saturation.\n\n\u2022 Spatial strings: TWANG with Poly Out on, into STIR IN A, so each string has its own place."
     },
-    "collection": "free"
+    "collection": "free",
+    "videos": [
+      {
+        "id": "fpM3YqSksi4",
+        "title": "Mala + HotPot Sonic Soup",
+        "by": "cg_funk",
+        "start": 0
+      }
+    ]
   },
   {
     "name": "Fuzzy",
@@ -1255,7 +1279,15 @@
       "basicUse": "1. Click the pedals to play. Drag across them for legato.\n2. Try the VEGA, TUBA and BASS presets.\n3. Pick VAR and shape your own sound with the sliders.\n4. Ride the FILTER and VOLUME pedals.\n5. For a sequence, patch V/oct into PITCH and gates into GATE.",
       "patching": "\u2022 Bass from a sequencer: Patch a sequence into PITCH and GATE. With V/Oct range folded, every note lands on the pedals, an octave from C1 to C2.\n\n\u2022 Wah pedal: An envelope or slow LFO into FILTER's CV.\n\n\u2022 Poly drones: A poly chord into PITCH and GATE with OUT left polyphonic, then into HOTPOT to spread the voices around the room.\n\n\u2022 Preset sequencing: A stepped CV into MODE changes preset each step. With poly CV, each voice can play a different preset.\n\n\u2022 Filter an outside sound: Set AUX to Filter only and patch a drum loop or pad into AUX. VEGA becomes a ladder filter, played with the FILTER and VOLUME pedals.\n\n\u2022 Growl: SNARL past 0.4 with GRIT up for the sub-octave snarl.\n\n\u2022 Pedals as a controller: The GATE and PITCH outputs carry what you play, so the pedals can drive another voice in unison."
     },
-    "collection": "free"
+    "collection": "free",
+    "videos": [
+      {
+        "id": "flETi6MHO9k",
+        "title": "Vega Classic Bass Synth Engine for VCV",
+        "by": "cg_funk",
+        "start": 0
+      }
+    ]
   },
   {
     "name": "Syzygy",

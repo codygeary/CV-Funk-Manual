@@ -35,6 +35,12 @@ MODULES = {
     "pressed-duck": [at(PATCHWERK, 0)], "hex-mod": [at(PATCHWERK, 0)],
     "strings": [at(PATCHWERK, 0)], "collatz": [at(PATCHWERK, 0)],
 }
+CG = "cg_funk"
+SOUP = {"id": "fpM3YqSksi4", "title": "Mala + HotPot Sonic Soup", "by": CG, "start": 0}
+MODULES["mala"] = [SOUP]
+MODULES["hotpot"] = [SOUP]
+MODULES["vega"] = [{"id": "flETi6MHO9k", "title": "Vega Classic Bass Synth Engine for VCV", "by": CG, "start": 0}]
+MODULES["twang"] = [{"id": "5MLyIORD8Zc", "title": "Generative Acoustic Jazz in VCV Rack: Twang waveguide physical modeling", "by": CG, "start": 0}]
 for slug in ["hammer", "picus", "wonk", "weave", "junk-dna", "node"]:
     MODULES[slug] = [SEPT]
 for slug in ["alloy", "clpy", "onion", "count", "rat", "tuner"]:
